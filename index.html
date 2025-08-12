@@ -13,13 +13,11 @@
 <nav class="navbar">
     <div class="container">
         <a href="#" class="logo">Elite UI</a>
-        <!-- Cambia id="hamburger" por id="hamburger-btn" -->
         <button class="hamburger" id="hamburger-btn" aria-label="Menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <!-- Cambia id="nav-menu" por id="mobile-menu" -->
         <div class="nav-menu" id="mobile-menu">
             <a href="#features" data-translate="features_link">Features</a>
             <a href="#devices" data-translate="devices_link">Supported Devices</a>
@@ -34,7 +32,6 @@
             
             <div class="hero-buttons-container">
                 <a href="#devices" class="cta-button" data-translate="download_button">View Devices</a>
-                
                 <a href="https://t.me/eliteui" target="_blank" class="cta-button-secondary" data-translate="telegram_button">Telegram</a>
                 <a href="https://t.me/eliteui/2245" target="_blank" class="cta-button-secondary" data-translate="donations_button">Donations</a>
             </div>
@@ -43,7 +40,6 @@
 
     <main>
         <section id="features" class="features-section">
-       </section>
             <div class="container">
                 <h2 class="section-title" data-translate="features_title">Features</h2>
                 <div class="features-grid">
@@ -74,37 +70,62 @@
                 </div>
             </div>
         </section>
+        
         <section id="screenshots" class="screenshots-section">
            <div class="container">
                <h2 class="section-title" data-translate="screenshots_title">Screenshots</h2>
                <div class="screenshots-grid">
-                   <div class="screenshot-item">
-                       <img src="images/screenshot1.jpg" alt="Screenshot 1">
-                   </div>
-                   <div class="screenshot-item">
-                       <img src="images/screenshot2.jpg" alt="Screenshot 2">
-                   </div>
-                   <div class="screenshot-item">
-                       <img src="images/screenshot3.jpg" alt="Screenshot 3">
-                   </div>
-                   <div class="screenshot-item">
-                       <img src="images/screenshot4.jpg" alt="Screenshot 4">
-                   </div>
-                   <div class="screenshot-item">
-                       <img src="images/screenshot5.jpg" alt="Screenshot 5">
-                   </div>
-                   <div class="screenshot-item">
-                       <img src="images/screenshot6.jpg" alt="Screenshot 6">
-                   </div>
-                   <div class="screenshot-item">
-                       <img src="images/screenshot7.jpg" alt="Screenshot 7">
-                   </div>
-                   <div class="screenshot-item">
-                       <img src="images/screenshot8.jpg" alt="Screenshot 8">
-                   </div>
-                   </div>
+                   <div class="screenshot-item"><img src="images/screenshot1.jpg" alt="Screenshot 1"></div>
+                   <div class="screenshot-item"><img src="images/screenshot2.jpg" alt="Screenshot 2"></div>
+                   <div class="screenshot-item"><img src="images/screenshot3.jpg" alt="Screenshot 3"></div>
+                   <div class="screenshot-item"><img src="images/screenshot4.jpg" alt="Screenshot 4"></div>
+                   <div class="screenshot-item"><img src="images/screenshot5.jpg" alt="Screenshot 5"></div>
+                   <div class="screenshot-item"><img src="images/screenshot6.jpg" alt="Screenshot 6"></div>
+                   <div class="screenshot-item"><img src="images/screenshot7.jpg" alt="Screenshot 7"></div>
+                   <div class="screenshot-item"><img src="images/screenshot8.jpg" alt="Screenshot 8"></div>
+               </div>
            </div>
+        </section>
 
+        <section id="install-steps" class="install-steps-section">
+            <div class="container">
+                <h2 class="section-title" data-translate="install_steps_title">Install Steps</h2>
+
+                <h3 data-translate="disclaimer_title">Disclaimer</h3>
+                <div class="disclaimer-box">
+                    <ul>
+                        <li data-translate="disclaimer_1">Your warranty is now void.</li>
+                        <li data-translate="disclaimer_2">We are not responsible for bricked devices, dead SD cards, thermonuclear war, or you getting fired because the alarm app failed.</li>
+                        <li data-translate="disclaimer_3">Please do some research if you have any concerns about flashing this ROM before flashing it!</li>
+                        <li data-translate="disclaimer_4">YOU are choosing to make these modifications, and if you point the finger at us for messing up your device, we will laugh at you. HARD!</li>
+                    </ul>
+                </div>
+
+                <h3 data-translate="bootloader_title">Bootloader unlocking</h3>
+                <ol>
+                    <li data-translate="bootloader_step1">Enable Developer options in settings.</li>
+                    <li data-translate="bootloader_step2">Plug the phone to the PC.</li>
+                    <li data-translate="bootloader_step3">Keep pressing the button of volumen up and volumen down.</li>
+                    <li data-translate="bootloader_step4">Now keep pressed up button to get in Bootloader Unlock Mode.</li>
+                    <li data-translate="bootloader_step5">Press vol + to unlock bootloader.</li>
+                </ol>
+
+                <h3 data-translate="rom_install_title">ROM Install Steps</h3>
+                <ol>
+                    <li data-translate="rom_install_step1">Make sure you're on the latest Stock firmware (Check on SamFW).</li>
+                    <li data-translate="rom_install_step2">Make sure your OEM Bootloader is Unlocked. (Very important that you Unlock it, reboot, connect to the internet for at least a minute). While you're at it, Enable USB Debugging as well.</li>
+                    <li data-translate="rom_install_step3">Download OFOX/TWRP, VBmeta.img.</li>
+                    <li data-translate="rom_install_step4">Put device in Download Mode by making sure device is turned off, and: It's connected to the computer through USB, then Hold VOL UP + VOL DOWN to enter Download Mode and Press Vol Up to continue further.</li>
+                    <li data-translate="rom_install_step5">Load OFOX/TWRP TAR file in AP, and under Odin Options, untick Auto Reboot. FLASH THE FILE. DO NOT DISCONNECT THE CABLE. If the device is also asking for the vbmeta, flash it on AP before rebooting.</li>
+                    <li data-translate="rom_install_step6">Force reboot by holding POWER + Vol Down. The moment it reboots to a blank screen, hold Power + Vol Up to boot to Recovery (OFOX/TWRP). If shown the message to press something, press power, and quickly hold Power + Vol Up again, otherwise it wont boot to OFOX/TWRP.</li>
+                    <li data-translate="rom_install_step7">While on OFOX/TWRP, go to Wipe, Advanced and wipe all partitions.</li>
+                    <li data-translate="rom_install_step8">Put OFOX/TWRP in Sideload mode (Advance page).</li>
+                    <li data-translate="rom_install_step9">Sideload the ROM from the computer: <code>adb sideload C:\Path\to\Rom.zip</code></li>
+                    <li data-translate="rom_install_step10">Before restart go to wipe and format data.</li>
+                    <li data-translate="rom_install_step11">Reboot and enjoy!</li>
+                </ol>
+            </div>
+        </section>
         <section id="devices" class="devices-section">
             <div class="container">
                 <h2 class="section-title" data-translate="devices_title">Supported Devices</h2>
@@ -123,7 +144,5 @@
     </footer>
 
     <script src="script.js"></script>
-    
-
 </body>
 </html>
