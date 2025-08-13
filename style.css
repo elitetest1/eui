@@ -1,9 +1,9 @@
 :root {
     --primary-color: #c43a3a;
-    --background-color: #FFFFFF; /* Fondo principal ahora es blanco */
-    --card-background: rgba(249, 249, 249, 0.65); /* Fondo de tarjetas semitransparente para efecto blur */
+    --background-color: #ffffff;
+    --card-background: rgba(255, 255, 255, 0.048); /* Fondo de tarjetas semitransparente para efecto blur */
     --navbar-background: rgba(255, 255, 255, 0.5); /* Fondo de navbar semitransparente */
-    --text-color: #333333;
+    --text-color: #000000;
     --subtle-text-color: #777777;
     --border-color: #EAEAEA;
     --shadow-color: rgba(0, 0, 0, 0.05);
@@ -16,14 +16,9 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    line-height: 1.7;
-    /* --- CAMBIO REALIZADO --- */
-    /* Se cambió el fondo sólido por un gradiente sutil para que el efecto "backdrop-filter" sea visible. */
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-    background-attachment: fixed;
-    background-size: cover;
+   font-family: 'Poppins', sans-serif;
+   color: var(--text-color);
+   line-height: 1.7;
 }
 
 html {
@@ -37,15 +32,15 @@ html {
 }
 
 .navbar {
-    background-color: var(--navbar-background); /* Fondo semitransparente */
+    background-color: var(--navbar-background);
     padding: 1rem 0;
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 100;
     width: 100%;
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .navbar .container {
@@ -89,7 +84,7 @@ html {
 .hero {
     text-align: center;
     padding: 6rem 0;
-    background-color: transparent; /* Hacemos transparente para que se vea el fondo del body */
+    background-color: transparent;
 }
 
 .main-title {
@@ -121,7 +116,7 @@ html {
 
 .about-section {
     padding: 5rem 0;
-    background-color: transparent; /* Hacemos transparente */
+    background-color: transparent;
     text-align: center;
 }
 
@@ -149,14 +144,14 @@ html {
 }
 
 .feature-card {
-    background-color: var(--card-background); /* Fondo semitransparente */
+    background-color: var(--card-background);
     padding: 2rem;
     border-radius: 10px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 15px var(--shadow-color);
     transition: transform 0.3s, box-shadow 0.3s;
-    backdrop-filter: blur(8px); /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(8px); /* Compatibilidad con Safari */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .feature-card:hover {
@@ -196,8 +191,8 @@ html {
 }
 
 .device-item:hover {
-    transform: translateY(-3px);
-    background-color: rgba(233, 233, 233, 0.8);
+    transform: translateY(15px);
+    background-color: rgba(182, 28, 28, 0.8);
 }
 
 .footer {
@@ -286,7 +281,7 @@ html {
 }
 
 .hamburger.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(50deg) translate(6px, 6px);
 }
 
 .hamburger.open span:nth-child(2) {
@@ -312,7 +307,7 @@ html {
 }
 
 .disclaimer-box {
-    background-color: rgba(253, 238, 238, 0.7); /* Hacemos semitransparente también */
+    background-color: rgba(253, 238, 238, 0);
     border-left: 5px solid var(--primary-color);
     padding: 1.5rem;
     margin: 1.5rem 0;
@@ -360,7 +355,7 @@ html {
         top: 100%;
         left: 0;
         width: 100%;
-        background: var(--navbar-background); /* Fondo semitransparente para el menú móvil */
+        background-color: rgba(255, 255, 255, 0.7); 
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         flex-direction: column;
