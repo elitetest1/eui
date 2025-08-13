@@ -1,7 +1,8 @@
 :root {
-    --primary-color: #c43a3a; 
-    --background-color: #F9F9F9;
-    --card-background: #FFFFFF;
+    --primary-color: #c43a3a;
+    --background-color: #FFFFFF; /* Fondo principal ahora es blanco */
+    --card-background: rgba(249, 249, 249, 0.65); /* Fondo de tarjetas semitransparente para efecto blur */
+    --navbar-background: rgba(255, 255, 255, 0.5); /* Fondo de navbar semitransparente */
     --text-color: #333333;
     --subtle-text-color: #777777;
     --border-color: #EAEAEA;
@@ -19,6 +20,14 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.7;
+    /* --- RECOMENDACIÓN --- */
+    /* Para un efecto de desenfoque más pronunciado y estético, considera usar un gradiente suave o una imagen de fondo.
+    /* Descomenta las siguientes líneas y ajusta la URL para probarlo. */
+    /*
+    background-image: url('https://images.unsplash.com/photo-1596484552834-3a84a7d017b2?q=80&w=2574&auto=format&fit=crop');
+    background-attachment: fixed;
+    background-size: cover;
+    */
 }
 
 html {
@@ -32,13 +41,15 @@ html {
 }
 
 .navbar {
-    background-color: var(--card-background);
+    background-color: var(--navbar-background); /* Fondo semitransparente */
     padding: 1rem 0;
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 100;
     width: 100%;
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
 }
 
 .navbar .container {
@@ -82,7 +93,7 @@ html {
 .hero {
     text-align: center;
     padding: 6rem 0;
-    background-color: var(--card-background);
+    background-color: transparent; /* Hacemos transparente para que se vea el fondo del body */
 }
 
 .main-title {
@@ -114,7 +125,7 @@ html {
 
 .about-section {
     padding: 5rem 0;
-    background-color: var(--card-background);
+    background-color: transparent; /* Hacemos transparente */
     text-align: center;
 }
 
@@ -142,12 +153,14 @@ html {
 }
 
 .feature-card {
-    background-color: var(--card-background);
+    background-color: var(--card-background); /* Fondo semitransparente */
     padding: 2rem;
     border-radius: 10px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 15px var(--shadow-color);
     transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(8px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(8px); /* Compatibilidad con Safari */
 }
 
 .feature-card:hover {
@@ -162,7 +175,7 @@ html {
 
 .devices-section {
     padding: 5rem 0;
-    background-color: var(--card-background);
+    background-color: transparent;
 }
 
 .device-list {
@@ -172,7 +185,7 @@ html {
 }
 
 .device-item {
-    background-color: var(--background-color);
+    background-color: var(--card-background);
     border: 1px solid var(--border-color);
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
@@ -181,49 +194,28 @@ html {
     max-width: 500px;
     text-align: center;
     font-size: 1.1rem;
-}
-
-.footer {
-    text-align: center;
-    padding: 2rem 0;
-    background-color: var(--background-color);
-    color: var(--subtle-text-color);
-    font-size: 0.9rem;
-    border-top: 1px solid var(--border-color);
-}
-
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 2.5rem;
-    }
-    .nav-menu {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    .nav-menu a, #translate-button {
-        margin: 0.5rem 0;
-    }
-    .navbar .container {
-        flex-direction: column;
-    }
-}
-
-.device-item {
-    text-decoration: none; 
+    text-decoration: none;
     color: var(--text-color);
     transition: transform 0.3s, background-color 0.3s;
 }
 
 .device-item:hover {
     transform: translateY(-3px);
-    background-color: #e9e9e9; 
+    background-color: rgba(233, 233, 233, 0.8);
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: transparent;
+    color: var(--subtle-text-color);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .screenshots-section {
     padding: 5rem 0;
-    background-color: var(--background-color);
+    background-color: transparent;
 }
 
 .screenshots-grid {
@@ -234,7 +226,7 @@ html {
 
 .screenshot-item {
     border-radius: 10px;
-    overflow: hidden; 
+    overflow: hidden;
     box-shadow: 0 4px 10px var(--shadow-color);
     transition: transform 0.3s;
 }
@@ -250,12 +242,12 @@ html {
 }
 
 .hero-buttons-container {
-    margin-top: 2.5rem; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 1rem; 
+    gap: 1rem;
 }
 
 .cta-button-secondary {
@@ -276,75 +268,6 @@ html {
 }
 
 .hamburger {
-    display: none; 
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 24px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1000;
-    position: relative;
-}
-
-.hamburger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: var(--text-color);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-    transform-origin: center;
-}
-
-
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-    
-    .nav-menu {
-        display: none; 
-        position: absolute;
-        top: 100%; 
-        left: 0;
-        width: 100%;
-        background: var(--card-background);
-        padding: 1rem 0;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        border-top: 1px solid var(--border-color);
-    }
-    
-    .nav-menu.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .nav-menu a,
-    .nav-menu #translate-button {
-        margin: 0.5rem 0;
-        padding: 0.5rem;
-        width: 80%;
-        text-align: center;
-    }
-}
-
-.hamburger.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.open span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-.hamburger {
     display: none;
     flex-direction: column;
     justify-content: space-around;
@@ -354,7 +277,7 @@ html {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .hamburger span {
@@ -366,18 +289,84 @@ html {
     transition: all 0.3s ease;
 }
 
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.install-steps-section {
+    padding: 5rem 0;
+    background-color: transparent;
+}
+
+.install-steps-section h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.disclaimer-box {
+    background-color: rgba(253, 238, 238, 0.7); /* Hacemos semitransparente también */
+    border-left: 5px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.disclaimer-box ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.install-steps-section ul,
+.install-steps-section ol {
+    padding-left: 25px;
+}
+
+.install-steps-section li {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.install-steps-section code {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+}
+
 @media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
     .hamburger {
         display: flex;
     }
-    
+
     .nav-menu {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: var(--card-background);
+        background: var(--navbar-background); /* Fondo semitransparente para el menú móvil */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         flex-direction: column;
         align-items: center;
         padding: 1rem 0;
@@ -395,62 +384,4 @@ html {
         width: 80%;
         text-align: center;
     }
-}
-
-.hamburger.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.open span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
-
-.install-steps-section {
-    padding: 5rem 0;
-    background-color: var(--background-color);
-}
-
-.install-steps-section h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 0.5rem;
-}
-
-.disclaimer-box {
-    background-color: #fdeeee;
-    border-left: 5px solid var(--primary-color);
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    border-radius: 5px;
-}
-
-.disclaimer-box ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.install-steps-section ul, 
-.install-steps-section ol {
-    padding-left: 25px;
-}
-
-.install-steps-section li {
-    margin-bottom: 1rem;
-    line-height: 1.8;
-}
-
-.install-steps-section code {
-    background-color: #e0e0e0;
-    color: #333;
-    padding: 3px 8px;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.95em;
 }
