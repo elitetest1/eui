@@ -17,17 +17,13 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.7;
-    /* --- RECOMENDACIÓN --- */
-    /* Para un efecto de desenfoque más pronunciado y estético, considera usar un gradiente suave o una imagen de fondo.
-    /* Descomenta las siguientes líneas y ajusta la URL para probarlo. */
-    /*
-    background-image: url('https://images.unsplash.com/photo-1596484552834-3a84a7d017b2?q=80&w=2574&auto=format&fit=crop');
+    /* --- CAMBIO REALIZADO --- */
+    /* Se cambió el fondo sólido por un gradiente sutil para que el efecto "backdrop-filter" sea visible. */
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
     background-attachment: fixed;
     background-size: cover;
-    */
 }
 
 html {
