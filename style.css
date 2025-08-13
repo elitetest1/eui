@@ -209,6 +209,10 @@ html {
     background-color: transparent;
 }
 
+.carousel-container {
+    position: relative;
+}
+
 .screenshots-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -340,6 +344,11 @@ html {
     font-size: 0.95em;
 }
 
+/* Ocultar botones de carrusel por defecto */
+.carousel-button {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .main-title {
         font-size: 2.5rem;
@@ -374,5 +383,63 @@ html {
         margin: 0.5rem 0;
         width: 80%;
         text-align: center;
+    }
+
+    /* Estilos del carrusel para móviles */
+    .screenshots-section .container {
+        padding: 0;
+    }
+
+    .carousel-container {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .screenshots-grid {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        grid-template-columns: none; /* Sobrescribir grid */
+        gap: 0;
+    }
+
+    .screenshot-item {
+        min-width: 100%;
+        box-sizing: border-box;
+        padding: 0 10px;
+        transition: none;
+        box-shadow: none;
+        overflow: visible; /* Asegurar que se vean las imágenes completas */
+    }
+
+    .screenshot-item:hover {
+        transform: none; /* Desactivar hover en móvil */
+    }
+    
+    .screenshot-item img {
+         border-radius: 10px;
+    }
+
+    .carousel-button {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        z-index: 10;
+        user-select: none;
+    }
+
+    .carousel-button.prev {
+        left: 15px;
+    }
+
+    .carousel-button.next {
+        right: 15px;
     }
 }

@@ -148,4 +148,56 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Lógica del Carrusel de Screenshots ---
+    const isMobile = () => window.innerWidth <= 768;
+
+    const carouselGrid = document.querySelector('.screenshots-grid');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    if (carouselGrid && prevBtn && nextBtn) {
+        let currentIndex = 0;
+        let items;
+        let totalItems = 0;
+
+        const updateCarousel = () => {
+            if (isMobile()) {
+                items = document.querySelectorAll('.screenshot-item');
+                totalItems = items.length;
+                
+                if (totalItems > 0) {
+                    if (currentIndex >= totalItems) {
+                        currentIndex = 0;
+                    }
+                    if (currentIndex < 0) {
+                        currentIndex = totalItems - 1;
+                    }
+                    const offset = -currentIndex * 100;
+                    carouselGrid.style.transform = `translateX(${offset}%)`;
+                }
+            } else {
+                carouselGrid.style.transform = ''; // Reset en desktop
+            }
+        };
+
+        nextBtn.addEventListener('click', () => {
+            if (isMobile()) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (isMobile()) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        window.addEventListener('resize', updateCarousel);
+        
+        // Carga inicial
+        updateCarousel();
+    }
 });
