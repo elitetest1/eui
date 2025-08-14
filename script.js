@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+ddocument.addEventListener('DOMContentLoaded', () => {
 
     const translations = {
         en: {
@@ -130,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setLanguage(currentLanguage);
 
-    // Sistema del menú hamburguesa
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -149,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Lógica del Carrusel de Screenshots ---
     const isMobile = () => window.innerWidth <= 768;
 
     const carouselGrid = document.querySelector('.screenshots-grid');
@@ -177,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     carouselGrid.style.transform = `translateX(${offset}%)`;
                 }
             } else {
-                carouselGrid.style.transform = ''; // Reset en desktop
+                carouselGrid.style.transform = '';
             }
         };
 
@@ -197,7 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('resize', updateCarousel);
         
-        // Carga inicial
         updateCarousel();
     }
 });

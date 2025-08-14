@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:red' y='.9em' font-size='90'>E</text></svg>">
 </head>
 <body>
@@ -53,31 +53,35 @@
         <section id="features" class="features-section">
             <div class="container">
                 <h2 class="section-title" data-translate="features_title">Features</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3 data-translate="feature1_title">Minimalist Design</h3>
-                        <p data-translate="feature1_desc">A clean and refined interface that enhances the best of One UI, removing clutter to focus on what's important.</p>
+                <div class="carousel-container-features">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3 data-translate="feature1_title">Minimalist Design</h3>
+                            <p data-translate="feature1_desc">A clean and refined interface that enhances the best of One UI, removing clutter to focus on what's important.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3 data-translate="feature2_title">Fluid Performance</h3>
+                            <p data-translate="feature2_desc">Heavily optimized for speed and responsiveness. Experience smooth animations and instant app launches.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3 data-translate="feature3_title">Enhanced Battery Life</h3>
+                            <p data-translate="feature3_desc">With our custom optimizations, your device lasts longer, letting you do more throughout your day.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h3 data-translate="feature4_title">Advanced Customization</h3>
+                            <p data-translate="feature4_desc">Personalize your experience with unique settings and options not found in the stock firmware.</p>
+                        </div>
+                         <div class="feature-card">
+                            <h3 data-translate="feature5_title">OSS Based</h3>
+                            <p data-translate="feature5_desc">Based on open-source projects like Un1ca and ExtremeROM.</p>
+                        </div>
+                         <div class="feature-card">
+                            <h3 data-translate="feature6_title">Optimization</h3>
+                            <p data-translate="feature6_desc">Make your phone feel like a true high-end device again, destroying planned obsolescence.</p>
+                        </div>
                     </div>
-                    <div class="feature-card">
-                        <h3 data-translate="feature2_title">Fluid Performance</h3>
-                        <p data-translate="feature2_desc">Heavily optimized for speed and responsiveness. Experience smooth animations and instant app launches.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3 data-translate="feature3_title">Enhanced Battery Life</h3>
-                        <p data-translate="feature3_desc">With our custom optimizations, your device lasts longer, letting you do more throughout your day.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3 data-translate="feature4_title">Advanced Customization</h3>
-                        <p data-translate="feature4_desc">Personalize your experience with unique settings and options not found in the stock firmware.</p>
-                    </div>
-                     <div class="feature-card">
-                        <h3 data-translate="feature5_title">OSS Based</h3>
-                        <p data-translate="feature5_desc">Based on open-source projects like Un1ca and ExtremeROM.</p>
-                    </div>
-                     <div class="feature-card">
-                        <h3 data-translate="feature6_title">Optimization</h3>
-                        <p data-translate="feature6_desc">Make your phone feel like a true high-end device again, destroying planned obsolescence.</p>
-                    </div>
+                    <button class="carousel-button features-prev" id="featuresPrevBtn">&#10094;</button>
+                    <button class="carousel-button features-next" id="featuresNextBtn">&#10095;</button>
                 </div>
             </div>
         </section>
@@ -85,6 +89,20 @@
         <section id="screenshots" class="screenshots-section">
            <div class="container">
                <h2 class="section-title" data-translate="screenshots_title">Screenshots</h2>
+               <div class="carousel-container-desktop">
+                   <div class="screenshots-grid-desktop">
+                       <div class="screenshot-item"><img src="images/screenshot1.jpg" alt="Screenshot 1"></div>
+                       <div class="screenshot-item"><img src="images/screenshot2.jpg" alt="Screenshot 2"></div>
+                       <div class="screenshot-item"><img src="images/screenshot3.jpg" alt="Screenshot 3"></div>
+                       <div class="screenshot-item"><img src="images/screenshot4.jpg" alt="Screenshot 4"></div>
+                       <div class="screenshot-item"><img src="images/screenshot5.jpg" alt="Screenshot 5"></div>
+                       <div class="screenshot-item"><img src="images/screenshot6.jpg" alt="Screenshot 6"></div>
+                       <div class="screenshot-item"><img src="images/screenshot7.jpg" alt="Screenshot 7"></div>
+                       <div class="screenshot-item"><img src="images/screenshot8.jpg" alt="Screenshot 8"></div>
+                   </div>
+                   <button class="carousel-button desktop-prev" id="desktopPrevBtn">&#10094;</button>
+                   <button class="carousel-button desktop-next" id="desktopNextBtn">&#10095;</button>
+               </div>
                <div class="carousel-container">
                    <div class="screenshots-grid">
                        <div class="screenshot-item"><img src="images/screenshot1.jpg" alt="Screenshot 1"></div>
@@ -118,7 +136,7 @@
 
                 <h3 data-translate="bootloader_title">Bootloader unlocking</h3>
                 <ol>
-                    <li data-translate="bootloader_step1">Enable Developer options in settings.</li>
+                    <li data-translate="bootloader_step1">Enable Developer options in settings.</li
                     <li data-translate="bootloader_step2">Plug the phone to the PC.</li>
                     <li data-translate="bootloader_step3">Keep pressing the button of volumen up and volumen down.</li>
                     <li data-translate="bootloader_step4">Now keep pressed up button to get in Bootloader Unlock Mode.</li>
@@ -128,16 +146,16 @@
                 <h3 data-translate="rom_install_title">ROM Install Steps</h3>
                 <ol>
                     <li data-translate="rom_install_step1">Make sure you're on the latest Stock firmware (Check on SamFW).</li>
-                    <li data-translate="rom_install_step2">Make sure your OEM Bootloader is Unlocked. (Very important that you Unlock it, reboot, connect to the internet for at least a minute). While you're at it, Enable USB Debugging as well.</li>
-                    <li data-translate="rom_install_step3">Download OFOX/TWRP, VBmeta.img.</li>
-                    <li data-translate="rom_install_step4">Put device in Download Mode by making sure device is turned off, and: It's connected to the computer through USB, then Hold VOL UP + VOL DOWN to enter Download Mode and Press Vol Up to continue further.</li>
-                    <li data-translate="rom_install_step5">Load OFOX/TWRP TAR file in AP, and under Odin Options, untick Auto Reboot. FLASH THE FILE. DO NOT DISCONNECT THE CABLE. If the device is also asking for the vbmeta, flash it on AP before rebooting.</li>
-                    <li data-translate="rom_install_step6">Force reboot by holding POWER + Vol Down. The moment it reboots to a blank screen, hold Power + Vol Up to boot to Recovery (OFOX/TWRP). If shown the message to press something, press power, and quickly hold Power + Vol Up again, otherwise it wont boot to OFOX/TWRP.</li>
-                    <li data-translate="rom_install_step7">While on OFOX/TWRP, go to Wipe, Advanced and wipe all partitions.</li>
+                    <li data-translate="rom_install_step2">Make sure your OEM Bootloader is Unlocked. (Very important that you Unlock it, reboot, connect to the internet for at least a minute). While you're at it, Enable USB Debugging as well.</li
+                    <li data-translate="rom_install_step3">Download OFOX/TWRP, VBmeta.img.</li
+                    <li data-translate="rom_install_step4">Put device in Download Mode by making sure device is turned off, and: It's connected to the computer through USB, then Hold VOL UP + VOL DOWN to enter Download Mode and Press Vol Up to continue further.</li
+                    <li data-translate="rom_install_step5">Load OFOX/TWRP TAR file in AP, and under Odin Options, untick Auto Reboot. FLASH THE FILE. DO NOT DISCONNECT THE CABLE. If the device is also asking for the vbmeta, flash it on AP before rebooting.</li
+                    <li data-translate="rom_install_step6">Force reboot by holding POWER + Vol Down. The moment it reboots to a blank screen, hold Power + Vol Up to boot to Recovery (OFOX/TWRP). If shown the message to press something, press power, and quickly hold Power + Vol Up again, otherwise it wont boot to OFOX/TWRP.</li
+                    <li data-translate="rom_install_step7">While on OFOX/TWRP, go to Wipe, Advanced and wipe all partitions.</li
                     <li data-translate="rom_install_step8">Put OFOX/TWRP in Sideload mode (Advance page).</li>
                     <li data-translate="rom_install_step9">Sideload the ROM from the computer: <code>adb sideload C:\Path\to\Rom.zip</code></li>
-                    <li data-translate="rom_install_step10">Before restart go to wipe and format data.</li>
-                    <li data-translate="rom_install_step11">Reboot and enjoy!</li>
+                    <li data-translate="rom_install_step10">Before restart go to wipe and format data.</li
+                    <li data-translate="rom_install_step11">Reboot and enjoy!</li
                 </ol>
             </div>
         </section>

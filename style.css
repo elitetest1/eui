@@ -209,31 +209,82 @@ html {
     background-color: transparent;
 }
 
-.carousel-container {
+.carousel-container-desktop {
     position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem; /* Espacio entre el carrusel de escritorio y móvil */
 }
 
-.screenshots-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+.screenshots-grid-desktop {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
-.screenshot-item {
+.carousel-container-desktop .screenshot-item {
+    flex: 0 0 auto;
+    width: calc(33.333% - 1rem); /* Mostrar 3 a la vez con espacio */
+    margin: 0 0.5rem;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px var(--shadow-color);
-    transition: transform 0.3s;
 }
 
-.screenshot-item:hover {
-    transform: scale(1.05);
+.carousel-container-desktop .screenshot-item:first-child {
+    margin-left: 0;
+}
+
+.carousel-container-desktop .screenshot-item:last-child {
+    margin-right: 0;
+}
+
+.carousel-container-desktop .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    z-index: 10;
+    user-select: none;
+}
+
+.carousel-container-desktop .desktop-prev {
+    left: 15px;
+}
+
+.carousel-container-desktop .desktop-next {
+    right: 15px;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.screenshots-grid {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.screenshot-item {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
 }
 
 .screenshot-item img {
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 10px;
+}
+
+.carousel-button {
+    display: none; /* Ocultar por defecto para móvil, se muestra con media query */
 }
 
 .hero-buttons-container {
@@ -344,8 +395,55 @@ html {
     font-size: 0.95em;
 }
 
-/* Ocultar botones de carrusel por defecto */
-.carousel-button {
+.carousel-container-features {
+    position: relative;
+    overflow: hidden;
+}
+
+.features-grid {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-container-features .feature-card {
+    flex: 0 0 auto;
+    width: calc(33.333% - 2rem); /* Mostrar 3 a la vez con espacio */
+    margin: 0 1rem;
+}
+
+.carousel-container-features .feature-card:first-child {
+    margin-left: 0;
+}
+
+.carousel-container-features .feature-card:last-child {
+    margin-right: 0;
+}
+
+.carousel-container-features .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    z-index: 10;
+    user-select: none;
+}
+
+.carousel-container-features .features-prev {
+    left: 15px;
+}
+
+.carousel-container-features .features-next {
+    right: 15px;
+}
+
+/* Ocultar carrusel de escritorio en móviles */
+.carousel-container-desktop {
     display: none;
 }
 
@@ -364,7 +462,7 @@ html {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.7); 
+        background-color: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         flex-direction: column;
@@ -373,48 +471,46 @@ html {
         border-top: 1px solid var(--border-color);
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
-    
+
     .nav-menu.active {
         display: flex;
     }
-    
-    .nav-menu a, 
+
+    .nav-menu a,
     .nav-menu #translate-button {
         margin: 0.5rem 0;
         width: 80%;
         text-align: center;
     }
 
-    /* Estilos del carrusel para móviles */
+    /* Estilos del carrusel para móviles (capturas) */
     .screenshots-section .container {
         padding: 0;
+    }
+
+    .carousel-container-desktop {
+        display: none; /* Ocultar carrusel de escritorio en móvil */
     }
 
     .carousel-container {
         width: 100%;
         overflow: hidden;
+        margin-bottom: 2rem;
     }
 
     .screenshots-grid {
         display: flex;
         transition: transform 0.5s ease-in-out;
-        grid-template-columns: none; /* Sobrescribir grid */
         gap: 0;
     }
 
     .screenshot-item {
-        min-width: 100%;
+        flex: 0 0 100%;
         box-sizing: border-box;
         padding: 0 10px;
-        transition: none;
-        box-shadow: none;
-        overflow: visible; /* Asegurar que se vean las imágenes completas */
+        overflow: visible;
     }
 
-    .screenshot-item:hover {
-        transform: none; /* Desactivar hover en móvil */
-    }
-    
     .screenshot-item img {
          border-radius: 10px;
     }
@@ -441,5 +537,39 @@ html {
 
     .carousel-button.next {
         right: 15px;
+    }
+
+    /* Carrusel de Features en móvil */
+    .features-section .container {
+        padding: 0;
+    }
+
+    .carousel-container-features {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .features-grid {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        gap: 0;
+    }
+
+    .carousel-container-features .feature-card {
+        flex: 0 0 80%; /* Mostrar aproximadamente 1 tarjeta a la vez */
+        margin: 0 10%;
+    }
+
+    .carousel-container-features .carousel-button {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .carousel-container {
+        display: none; /* Ocultar carrusel móvil en desktop */
+    }
+    .carousel-button {
+        display: none; /* Ocultar botones de carrusel móvil en desktop */
     }
 }
