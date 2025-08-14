@@ -1,4 +1,4 @@
-ddocument.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     const translations = {
         en: {
@@ -54,7 +54,16 @@ ddocument.addEventListener('DOMContentLoaded', () => {
             rom_install_step10: "Before restart go to wipe and format data.",
             rom_install_step11: "Reboot and enjoy!",
             changelog_title: "Changelog",
-            view_changelog_button: "View Full Changelog"
+            view_changelog_button: "View Full Changelog",
+            // Traducciones para la página changelog.html
+            changelog_main_title: "Changelog",
+            changelog_v1_title: "Version 1.0 (2025-08-15)",
+            changelog_v1_item1: "First public release.",
+            changelog_v1_item2: "Added support for the Galaxy S21 series.",
+            changelog_v1_item3: "Initial battery and performance optimizations.",
+            changelog_v09_title: "Version 0.9 - Beta (2025-08-01)",
+            changelog_v09_item1: "Initial project base.",
+            changelog_v09_item2: "Internal testing of main features."
         },
         es: {
             features_link: "Características",
@@ -109,7 +118,16 @@ ddocument.addEventListener('DOMContentLoaded', () => {
             rom_install_step10: "Antes de reiniciar, ve a wipe y formatea los datos (format data).",
             rom_install_step11: "¡Reinicia y a disfrutar!",
             changelog_title: "Lista de Cambios",
-            view_changelog_button: "Ver Lista de Cambios Completa"
+            view_changelog_button: "Ver Lista de Cambios Completa",
+            // Traducciones para la página changelog.html
+            changelog_main_title: "Lista de Cambios",
+            changelog_v1_title: "Versión 1.0 (15-08-2025)",
+            changelog_v1_item1: "Primer lanzamiento público.",
+            changelog_v1_item2: "Añadido soporte para la serie Galaxy S21.",
+            changelog_v1_item3: "Optimizaciones iniciales de batería y rendimiento.",
+            changelog_v09_title: "Versión 0.9 - Beta (01-08-2025)",
+            changelog_v09_item1: "Base inicial del proyecto.",
+            changelog_v09_item2: "Pruebas internas de características principales."
         }
     };
 
@@ -120,18 +138,25 @@ ddocument.addEventListener('DOMContentLoaded', () => {
         document.documentElement.lang = lang; 
         document.querySelectorAll('[data-translate]').forEach(element => {
             const key = element.getAttribute('data-translate');
-            if (translations[lang][key]) {
+            if (translations[lang] && translations[lang][key]) {
                 element.textContent = translations[lang][key];
             }
         });
-        translateButton.textContent = translations[lang].translate_button_text;
+        
+        const translateBtnInMenu = document.querySelector('.nav-menu #translate-button');
+        if (translateBtnInMenu) {
+            translateBtnInMenu.textContent = translations[lang].translate_button_text;
+        }
     };
 
-    translateButton.addEventListener('click', () => {
-        currentLanguage = (currentLanguage === 'en') ? 'es' : 'en';
-        setLanguage(currentLanguage);
+    document.querySelectorAll('#translate-button').forEach(button => {
+        button.addEventListener('click', () => {
+            currentLanguage = (currentLanguage === 'en') ? 'es' : 'en';
+            setLanguage(currentLanguage);
+        });
     });
-
+    
+    // Llama a setLanguage al cargar la página para establecer el idioma por defecto
     setLanguage(currentLanguage);
 
     const hamburgerBtn = document.getElementById('hamburger-btn');
@@ -141,64 +166,83 @@ ddocument.addEventListener('DOMContentLoaded', () => {
         hamburgerBtn.addEventListener('click', () => {
             hamburgerBtn.classList.toggle('open');
             mobileMenu.classList.toggle('active');
-            window.scrollTo(0, 0);
         });
 
         document.querySelectorAll('#mobile-menu a, #mobile-menu button').forEach(item => {
             item.addEventListener('click', () => {
-                hamburgerBtn.classList.remove('open');
-                mobileMenu.classList.remove('active');
+                if (window.innerWidth <= 768) {
+                    hamburgerBtn.classList.remove('open');
+                    mobileMenu.classList.remove('active');
+                }
             });
         });
     }
 
-    const isMobile = () => window.innerWidth <= 768;
+    function setupCarousel(carouselContainer) {
+        const grid = carouselContainer.querySelector('.features-grid, .screenshots-grid, .screenshots-grid-desktop');
+        const prevBtn = carouselContainer.querySelector('.prev, .features-prev, .desktop-prev');
+        const nextBtn = carouselContainer.querySelector('.next, .features-next, .desktop-next');
+        const items = grid.querySelectorAll('.feature-card, .screenshot-item');
+        
+        if (!grid || !prevBtn || !nextBtn || items.length === 0) {
+            return;
+        }
 
-    const carouselGrid = document.querySelector('.screenshots-grid');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    if (carouselGrid && prevBtn && nextBtn) {
         let currentIndex = 0;
-        let items;
-        let totalItems = 0;
+        let itemsInView = 1;
 
-        const updateCarousel = () => {
-            if (isMobile()) {
-                items = document.querySelectorAll('.screenshot-item');
-                totalItems = items.length;
-                
-                if (totalItems > 0) {
-                    if (currentIndex >= totalItems) {
-                        currentIndex = 0;
-                    }
-                    if (currentIndex < 0) {
-                        currentIndex = totalItems - 1;
-                    }
-                    const offset = -currentIndex * 100;
-                    carouselGrid.style.transform = `translateX(${offset}%)`;
+        function updateItemsInView() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth > 768) {
+                if (carouselContainer.matches('.carousel-container-desktop, .carousel-container-features')) {
+                    itemsInView = 3;
+                } else {
+                    itemsInView = 1;
                 }
             } else {
-                carouselGrid.style.transform = '';
+                 itemsInView = 1;
             }
-        };
+        }
+
+        function updateCarousel() {
+            const totalItems = items.length;
+            
+            if (currentIndex > (totalItems - itemsInView)) {
+                currentIndex = 0; 
+            }
+            if (currentIndex < 0) {
+                currentIndex = totalItems - itemsInView;
+            }
+            
+            let itemWidthPercentage = 100 / itemsInView;
+            // Caso especial para las features en móvil que ocupan el 80%
+            if (window.innerWidth <= 768 && carouselContainer.matches('.carousel-container-features')) {
+                itemWidthPercentage = 100;
+            }
+
+            const offset = -currentIndex * itemWidthPercentage;
+            grid.style.transform = `translateX(${offset}%)`;
+        }
 
         nextBtn.addEventListener('click', () => {
-            if (isMobile()) {
-                currentIndex++;
-                updateCarousel();
-            }
+            currentIndex++;
+            updateCarousel();
         });
 
         prevBtn.addEventListener('click', () => {
-            if (isMobile()) {
-                currentIndex--;
-                updateCarousel();
-            }
+            currentIndex--;
+            updateCarousel();
         });
 
-        window.addEventListener('resize', updateCarousel);
+        window.addEventListener('resize', () => {
+            updateItemsInView();
+            updateCarousel();
+        });
         
-        updateCarousel();
+        updateItemsInView();
     }
+
+    document.querySelectorAll('.carousel-container-features, .carousel-container-desktop, .carousel-container').forEach(carousel => {
+        if(carousel) setupCarousel(carousel);
+    });
 });
