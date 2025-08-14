@@ -137,12 +137,6 @@ html {
     font-weight: 600;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
 .feature-card {
     background-color: var(--card-background);
     padding: 2rem;
@@ -207,84 +201,6 @@ html {
 .screenshots-section {
     padding: 5rem 0;
     background-color: transparent;
-}
-
-.carousel-container-desktop {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 2rem; /* Espacio entre el carrusel de escritorio y móvil */
-}
-
-.screenshots-grid-desktop {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-container-desktop .screenshot-item {
-    flex: 0 0 auto;
-    width: calc(33.333% - 1rem); /* Mostrar 3 a la vez con espacio */
-    margin: 0 0.5rem;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px var(--shadow-color);
-}
-
-.carousel-container-desktop .screenshot-item:first-child {
-    margin-left: 0;
-}
-
-.carousel-container-desktop .screenshot-item:last-child {
-    margin-right: 0;
-}
-
-.carousel-container-desktop .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    z-index: 10;
-    user-select: none;
-}
-
-.carousel-container-desktop .desktop-prev {
-    left: 15px;
-}
-
-.carousel-container-desktop .desktop-next {
-    right: 15px;
-}
-
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-}
-
-.screenshots-grid {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.screenshot-item {
-    flex: 0 0 100%;
-    box-sizing: border-box;
-    padding: 0 10px;
-}
-
-.screenshot-item img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.carousel-button {
-    display: none; /* Ocultar por defecto para móvil, se muestra con media query */
 }
 
 .hero-buttons-container {
@@ -395,31 +311,17 @@ html {
     font-size: 0.95em;
 }
 
-.carousel-container-features {
+.carousel-container-features, .carousel-container-desktop, .carousel-container {
     position: relative;
     overflow: hidden;
 }
 
-.features-grid {
+.features-grid, .screenshots-grid-desktop, .screenshots-grid {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-.carousel-container-features .feature-card {
-    flex: 0 0 auto;
-    width: calc(33.333% - 2rem); /* Mostrar 3 a la vez con espacio */
-    margin: 0 1rem;
-}
-
-.carousel-container-features .feature-card:first-child {
-    margin-left: 0;
-}
-
-.carousel-container-features .feature-card:last-child {
-    margin-right: 0;
-}
-
-.carousel-container-features .carousel-button {
+.carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -434,142 +336,127 @@ html {
     user-select: none;
 }
 
-.carousel-container-features .features-prev {
+.carousel-button.prev, .features-prev, .desktop-prev {
     left: 15px;
 }
 
-.carousel-container-features .features-next {
+.carousel-button.next, .features-next, .desktop-next {
     right: 15px;
 }
 
-/* Ocultar carrusel de escritorio en móviles */
+.hamburger {
+    display: flex;
+}
+.nav-menu {
+    display: none;
+}
+.main-title {
+    font-size: 2.5rem;
+}
+.nav-menu.active { display: flex; flex-direction: column; /* ... */ }
+.nav-menu a, .nav-menu #translate-button { margin: 0.5rem 0; width: 80%; text-align: center; }
+
 .carousel-container-desktop {
     display: none;
 }
 
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 2.5rem;
-    }
+.carousel-container {
+    display: block;
+}
+.screenshots-grid .screenshot-item {
+    flex: 0 0 100%;
+    padding: 0 10px;
+}
+.screenshot-item img {
+    width: 100%;
+    border-radius: 10px;
+}
 
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        border-top: 1px solid var(--border-color);
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-menu a,
-    .nav-menu #translate-button {
-        margin: 0.5rem 0;
-        width: 80%;
-        text-align: center;
-    }
-
-    /* Estilos del carrusel para móviles (capturas) */
-    .screenshots-section .container {
-        padding: 0;
-    }
-
-    .carousel-container-desktop {
-        display: none; /* Ocultar carrusel de escritorio en móvil */
-    }
-
-    .carousel-container {
-        width: 100%;
-        overflow: hidden;
-        margin-bottom: 2rem;
-    }
-
-    .screenshots-grid {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        gap: 0;
-    }
-
-    .screenshot-item {
-        flex: 0 0 100%;
-        box-sizing: border-box;
-        padding: 0 10px;
-        overflow: visible;
-    }
-
-    .screenshot-item img {
-         border-radius: 10px;
-    }
-
-    .carousel-button {
-        display: block;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        z-index: 10;
-        user-select: none;
-    }
-
-    .carousel-button.prev {
-        left: 15px;
-    }
-
-    .carousel-button.next {
-        right: 15px;
-    }
-
-    /* Carrusel de Features en móvil */
-    .features-section .container {
-        padding: 0;
-    }
-
-    .carousel-container-features {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .features-grid {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        gap: 0;
-    }
-
-    .carousel-container-features .feature-card {
-        flex: 0 0 80%; /* Mostrar aproximadamente 1 tarjeta a la vez */
-        margin: 0 10%;
-    }
-
-    .carousel-container-features .carousel-button {
-        display: block;
-    }
+.features-section .container { padding: 0; }
+.carousel-container-features .features-grid { gap: 0; }
+.carousel-container-features .feature-card {
+    flex: 0 0 80%;
+    margin: 0 10%;
 }
 
 @media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+    .nav-menu {
+        display: flex;
+    }
+
     .carousel-container {
-        display: none; /* Ocultar carrusel móvil en desktop */
+        display: none;
     }
-    .carousel-button {
-        display: none; /* Ocultar botones de carrusel móvil en desktop */
+
+    .carousel-container-desktop {
+        display: block;
     }
+    .screenshots-grid-desktop .screenshot-item {
+        flex: 0 0 calc(100% / 3); 
+        padding: 0 0.5rem;
+    }
+    .screenshot-item img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    .carousel-container-features .carousel-button {
+        display: none;
+    }
+}
+.changelog-section {
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+.changelog-content-section {
+    padding: 4rem 0;
+}
+
+.changelog-entry {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.changelog-entry h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.changelog-entry ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.changelog-entry li {
+    margin-bottom: 0.75rem;
+    line-height: 1.8;
+}
+
+.changelog-entry li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
 }

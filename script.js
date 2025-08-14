@@ -53,6 +53,8 @@ ddocument.addEventListener('DOMContentLoaded', () => {
             rom_install_step9: "Sideload the ROM from the computer:",
             rom_install_step10: "Before restart go to wipe and format data.",
             rom_install_step11: "Reboot and enjoy!",
+            changelog_title: "Changelog",
+            view_changelog_button: "View Full Changelog"
         },
         es: {
             features_link: "Características",
@@ -106,6 +108,8 @@ ddocument.addEventListener('DOMContentLoaded', () => {
             rom_install_step9: "Haz sideload a la ROM desde el ordenador:",
             rom_install_step10: "Antes de reiniciar, ve a wipe y formatea los datos (format data).",
             rom_install_step11: "¡Reinicia y a disfrutar!",
+            changelog_title: "Lista de Cambios",
+            view_changelog_button: "Ver Lista de Cambios Completa"
         }
     };
 
