@@ -55,15 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
             rom_install_step11: "Reboot and enjoy!",
             changelog_title: "Changelog",
             view_changelog_button: "View Full Changelog",
-            // Traducciones para la página changelog.html
-            changelog_main_title: "Changelog",
-            changelog_v1_title: "Version 1.0 (2025-08-15)",
-            changelog_v1_item1: "First public release.",
-            changelog_v1_item2: "Added support for the Galaxy S21 series.",
-            changelog_v1_item3: "Initial battery and performance optimizations.",
-            changelog_v09_title: "Version 0.9 - Beta (2025-08-01)",
-            changelog_v09_item1: "Initial project base.",
-            changelog_v09_item2: "Internal testing of main features."
         },
         es: {
             features_link: "Características",
@@ -119,15 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
             rom_install_step11: "¡Reinicia y a disfrutar!",
             changelog_title: "Lista de Cambios",
             view_changelog_button: "Ver Lista de Cambios Completa",
-            // Traducciones para la página changelog.html
-            changelog_main_title: "Lista de Cambios",
-            changelog_v1_title: "Versión 1.0 (15-08-2025)",
-            changelog_v1_item1: "Primer lanzamiento público.",
-            changelog_v1_item2: "Añadido soporte para la serie Galaxy S21.",
-            changelog_v1_item3: "Optimizaciones iniciales de batería y rendimiento.",
-            changelog_v09_title: "Versión 0.9 - Beta (01-08-2025)",
-            changelog_v09_item1: "Base inicial del proyecto.",
-            changelog_v09_item2: "Pruebas internas de características principales."
         }
     };
 
