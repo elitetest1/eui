@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feature6_desc: "Make your phone feel like a true high-end device again, destroying planned obsolescence.",
             screenshots_title: "Screenshots",
             devices_title: "Supported Devices",
-            credits: "Credits to Tizziano Provenzano 'Elite'Credits to Tizziano Provenzano 'elite',SAMSUNG (all) ExtremeROM (commits) Ronoa Enzo🇦🇷 (testing and help) Ravindu🇱🇰 (tools and general help) Orangecat🇹🇭 (random build.prop tweaks shared in octuber 2024) oevrik🇷🇺 (rom design) ExtremeXT🇷🇴 (for commits) Luminance🇻🇳 (rom design) FPSensor🇦🇷 (kernel dev) Flopster🇦🇷 (kernel dev) Pritam🇮🇳 (Camera features) Matteo🇮🇹 (Tips, ideas, and general guides on various things. Thank you so much for all) Pablo🇦🇷 (emotional support) Nico Lopez 🇦🇷 (testing) LZTEAMPROJECT 🇧🇷 (rom design)",
+            credits: "Credits to Tizziano Provenzano 'Elite',SAMSUNG (all) ExtremeROM (commits) Ronoa Enzo🇦🇷 (testing and help) Ravindu🇱🇰 (tools and general help) Orangecat🇹🇭 (random build.prop tweaks shared in octuber 2024) oevrik🇷🇺 (rom design) ExtremeXT🇷🇴 (for commits) Luminance🇻🇳 (rom design) FPSensor🇦🇷 (kernel dev) Flopster🇦🇷 (kernel dev) Pritam🇮🇳 (Camera features) Matteo🇮🇹 (Tips, ideas, and general guides on various things. Thank you so much for all) Pablo🇦🇷 (emotional support) Nico Lopez 🇦🇷 (testing) LZTEAMPROJECT 🇧🇷 (rom design)",
             translate_button_text: "Español",
             install_steps_title: "Install Steps",
             disclaimer_title: "Disclaimer",
