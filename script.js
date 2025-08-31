@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
             features_link: "Features",
             devices_link: "Supported Devices",
             main_title: "Elite UI",
-            subtitle: "The enhanced experience of One UI 7.",
+            subtitle: "The enhanced experience of One UI 8.",
             download_button: "View Devices",
             telegram_button: "Telegram",
             donations_button: "Donations",
             about_title: "What is Elite UI?",
-            what_is_custom_rom: "A custom ROM based on One UI 7 is a modified version of Samsung's official software. It retains the core look and feel of One UI but adds new features, performance enhancements, and customizations that aren't available on the standard firmware. It's a way to get a fresh, optimized, and more powerful experience on your Galaxy device.",
+            what_is_custom_rom: "A custom ROM based on One UI 8 is a modified version of Samsung's official software. It retains the core look and feel of One UI but adds new features, performance enhancements, and customizations that aren't available on the standard firmware. It's a way to get a fresh, optimized, and more powerful experience on your Galaxy device.",
             what_is_elite_ui: "Elite UI is a custom firmware currently in development for Samsung Galaxy devices. It is engineered upon the latest version of Samsung's user experience and incorporates extra features and adjustments to deliver the best out-of-the-box performance and usability.",
             features_title: "Features",
             feature1_title: "Minimalist Design",
@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
             features_link: "Características",
             devices_link: "Dispositivos Soportados",
             main_title: "Elite UI",
-            subtitle: "La experiencia mejorada de One UI 7.",
+            subtitle: "La experiencia mejorada de One UI 8.",
             download_button: "Ver Dispositivos",
             telegram_button: "Telegram",
             donations_button: "Donaciones",
             about_title: "¿Qué es Elite UI?",
-            what_is_custom_rom: "Una ROM personalizada basada en One UI 7 es una versión modificada del software oficial de Samsung. Conserva el aspecto y la sensación central de One UI, pero añade nuevas funciones, mejoras de rendimiento y personalizaciones que no están disponibles en el firmware estándar. Es una forma de obtener una experiencia nueva, optimizada y más potente en tu dispositivo Galaxy.",
+            what_is_custom_rom: "Una ROM personalizada basada en One UI 8 es una versión modificada del software oficial de Samsung. Conserva el aspecto y la sensación central de One UI, pero añade nuevas funciones, mejoras de rendimiento y personalizaciones que no están disponibles en el firmware estándar. Es una forma de obtener una experiencia nueva, optimizada y más potente en tu dispositivo Galaxy.",
             what_is_elite_ui: "Elite UI es un firmware personalizado actualmente en desarrollo para dispositivos Samsung Galaxy. Está diseñado sobre la última versión de la experiencia de usuario de Samsung e incorpora funciones y ajustes adicionales para ofrecer el mejor rendimiento y usabilidad desde el primer momento.",
             features_title: "Características",
             feature1_title: "Diseño Minimalista",
@@ -197,7 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             let itemWidthPercentage = 100 / itemsInView;
-            // Caso especial para las features en móvil que ocupan el 80%
             if (window.innerWidth <= 768 && carouselContainer.matches('.carousel-container-features')) {
                 itemWidthPercentage = 100;
             }
