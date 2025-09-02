@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:red' y='.9em' font-size='90'>E</text></svg>">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <nav class="navbar">
@@ -151,7 +153,7 @@
 
                 <h3 data-translate="bootloader_title">Bootloader unlocking</h3>
                 <ol>
-                    <li data-translate="bootloader_step1">Enable Developer options in settings.</li
+                    <li data-translate="bootloader_step1">Enable Developer options in settings.</li>
                     <li data-translate="bootloader_step2">Plug the phone to the PC.</li>
                     <li data-translate="bootloader_step3">Keep pressing the button of volumen up and volumen down.</li>
                     <li data-translate="bootloader_step4">Now keep pressed up button to get in Bootloader Unlock Mode.</li>
@@ -161,16 +163,16 @@
                 <h3 data-translate="rom_install_title">ROM Install Steps</h3>
                 <ol>
                     <li data-translate="rom_install_step1">Make sure you're on the latest Stock firmware (Check on SamFW).</li>
-                    <li data-translate="rom_install_step2">Make sure your OEM Bootloader is Unlocked. (Very important that you Unlock it, reboot, connect to the internet for at least a minute). While you're at it, Enable USB Debugging as well.</li
-                    <li data-translate="rom_install_step3">Download OFOX/TWRP, VBmeta.img.</li
-                    <li data-translate="rom_install_step4">Put device in Download Mode by making sure device is turned off, and: It's connected to the computer through USB, then Hold VOL UP + VOL DOWN to enter Download Mode and Press Vol Up to continue further.</li
-                    <li data-translate="rom_install_step5">Load OFOX/TWRP TAR file in AP, and under Odin Options, untick Auto Reboot. FLASH THE FILE. DO NOT DISCONNECT THE CABLE. If the device is also asking for the vbmeta, flash it on AP before rebooting.</li
-                    <li data-translate="rom_install_step6">Force reboot by holding POWER + Vol Down. The moment it reboots to a blank screen, hold Power + Vol Up to boot to Recovery (OFOX/TWRP). If shown the message to press something, press power, and quickly hold Power + Vol Up again, otherwise it wont boot to OFOX/TWRP.</li
-                    <li data-translate="rom_install_step7">While on OFOX/TWRP, go to Wipe, Advanced and wipe all partitions.</li
+                    <li data-translate="rom_install_step2">Make sure your OEM Bootloader is Unlocked. (Very important that you Unlock it, reboot, connect to the internet for at least a minute). While you're at it, Enable USB Debugging as well.</li>
+                    <li data-translate="rom_install_step3">Download OFOX/TWRP, VBmeta.img.</li>
+                    <li data-translate="rom_install_step4">Put device in Download Mode by making sure device is turned off, and: It's connected to the computer through USB, then Hold VOL UP + VOL DOWN to enter Download Mode and Press Vol Up to continue further.</li>
+                    <li data-translate="rom_install_step5">Load OFOX/TWRP TAR file in AP, and under Odin Options, untick Auto Reboot. FLASH THE FILE. DO NOT DISCONNECT THE CABLE. If the device is also asking for the vbmeta, flash it on AP before rebooting.</li>
+                    <li data-translate="rom_install_step6">Force reboot by holding POWER + Vol Down. The moment it reboots to a blank screen, hold Power + Vol Up to boot to Recovery (OFOX/TWRP). If shown the message to press something, press power, and quickly hold Power + Vol Up again, otherwise it wont boot to OFOX/TWRP.</li>
+                    <li data-translate="rom_install_step7">While on OFOX/TWRP, go to Wipe, Advanced and wipe all partitions.</li>
                     <li data-translate="rom_install_step8">Put OFOX/TWRP in Sideload mode (Advance page).</li>
                     <li data-translate="rom_install_step9">Sideload the ROM from the computer: <code>adb sideload C:\Path\to\Rom.zip</code></li>
-                    <li data-translate="rom_install_step10">Before restart go to wipe and format data.</li
-                    <li data-translate="rom_install_step11">Reboot and enjoy!</li
+                    <li data-translate="rom_install_step10">Before restart go to wipe and format data.</li>
+                    <li data-translate="rom_install_step11">Reboot and enjoy!</li>
                 </ol>
             </div>
         </section>
@@ -178,7 +180,7 @@
         <section class="changelog-section">
             <div class="container">
                 <h2 class="section-title" data-translate="changelog_title">Changelog</h2>
-                <a target="_blank" href="changelog.html" class="device-item" data-translate="view_changelog_button">View Full Changelog</a>
+                <a target="_blank" href="changelog.html" class="cta-button-secondary" data-translate="view_changelog_button" style="text-decoration: none;">View Full Changelog</a>
             </div>
         </section>
 
@@ -186,10 +188,58 @@
             <div class="container">
                 <h2 class="section-title" data-translate="devices_title">Supported Devices</h2>
                 <div class="device-list">
-                    <a href="https://drive.google.com/drive/folders/1NQ5Pv118x3nNldK1p_uMi0goxm5xDS3k?usp=sharing" target="_blank" class="device-item">Galaxy S21FE 5G (r9s)</a>
-                    <a href="https://drive.google.com/file/d/1V_JvZBQgF1k8O8hhXiuxSLwS4sB7g2CO/view?usp=sharing" target="_blank" class="device-item">Galaxy S21 5G (o1s)</a>
-                    <a href="https://drive.google.com/drive/folders/113ZtYdWWAV-yDxq0yCpFMPiwhBsr10km?usp=sharing" target="_blank" class="device-item">Galaxy S21+ (t2s)</a>
-                    <a href="https://drive.google.com/file/d/18S93aLxzfr6LUgNMKwjLqMRsJL16qyjq/view?usp=sharing" target="_blank" class="device-item">Galaxy S21 Ultra(p3s)</a>
+                    <div class="device-card">
+                        <p class="device-name">Galaxy S21FE 5G (r9s)</p>
+                        <div class="device-buttons">
+                            <a href="https://drive.google.com/drive/folders/1NQ5Pv118x3nNldK1p_uMi0goxm5xDS3k?usp=sharing" target="_blank" class="download-button drive-button">
+                                <i class="fab fa-google-drive"></i>
+                                <span>Drive</span>
+                            </a>
+                            <a href="URL_PIXELDRAIN_S21FE" target="_blank" class="download-button pixeldrain-button">
+                                <i class="fas fa-cube"></i> 
+                                <span>PixelDrain</span>
+                            </a>
+                        </div>
+                    </div>
+                     <div class="device-card">
+                        <p class="device-name">Galaxy S21 5G (o1s)</p>
+                        <div class="device-buttons">
+                            <a href="https://drive.google.com/file/d/1V_JvZBQgF1k8O8hhXiuxSLwS4sB7g2CO/view?usp=sharing" target="_blank" class="download-button drive-button">
+                                <i class="fab fa-google-drive"></i>
+                                <span>Drive</span>
+                            </a>
+                            <a href="URL_PIXELDRAIN_S21" target="_blank" class="download-button pixeldrain-button">
+                                <i class="fas fa-cube"></i>
+                                <span>PixelDrain</span>
+                            </a>
+                        </div>
+                    </div>
+                     <div class="device-card">
+                        <p class="device-name">Galaxy S21+ (t2s)</p>
+                        <div class="device-buttons">
+                            <a href="https://drive.google.com/drive/folders/113ZtYdWWAV-yDxq0yCpFMPiwhBsr10km?usp=sharing" target="_blank" class="download-button drive-button">
+                                <i class="fab fa-google-drive"></i>
+                                <span>Drive</span>
+                            </a>
+                            <a href="URL_PIXELDRAIN_S21_PLUS" target="_blank" class="download-button pixeldrain-button">
+                                <i class="fas fa-cube"></i>
+                                <span>PixelDrain</span>
+                            </a>
+                        </div>
+                    </div>
+                     <div class="device-card">
+                        <p class="device-name">Galaxy S21 Ultra (p3s)</p>
+                        <div class="device-buttons">
+                            <a href="https://drive.google.com/file/d/18S93aLxzfr6LUgNMKwjLqMRsJL16qyjq/view?usp=sharing" target="_blank" class="download-button drive-button">
+                                <i class="fab fa-google-drive"></i>
+                                <span>Drive</span>
+                            </a>
+                            <a href="URL_PIXELDRAIN_S21_ULTRA" target="_blank" class="download-button pixeldrain-button">
+                                <i class="fas fa-cube"></i>
+                                <span>PixelDrain</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,8 +1,8 @@
 :root {
     --primary-color: #c43a3a;
     --background-color: #ffffff;
-    --card-background: rgba(255, 255, 255, 0.048); /* Fondo de tarjetas semitransparente para efecto blur */
-    --navbar-background: rgba(255, 255, 255, 0.5); /* Fondo de navbar semitransparente */
+    --card-background: rgba(255, 255, 255, 0.048);
+    --navbar-background: rgba(255, 255, 255, 0.5);
     --text-color: #000000;
     --subtle-text-color: #777777;
     --border-color: #EAEAEA;
@@ -459,4 +459,79 @@ html {
     display: inline-block;
     width: 1em;
     margin-left: -1em;
+}
+
+.device-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.device-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.device-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    background-color: rgba(224, 224, 224, 0.5);
+}
+
+.download-button i {
+    font-size: 1.25rem; 
+    width: 24px;
+    text-align: center;
+}
+
+.download-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.drive-button {
+    color: #FFF;
+    background-color: #4285F4;
+}
+
+.drive-button:hover {
+    background-color: #357ae8;
+    border-color: #357ae8;
+}
+
+
+.pixeldrain-button {
+    color: #FFF; 
+    background-color: #30363d; 
+}
+
+.pixeldrain-button:hover {
+    background-color: #23282e;
+    border-color: #23282e;
 }
