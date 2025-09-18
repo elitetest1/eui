@@ -38,7 +38,6 @@ html {
     position: sticky;
     top: 0;
     z-index: 100;
-    width: 100%;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -328,13 +327,20 @@ html {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px 15px;
     cursor: pointer;
-    border-radius: 50%;
-    font-size: 1.5rem;
+    border-radius: 90%;
     z-index: 10;
     user-select: none;
+    width: 39px;
+    height: 37px;
+    padding: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    line-height: 1;
 }
+
 
 .carousel-button.prev, .features-prev, .desktop-prev {
     left: 15px;
