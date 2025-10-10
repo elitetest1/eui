@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>VIP Membership - Elite UI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:red' y='.9em' font-size='90'>E</text></svg>">
+    <style>
+        .payment-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .payment-btn {
+            background-color: var(--primary-color, #d82a4e);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            text-align: center;
+        }
+
+        .payment-btn:hover {
+            background-color: var(--primary-hover-color, #b0223e);
+            transform: translateY(-2px);
+        }
+
+        .important-note {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        #popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #popup-message {
+            background-color: white;
+            color: black;
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div id="popup-container">
+    <div id="popup-message">Copied to clipboard</div>
+</div>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="logo">Elite UI</a>
+    </div>
+</nav>
+
+<main>
+    <section id="vip-info" class="about-section">
+        <div class="container">
+            <h2 class="section-title">VIP Membership Terms & Benefits</h2>
+            <div class="disclaimer-box" style="text-align: left;">
+                <ul>
+                    <li>The VIP subscription grants access to exclusive beta builds and priority support.</li>
+                    <li>Instant access to the latest ROM versions.</li>
+                    <li>Priority support and direct attention.</li>
+                    <li>A voice and vote in the future of the project.</li>
+                    <li>VIP rank in the Elite UI chat.</li>
+                    <li>The duration of the subscription is 3 months (approximately 90 days) from the date of payment confirmation.</li>
+                    <li>This is a voluntary contribution to support the project's development. It is not a purchase of a product, and therefore, refunds are not applicable.</li>
+                    <li>Access will be managed through a private Telegram group. You must provide your Telegram username.</li>
+                    <li>We reserve the right to revoke access for any inappropriate behavior or distribution of files without permission.</li>
+                </ul>
+            </div>
+            
+            <h2 class="section-title" style="margin-top: 4rem;">How to Join</h2>
+            <p class="about-description">To become a VIP member, please make a minimum contribution of <strong>$5 USD</strong> using one of the payment methods below.</p>
+            
+            <div class="payment-buttons">
+                <a href="https://www.paypal.me/TizzianoProvenzano" target="_blank" class="payment-btn">PayPal</a>
+                <a href="https://onetouch.astropay.com/payment?external_reference_id=dCYtjQ33AKqEioevpbDvZVVkL2wnJAMz" target="_blank" class="payment-btn">AstroPay</a>
+                <button id="binance-btn" class="payment-btn">Binance ID</button>
+                <button id="mercadopago-btn" class="payment-btn">MercadoPago (Argentina)</button>
+            </div>
+
+            <p class="important-note">
+                <strong>IMPORTANT:</strong> After payment, you must send the proof of payment to <a href="https://t.me/elitegalaxy" target="_blank">t.me/elitegalaxy</a> to be added to the private VIP group where you will find the ROM.
+            </p>
+
+            <h2 class="section-title" style="margin-top: 4rem;">Active VIP Members</h2>
+            <p class="about-description">The countdown shows the remaining time for each member's subscription.</p>
+            
+            <div id="vip-members-list" class="device-list" style="margin-top: 2rem;">
+                </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>Elite UI VIP Program</p>
+</footer>
+
+<script src="vip.js"></script>
+
+</body>
+</html>

@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rom_install_step11: "Reboot and enjoy!",
             changelog_title: "Changelog",
             view_changelog_button: "View Full Changelog",
+            join_vip_button: "Join to VIP",
         },
         es: {
             features_link: "Características",
@@ -110,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rom_install_step11: "¡Reinicia y a disfrutar!",
             changelog_title: "Lista de Cambios",
             view_changelog_button: "Ver Lista de Cambios Completa",
+            join_vip_button: "Unirse al VIP",
         }
     };
 
