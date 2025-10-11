@@ -69,6 +69,19 @@
             font-weight: 600;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
+
+        .device-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .device-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 <body>
