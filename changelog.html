@@ -8,8 +8,24 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:red' y='.9em' font-size='90'>E</text></svg>">
+    <style>
+        .vip-highlight {
+            color: #ffd700;
+            font-weight: 600;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #ffd700, 0 0 10px #ffc300, 0 0 15px #ffc300;
+            }
+            to {
+                text-shadow: 0 0 10px #ffd700, 0 0 20px #ffc300, 0 0 30px #ff8c00;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -32,6 +48,34 @@
     <section class="changelog-content-section">
         <div class="container">
             <h1 class="section-title">Changelog</h1>
+            <div class="changelog-entry mb-10">
+                <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.2 - <span class="vip-highlight">VIP ONLY</span></h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <li>Fixed SecureFolder.</li>
+                    <li>Fixed Dex.</li>
+                    <li>Added KnoxPatch.</li>
+                    <li>Added BT Library patcher.</li>
+                    <li>Fixed E-sim in s21 (o1s).</li>
+                    <li>Fixed E-sim in s21+ (t2s).</li>
+                    <li>Fixed DualSIM issue in s21fe (r9s).</li>
+                    <li>Fixed camera post-processing in 10x/20x/30x zoom.</li>
+                    <li>Added AppLock.</li>
+                    <li>Added OutDoor mode.</li>
+                    <li>Added Adaptative color tone.</li>
+                    <li>Added ROM Logo in software info.</li>
+                    <li>Fixed Fingerprint issue in S21/S21+ (o1s/t2s).</li>
+                    <li>Proton+ 5.F.</li>
+                    <li>Added Battery Info & Health in settings.</li>
+                    <li>Enhanced multitask experience.</li>
+                    <li>Builded using EROFS with LZ4HC level 12.</li>
+                    <li>Fixed some camera crashes in S21 (o1s)</li>
+                    <li>Added KernelSU Next Manager v1.0.9.</li>
+                    <li>Removed useless esim manager in s21fe (r9s).</li>
+                    <li>Another new features & mods.</li>
+                    <li>Another general fixes.</li>
+                    <li>Another tweaks.</li>
+                </ul>
+            </div>
             <div class="changelog-entry mb-10">
                     <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.1</h3>
                     <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
