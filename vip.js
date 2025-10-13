@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const vipUsers = [
+        { name: "WC", startDate: "2025-10-12" },
+        { name: "Rahul", startDate: "2025-10-12" },
         { name: "Samuele", startDate: "2025-10-11" },
         { name: "Daubfy", startDate: "2025-10-10" },
         { name: "Esteban Parra", startDate: "2025-10-09" },
