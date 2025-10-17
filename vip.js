@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "Andres Nemo", startDate: "2025-10-05" },
         { name: "A (brasil)", startDate: "2025-10-05" },
         { name: "Eilia", startDate: "2025-10-03" },
-        { name: "Erbin Imbachi", startDate: "2025-10-03" },
+        { name: "Erbin Imbachi", startDate: "2026-01-17" },
         { name: "Keyaku", startDate: "2025-10-03" },
         { name: "Ronoa Enzo", startDate: "2025-10-03" },
         { name: "Ben AK", startDate: "2025-10-03" },
