@@ -50,7 +50,29 @@
             <h1 class="section-title">Changelog</h1>
             
             <div class="changelog-entry mb-10">
-                <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.3.1 <span class="vip-highlight">(Only for VIPs)</span></h3>
+                <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.4 <span class="vip-highlight">(Only for VIPs)</span></h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <li>OneUI 8.5 apps</li>
+                    <li>S25 Ultra wallpapers</li>
+                    <li>More optimization</li>
+                    <li>Nuked logging/tracing using a new way</li>
+                    <li>Added MultiControl</li>
+                    <li>Added MyDevice</li>
+                    <li>Added MCFDeviceSync</li>
+                    <li>Added HWResourceShare</li>
+                    <li>Disabled ATrace: Turned off various Android system and app-level tracing features.</li>
+                    <li>Disabled Graphics Tracing: Disabled tracing for EGL, Vulkan, and Skia (the 2D graphics engine).</li>
+                    <li>Disabled Hardware UI (HWUI) Tracing: Turned off tracing for the hardware-accelerated UI renderer, including GPU resource tracking.</li>
+                    <li>Disabled General & Third-Party Logging: Disabled some master log switches and logging from third-party apps.</li>
+                    <li>Disabled HDR Logging: Turned off specific logging for HDR10+ video processing.</li>
+                    <li>Disabled ML Tracing: Disabled tracing for TensorFlow Lite (on-device machine learning).</li>
+                    <li>Disabled Document Scanner Logging: Turned off logging for a specific document scanning service.</li>
+                    <li>Disabled Incremental FS Logging: Disabled logging related to the Incremental File System (used for app loading).</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry mb-10">
+                <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.3.1</h3>
                 <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
                     <li>Nuked Samsung's Low Memory Killer Daemon.</li>
                     <li>Switched to AOSP's Low Memory Killer Daemon.</li>
