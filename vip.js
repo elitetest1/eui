@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const vipUsers = [
         { name: "Erbin Imbachi", startDate: "2026-01-17" },
+        { name: "Lwin Myohtwe", startDate: "2025-11-28" },
+        { name: "iPhone15Prohype", startDate: "2025-11-16" },
+        { name: "Ben", startDate: "2025-11-15" },
+        { name: "Niggasuran", startDate: "2025-11-09" },
         { name: "Maxi", startDate: "2025-10-24" },
         { name: "Farai Mashonganyika", startDate: "2025-10-23" },
         { name: "Mudriy Stalin", startDate: "2025-10-21" },
