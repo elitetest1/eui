@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { name: "Marketing Empresarial", startDate: "2025-11-30" },
     { name: "Lwin Myohtwe", startDate: "2025-11-28" },
     { name: "iPhone15Prohype", startDate: "2025-11-16" },
-    { "name": "Ben", startDate: "2025-11-15" },
+    { name: "Ben", startDate: "2025-11-15" },
     { name: "Niggasuran", startDate: "2025-11-09" },
     { name: "Farai Mashonganyika", startDate: "2025-10-16" },
     { name: "Mudriy Stalin", startDate: "2025-10-21" },
