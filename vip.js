@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const vipUsers = [
+        { name: "Daubfy", startDate: "2026-09-10" },
         { name: "Eilia", startDate: "2026-09-03" },
         { name: "Erbin Imbachi", startDate: "2026-01-17" },
         { name: "fpp003", startDate: "2025-12-31" },
@@ -18,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "iPhone15Prohype", startDate: "2025-11-16" },
         { name: "Ben", startDate: "2025-11-15" },
         { name: "Niggasuran", startDate: "2025-11-09" },
-        { name: "Maxi", startDate: "2025-10-24" },
-        { name: "Farai Mashonganyika", startDate: "2025-10-23" },
+        { name: "Farai Mashonganyika", startDate: "2025-10-16" },
         { name: "Mudriy Stalin", startDate: "2025-10-21" },
         { name: "Ouros", startDate: "2025-10-20" },
         { name: "Luis M", startDate: "2025-10-17" },
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: "WC", startDate: "2025-10-12" },
         { name: "Rahul", startDate: "2025-10-12" },
         { name: "Samuele", startDate: "2025-10-11" },
-        { name: "Daubfy", startDate: "2026-09-10" },
         { name: "Esteban Parra", startDate: "2025-10-09" },
         { name: "Ruan", startDate: "2025-10-09" },
         { name: "TheNitoybon", startDate: "2025-10-08" },
