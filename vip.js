@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const vipUsers = [
+    { name: "fpp003", startDate: "2026-12-31" },
     { name: "Daubfy", startDate: "2026-09-10" },
     { name: "Eilia", startDate: "2026-09-03" },
     { name: "Erbin Imbachi", startDate: "2026-01-17" },
-    { name: "fpp003", startDate: "2025-12-31" },
     { name: "Gabi Stoler", startDate: "2025-12-27" },
     { name: "OrionAltair765", startDate: "2025-12-13" },
     { name: "Edgar Gamlemshaug", startDate: "2025-12-18" },
