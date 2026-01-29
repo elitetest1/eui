@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feature6_desc: "Full Camera2API and RAW support on all lenses.",
             screenshots_title: "Screenshots",
             devices_title: "Supported Devices",
-            credits: "Credits to Tizziano Provenzano 'Elite',SAMSUNG (all) ExtremeROM (commits) Ronoa Enzo🇦🇷 (testing and help) Ravindu🇱🇰 (tools and general help) Orangecat🇹🇭 (random build.prop tweaks shared in octuber 2024) oevrik🇷🇺 (rom design) ExtremeXT🇷🇴 (for commits) Luminance🇻🇳 (rom design) FPSensor🇦🇷 (kernel dev) Flopster🇦🇷 (kernel dev) Pritam🇮🇳 (Camera features) Matteo🇮🇹 (Tips, ideas, and general guides on various things. Thank you so much for all) Pablo🇦🇷 (emotional support) Nico Lopez 🇦🇷 (testing) LZTEAMPROJECT 🇧🇷 (rom design) DevCore🇧🇪 (for help to boot UI8 and RIL fix) ",
+            credits: "Credits to Tizziano Provenzano 'Elite', SAMSUNG (all) ExtremeROM (commits) Ronoa Enzo🇦🇷 (testing and help) Ravindu🇱🇰 (tools and general help) Orangecat🇹🇭 (random build.prop tweaks shared in octuber 2024) oevrik🇷🇺 (rom design) ExtremeXT🇷🇴 (for commits) Luminance🇻🇳 (rom design) FPSensor🇦🇷 (kernel dev) Flopster🇦🇷 (kernel dev) Pritam🇮🇳 (Camera features) Matteo🇮🇹 (Tips, ideas, and general guides on various things. Thank you so much for all) Pablo🇦🇷 (emotional support) Nico Lopez 🇦🇷 (testing) LZTEAMPROJECT 🇧🇷 (rom design) DevCore🇧🇪 (for help to boot UI8 and RIL fix) ",
             translate_button_text: "Español",
             install_steps_title: "Install Steps",
             disclaimer_title: "Disclaimer",
@@ -161,11 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Carousel Setup Function
     function setupCarousel(carouselContainer) {
         const grid = carouselContainer.querySelector('.features-grid, .screenshots-grid, .screenshots-grid-desktop');
         const prevBtn = carouselContainer.querySelector('.prev, .features-prev, .desktop-prev');
         const nextBtn = carouselContainer.querySelector('.next, .features-next, .desktop-next');
-        const items = grid.querySelectorAll('.feature-card, .screenshot-item');
+        const items = grid ? grid.querySelectorAll('.feature-card, .screenshot-item') : [];
         
         if (!grid || !prevBtn || !nextBtn || items.length === 0) {
             return;
@@ -190,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateCarousel() {
             const totalItems = items.length;
             
+            // Logic wrap-around
             if (currentIndex > (totalItems - itemsInView)) {
                 currentIndex = 0; 
             }
