@@ -105,7 +105,7 @@ html {
     box-shadow: 0 4px 12px rgba(196, 58, 58, 0.2);
 }
 
-/* --- Hero Section (Inicio) --- */
+/* --- Hero Section --- */
 .hero {
     text-align: center;
     padding: 6rem 0 4rem 0;
@@ -130,7 +130,7 @@ html {
     margin-right: auto;
 }
 
-/* --- Buttons --- */
+/* --- Global Buttons --- */
 .hero-buttons-container {
     display: flex;
     justify-content: center;
@@ -141,7 +141,6 @@ html {
     flex-wrap: wrap;
 }
 
-/* Botón Principal */
 .cta-button {
     background-color: var(--primary-color);
     color: white;
@@ -165,7 +164,6 @@ html {
     color: white;
 }
 
-/* Botón Secundario */
 .cta-button-secondary {
     background-color: transparent;
     color: var(--primary-color);
@@ -202,12 +200,15 @@ html {
     padding: 4rem 0;
 }
 
-.about-description {
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
+/* Esta clase maneja los textos largos como los CRÉDITOS */
+.about-description, p[data-translate="credits"] {
+    max-width: 800px;       /* Limita el ancho para que no se vea eterno */
+    margin: 0 auto 3rem auto; /* Margen inferior grande para separar */
     text-align: center;
     color: var(--subtle-text-color);
-    font-size: 1.05rem;
+    font-size: 1rem;
+    line-height: 1.8;       /* Altura de línea para que respire */
+    padding: 0 15px;        /* Padding para móviles */
 }
 
 /* --- CAROUSEL Logic --- */
@@ -232,7 +233,6 @@ html {
     align-items: stretch;
 }
 
-/* Botones del carrusel */
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -306,10 +306,10 @@ html {
     border: 1px solid var(--border-color);
 }
 
-/* --- CHANGELOG (CORREGIDO CENTRADO) --- */
+/* --- CHANGELOG --- */
 .changelog-section {
     padding: 4rem 0;
-    text-align: center; /* Centra el botón y el título */
+    text-align: center;
 }
 
 .changelog-entry {
@@ -317,12 +317,9 @@ html {
     border: 1px solid var(--card-border);
     border-radius: var(--radius-md);
     padding: 2rem;
-    
-    /* Centrado de la caja */
     max-width: 800px;
     margin: 0 auto 2.5rem auto; 
-    
-    text-align: left; /* El texto interno se mantiene a la izquierda */
+    text-align: left;
     box-shadow: var(--shadow-elevation);
     backdrop-filter: blur(8px);
 }
@@ -354,6 +351,74 @@ html {
     position: absolute;
     left: 0;
 }
+
+/* --- Device List & Buttons --- */
+.device-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem; /* Espacio extra abajo antes de los créditos */
+}
+
+.device-card {
+    background-color: var(--card-background);
+    border: 1px solid white;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.device-card:hover { transform: translateY(-5px); background-color: rgba(255, 255, 255, 0.9); }
+
+.device-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* Contenedor de botones dentro de la tarjeta */
+.device-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Separación entre botones */
+    width: 100%;
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.4rem; /* Botones más cómodos */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: #e9ecef; /* Fondo gris suave por defecto */
+    color: #333;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.download-button:hover { 
+    transform: translateY(-2px); 
+    background: #dde2e6;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Estilos específicos si quieres recuperar los colores */
+.drive-button:hover { background-color: #e8f0fe; color: #1967d2; }
+.pixeldrain-button:hover { background-color: #e2e6ea; color: #212529; }
 
 /* --- VIP Page --- */
 .special-offer {
@@ -454,27 +519,6 @@ html {
     transform: translateY(-3px);
 }
 
-/* Device List */
-.device-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.device-card {
-    background-color: var(--card-background);
-    border: 1px solid white;
-    padding: 1.5rem;
-    border-radius: var(--radius-lg);
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    backdrop-filter: blur(12px);
-    transition: transform 0.3s;
-}
-
-.device-card:hover { transform: translateY(-5px); background-color: rgba(255, 255, 255, 0.9); }
-
 .vip-badge {
     font-size: 0.7rem;
     background: linear-gradient(135deg, #FFD700 0%, #FDB931 100%);
@@ -494,21 +538,6 @@ html {
     color: var(--primary-color);
 }
 .vip-timer.expired { color: #999; font-family: 'Poppins', sans-serif; font-size: 1.1rem; }
-
-.download-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    background: #e0e0e0;
-    color: #333;
-    margin: 5px;
-    transition: all 0.2s;
-}
-.download-button:hover { transform: translateY(-2px); }
 
 /* Popups */
 #popup-container {
