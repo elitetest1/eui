@@ -11,6 +11,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:red' y='.9em' font-size='90'>E</text></svg>">
     <style>
+        .special-offer {
+            background: linear-gradient(135deg, #fff0f0 0%, #ffffff 100%);
+            border: 2px solid var(--primary-color, #d82a4e);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(216, 42, 78, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-tag {
+            background-color: var(--primary-color, #d82a4e);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .offer-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .offer-price span {
+            font-size: 1.2rem;
+            color: #777;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        .offer-details {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .offer-deadline {
+            color: #d82a4e;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
         .payment-buttons {
             display: flex;
             justify-content: center;
@@ -99,6 +149,16 @@
 <main>
     <section id="vip-info" class="about-section">
         <div class="container">
+            
+            <div class="special-offer">
+                <div class="offer-tag">🔥 Offer Extended</div>
+                <h2 style="margin: 0.5rem 0;">Get 1 Year of VIP</h2>
+                <div class="offer-price">
+                    <span>$20 USD</span> $10 USD
+                </div>
+                <p class="offer-details">That's less than <strong>$1 USD per month!</strong></p>
+                <p class="offer-deadline">⏳ Deadline: February 5th</p>
+            </div>
             <h2 class="section-title">VIP Membership Terms & Benefits</h2>
             <div class="disclaimer-box" style="text-align: left;">
                 <ul>
@@ -107,7 +167,7 @@
                     <li>Priority support and direct attention.</li>
                     <li>A voice and vote in the future of the project.</li>
                     <li>VIP rank in the Elite UI chat.</li>
-                    <li>The duration of the subscription is 3 months (approximately 90 days) from the date of payment confirmation.</li>
+                    <li><strong>Duration:</strong> Standard plan is 3 months ($5). <strong>Promo plan is 1 Year ($10).</strong></li>
                     <li>This is a voluntary contribution to support the project's development. It is not a purchase of a product, and therefore, refunds are not applicable.</li>
                     <li>Access will be managed through a private Telegram group. You must provide your Telegram username.</li>
                     <li>We reserve the right to revoke access for any inappropriate behavior or distribution of files without permission.</li>
@@ -115,7 +175,11 @@
             </div>
             
             <h2 class="section-title" style="margin-top: 4rem;">How to Join</h2>
-            <p class="about-description">To become a VIP member, please make a minimum contribution of <strong>$5 USD</strong> using one of the payment methods below.</p>
+            <p class="about-description">Choose your plan and make the contribution using the buttons below:</p>
+            <p class="about-description" style="margin-top: -10px;">
+                🔹 Standard: <strong>$5 USD</strong> (3 Months)<br>
+                🔥 <strong>PROMO: $10 USD (1 Year)</strong>
+            </p>
             
             <div class="payment-buttons">
                 <a href="https://www.paypal.me/TizzianoProvenzano" target="_blank" class="payment-btn">PayPal</a>
