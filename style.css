@@ -21,6 +21,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
@@ -41,7 +46,6 @@ html {
     position: relative;
 }
 
-/* --- Navigation --- */
 .navbar {
     background-color: var(--navbar-background);
     padding: 1rem 0;
@@ -105,7 +109,6 @@ html {
     box-shadow: 0 4px 12px rgba(196, 58, 58, 0.2);
 }
 
-/* --- Hero Section --- */
 .hero {
     text-align: center;
     padding: 6rem 0 4rem 0;
@@ -130,7 +133,6 @@ html {
     margin-right: auto;
 }
 
-/* --- Global Buttons --- */
 .hero-buttons-container {
     display: flex;
     justify-content: center;
@@ -186,7 +188,6 @@ html {
     box-shadow: 0 4px 15px rgba(196, 58, 58, 0.2);
 }
 
-/* --- Sections --- */
 .section-title {
     text-align: center;
     font-size: 2.2rem;
@@ -200,18 +201,16 @@ html {
     padding: 4rem 0;
 }
 
-/* Esta clase maneja los textos largos como los CRÉDITOS */
 .about-description, p[data-translate="credits"] {
-    max-width: 800px;       /* Limita el ancho para que no se vea eterno */
-    margin: 0 auto 3rem auto; /* Margen inferior grande para separar */
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
     text-align: center;
     color: var(--subtle-text-color);
     font-size: 1rem;
-    line-height: 1.8;       /* Altura de línea para que respire */
-    padding: 0 15px;        /* Padding para móviles */
+    line-height: 1.8;
+    padding: 0 15px;
 }
 
-/* --- CAROUSEL Logic --- */
 .carousel-container,
 .carousel-container-features,
 .carousel-container-desktop {
@@ -264,7 +263,6 @@ html {
 .carousel-button.prev, .features-prev, .desktop-prev { left: 10px; }
 .carousel-button.next, .features-next, .desktop-next { right: 10px; }
 
-/* Feature Card */
 .feature-card {
     flex: 0 0 100%;
     background-color: var(--card-background);
@@ -306,7 +304,6 @@ html {
     border: 1px solid var(--border-color);
 }
 
-/* --- CHANGELOG --- */
 .changelog-section {
     padding: 4rem 0;
     text-align: center;
@@ -352,13 +349,12 @@ html {
     left: 0;
 }
 
-/* --- Device List & Buttons --- */
 .device-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
-    margin-bottom: 3rem; /* Espacio extra abajo antes de los créditos */
+    margin-bottom: 3rem;
 }
 
 .device-card {
@@ -385,12 +381,11 @@ html {
     color: var(--text-color);
 }
 
-/* Contenedor de botones dentro de la tarjeta */
 .device-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* Separación entre botones */
+    gap: 10px;
     width: 100%;
 }
 
@@ -399,12 +394,12 @@ html {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.7rem 1.4rem; /* Botones más cómodos */
+    padding: 0.7rem 1.4rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
-    background: #e9ecef; /* Fondo gris suave por defecto */
+    background: #e9ecef;
     color: #333;
     transition: all 0.2s ease;
     border: 1px solid transparent;
@@ -416,11 +411,9 @@ html {
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* Estilos específicos si quieres recuperar los colores */
 .drive-button:hover { background-color: #e8f0fe; color: #1967d2; }
 .pixeldrain-button:hover { background-color: #e2e6ea; color: #212529; }
 
-/* --- VIP Page --- */
 .special-offer {
     background: linear-gradient(145deg, #ffffff 0%, #fff5f5 100%);
     border: 2px solid var(--primary-color);
@@ -539,7 +532,6 @@ html {
 }
 .vip-timer.expired { color: #999; font-family: 'Poppins', sans-serif; font-size: 1.1rem; }
 
-/* Popups */
 #popup-container {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -558,7 +550,6 @@ html {
     box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 }
 
-/* --- Responsive --- */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -577,7 +568,6 @@ html {
     transition: all 0.3s ease;
 }
 
-/* DESKTOP */
 @media (min-width: 769px) {
     .hamburger { display: none; }
     .nav-menu { display: flex; }
@@ -600,19 +590,27 @@ html {
     .carousel-container-features .carousel-button { display: none; }
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
     .hamburger { display: flex; }
     
     .nav-menu {
-        position: fixed; top: 0; right: -100%;
+        position: fixed; 
+        top: 0; 
+        right: 0;
+        transform: translateX(100%);
         background-color: rgba(255, 255, 255, 0.98);
-        width: 70%; height: 100vh;
-        flex-direction: column; justify-content: center;
-        transition: 0.3s ease;
+        width: 70%; 
+        height: 100vh;
+        flex-direction: column; 
+        justify-content: center;
+        transition: transform 0.3s ease;
         box-shadow: -5px 0 20px rgba(0,0,0,0.05);
     }
-    .nav-menu.active { right: 0; }
+    
+    .nav-menu.active { 
+        transform: translateX(0);
+    }
+    
     .nav-menu a { margin: 1.5rem 0; font-size: 1.2rem; }
     #translate-button { margin: 1.5rem 0; }
     
