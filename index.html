@@ -3,261 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>E</text></svg>">
-    <title>Elite UI - Enhanced OneUI</title>
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Elite UI - The definitive custom firmware experience for Samsung Galaxy, built upon One UI 8.5">
+    <title>Elite UI - Enhanced OneUI 8.5</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:red' y='.9em' font-size='90'>E</text></svg>">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:%23e84050' y='.9em' font-size='90'>E</text></svg>">
 </head>
 <body>
-<nav class="navbar">
+
+<!-- Scroll Progress Bar -->
+<div id="scroll-progress"></div>
+
+<nav class="navbar" id="navbar">
     <div class="container">
         <a href="#" class="logo">Elite UI</a>
         <button class="hamburger" id="hamburger-btn" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
         <div class="nav-menu" id="mobile-menu">
             <a href="#features" data-translate="features_link">Features</a>
             <a href="#screenshots" data-translate="screenshots_link">Screenshots</a>
             <a href="#devices" data-translate="devices_link">Supported Devices</a>
+            <a href="vip.html" class="nav-vip-link">⭐ VIP</a>
             <button id="translate-button">Español</button>
         </div>
     </div>
 </nav>
-    <header class="hero">
-        <div class="container">
-            <h1 class="main-title" data-translate="main_title">Elite UI</h1>
-            <p class="subtitle" data-translate="subtitle">The definitive experience, built upon One UI 8.5</p>
-            
-            <div class="hero-buttons-container">
-                <a href="#devices" class="cta-button" data-translate="download_button">View Devices</a>
-                <a href="vip.html" target="_blank" class="cta-button" data-translate="join_vip_button">Join VIP</a>
-                <a href="https://t.me/eliteui" target="_blank" class="cta-button-secondary" data-translate="telegram_button">Telegram</a>
-                <a href="https://t.me/eliteui/2245" target="_blank" class="cta-button-secondary" data-translate="donations_button">Donations</a>
-            </div>
-        </div>
-    </header>
 
-    <main>
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2 class="section-title" data-translate="about_title">What is Elite UI?</h2>
-                <p class="about-description" data-translate="what_is_custom_rom">A custom ROM based on One UI 8.5 is a modified version of Samsung's official software. It retains the core look and feel of One UI but adds new features, performance enhancements, and customizations that aren't available on the standard firmware. It's a way to get a fresh, optimized, and more powerful experience on your Galaxy device.</p>
-                <p class="about-description" data-translate="what_is_elite_ui">Elite UI is a custom firmware currently in development for Samsung Galaxy devices. It is engineered upon the latest version of Samsung's user experience and incorporates extra features and adjustments to deliver the best out-of-the-box performance and usability.</p>
-            </div>
-        </section>
-
-        <section id="features" class="features-section">
+<header class="hero">
+    <div class="hero-glow"></div>
     <div class="container">
-        <h2 class="section-title" data-translate="features_title">Features</h2>
-        <div class="carousel-container-features">
-            <div class="features-grid">
-
-                <div class="feature-card">
-                    <h3 data-translate="feature1_title">S23 Series Galaxy AI</h3>
-                    <p data-translate="feature1_desc">Integrates all Artificial Intelligence features from the S25 series, ported directly to your device.</p>
-                </div>
-                <div class="feature-card">
-                    <h3 data-translate="feature2_title">Built with Proton+</h3>
-                    <p data-translate="feature2_desc">Upstreamed, undervolted and GPU Overclocked kernel (with stock voltage for GPU).</p>
-                </div>
-                <div class="feature-card">
-                    <h3 data-translate="feature3_title">Audio enhancements for S21FE</h3>
-                    <p data-translate="feature3_desc">Better bass and general speaker management.</p>
-                </div>
-                <div class="feature-card">
-                    <h3 data-translate="feature4_title">Extreme Privacy (No Logging)</h3>
-                    <p data-translate="feature4_desc">Massive disabling of ATrace, graphics tracing, and system logging for maximum smoothness and privacy.</p>
-                </div>
-                 <div class="feature-card">
-                    <h3 data-translate="feature5_title">Pro Camera (Full RAW)</h3>
-                    <p data-translate="feature5_desc">Full Camera2API and RAW support on all lenses for S21FE.</p>
-                </div>
-                 <div class="feature-card">
-                    <h3 data-translate="feature6_title">OneUI 8.5 Base</h3>
-                    <p data-translate="feature6_desc">Enjoy the latest OneUI 8.5 base (S23FE).</p>
-                </div>
-
-                </div>
-            <button class="carousel-button features-prev" id="featuresPrevBtn">&#10094;</button>
-            <button class="carousel-button features-next" id="featuresNextBtn">&#10095;</button>
+        <div class="hero-badge">One UI 8.5 — Now Available</div>
+        <h1 class="main-title" data-translate="main_title">Elite <span>UI</span></h1>
+        <p class="subtitle" id="hero-subtitle"></p>
+        <div class="hero-buttons-container">
+            <a href="#devices" class="cta-button" data-translate="download_button">View Devices</a>
+            <a href="vip.html" class="cta-button vip-btn" data-translate="join_vip_button">⭐ Join VIP</a>
+            <a href="https://t.me/eliteui" target="_blank" class="cta-button-secondary" data-translate="telegram_button">
+                <i class="fab fa-telegram" style="margin-right:6px"></i> Telegram
+            </a>
+            <a href="https://t.me/eliteui/2245" target="_blank" class="cta-button-secondary" data-translate="donations_button">Donations</a>
         </div>
     </div>
-</section>
-        
-        <section id="screenshots" class="screenshots-section">
-           <div class="container">
-               <h2 class="section-title" data-translate="screenshots_title">Screenshots</h2>
-               <div class="carousel-container-desktop">
-                   <div class="screenshots-grid-desktop">
-                       <div class="screenshot-item"><img src="images/screenshot.jpg" alt="Screenshot 1"></div>
-                       <div class="screenshot-item"><img src="images/screenshot2.jpg" alt="Screenshot 2"></div>
-                       <div class="screenshot-item"><img src="images/screenshot3.jpg" alt="Screenshot 3"></div>
-                       <div class="screenshot-item"><img src="images/screenshot4.jpg" alt="Screenshot 4"></div>
-                       <div class="screenshot-item"><img src="images/screenshot5.jpg" alt="Screenshot 5"></div>
-                       <div class="screenshot-item"><img src="images/screenshot6.jpg" alt="Screenshot 6"></div>
-                       <div class="screenshot-item"><img src="images/screenshot7.jpg" alt="Screenshot 7"></div>
-                       <div class="screenshot-item"><img src="images/screenshot8.jpg" alt="Screenshot 8"></div>
-                       <div class="screenshot-item"><img src="images/screenshot9.jpg" alt="Screenshot 9"></div>
-                       <div class="screenshot-item"><img src="images/screenshot10.jpg" alt="Screenshot 10"></div>
-                       <div class="screenshot-item"><img src="images/screenshot11.jpg" alt="Screenshot 11"></div>
-                       <div class="screenshot-item"><img src="images/screenshot12.jpg" alt="Screenshot 12"></div>
-                       <div class="screenshot-item"><img src="images/screenshot13.jpg" alt="Screenshot 13"></div>
-                       <div class="screenshot-item"><img src="images/screenshot14.jpg" alt="Screenshot 14"></div>
-                       <div class="screenshot-item"><img src="images/screenshot15.jpg" alt="Screenshot 15"></div>
-                   </div>
-                   <button class="carousel-button desktop-prev" id="desktopPrevBtn">&#10094;</button>
-                   <button class="carousel-button desktop-next" id="desktopNextBtn">&#10095;</button>
-               </div>
-               <div class="carousel-container">
-                   <div class="screenshots-grid">
-                       <div class="screenshot-item"><img src="images/screenshot.jpg" alt="Screenshot 1"></div>
-                       <div class="screenshot-item"><img src="images/screenshot2.jpg" alt="Screenshot 2"></div>
-                       <div class="screenshot-item"><img src="images/screenshot3.jpg" alt="Screenshot 3"></div>
-                       <div class="screenshot-item"><img src="images/screenshot4.jpg" alt="Screenshot 4"></div>
-                       <div class="screenshot-item"><img src="images/screenshot5.jpg" alt="Screenshot 5"></div>
-                       <div class="screenshot-item"><img src="images/screenshot6.jpg" alt="Screenshot 6"></div>
-                       <div class="screenshot-item"><img src="images/screenshot7.jpg" alt="Screenshot 7"></div>
-                       <div class="screenshot-item"><img src="images/screenshot8.jpg" alt="Screenshot 8"></div>
-                       <div class="screenshot-item"><img src="images/screenshot9.jpg" alt="Screenshot 9"></div>
-                       <div class="screenshot-item"><img src="images/screenshot10.jpg" alt="Screenshot 10"></div>
-                       <div class="screenshot-item"><img src="images/screenshot11.jpg" alt="Screenshot 11"></div>
-                       <div class="screenshot-item"><img src="images/screenshot12.jpg" alt="Screenshot 12"></div>
-                       <div class="screenshot-item"><img src="images/screenshot13.jpg" alt="Screenshot 13"></div>
-                       <div class="screenshot-item"><img src="images/screenshot14.jpg" alt="Screenshot 14"></div>
-                       <div class="screenshot-item"><img src="images/screenshot15.jpg" alt="Screenshot 15"></div>
-                   </div>
-                   <button class="carousel-button prev" id="prevBtn">&#10094;</button>
-                   <button class="carousel-button next" id="nextBtn">&#10095;</button>
-               </div>
-           </div>
-        </section>
+</header>
 
-        <section id="install-steps" class="install-steps-section">
-            <div class="container">
-                <h2 class="section-title" data-translate="install_steps_title">Install Steps</h2>
+<main>
 
-                <h3 data-translate="disclaimer_title">Disclaimer</h3>
-                <div class="disclaimer-box">
-                    <ul>
-                        <li data-translate="disclaimer_1">Your warranty is now void.</li>
-                        <li data-translate="disclaimer_2">We are not responsible for bricked devices, dead SD cards, thermonuclear war, or you getting fired because the alarm app failed.</li>
-                        <li data-translate="disclaimer_3">Please do some research if you have any concerns about flashing this ROM before flashing it!</li>
-                        <li data-translate="disclaimer_4">YOU are choosing to make these modifications, and if you point the finger at us for messing up your device, we will laugh at you. HARD!</li>
-                    </ul>
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-count="36">0</div>
+                    <div class="stat-label">VIP Members</div>
                 </div>
-
-                <h3 data-translate="bootloader_title">Bootloader unlocking</h3>
-                <ol>
-                    <li data-translate="bootloader_step1">Enable Developer options in settings.</li>
-                    <li data-translate="bootloader_step2">Plug the phone to the PC.</li>
-                    <li data-translate="bootloader_step3">Keep pressing the button of volumen up and volumen down.</li>
-                    <li data-translate="bootloader_step4">Now keep pressed up button to get in Bootloader Unlock Mode.</li>
-                    <li data-translate="bootloader_step5">Press vol + to unlock bootloader.</li>
-                </ol>
-
-                <h3 data-translate="rom_install_title">ROM Install Steps</h3>
-                <ol>
-                    <li data-translate="rom_install_step1">Make sure you're on the latest Stock firmware (Check on SamFW).</li>
-                    <li data-translate="rom_install_step2">Make sure your OEM Bootloader is Unlocked. (Very important that you Unlock it, reboot, connect to the internet for at least a minute). While you're at it, Enable USB Debugging as well.</li>
-                    <li data-translate="rom_install_step3">Download OFOX/TWRP, VBmeta.img.</li>
-                    <li data-translate="rom_install_step4">Put device in Download Mode by making sure device is turned off, and: It's connected to the computer through USB, then Hold VOL UP + VOL DOWN to enter Download Mode and Press Vol Up to continue further.</li>
-                    <li data-translate="rom_install_step5">Load OFOX/TWRP TAR file in AP, and under Odin Options, untick Auto Reboot. FLASH THE FILE. DO NOT DISCONNECT THE CABLE. If the device is also asking for the vbmeta, flash it on AP before rebooting.</li>
-                    <li data-translate="rom_install_step6">Force reboot by holding POWER + Vol Down. The moment it reboots to a blank screen, hold Power + Vol Up to boot to Recovery (OFOX/TWRP). If shown the message to press something, press power, and quickly hold Power + Vol Up again, otherwise it won't boot to OFOX/TWRP.</li>
-                    <li data-translate="rom_install_step7">While on OFOX/TWRP, go to Wipe, Advanced and wipe all partitions.</li>
-                    <li data-translate="rom_install_step8">Put OFOX/TWRP in Sideload mode (Advance page).</li>
-                    <li data-translate="rom_install_step9">Sideload the ROM from the computer: <code>adb sideload C:\Path\to\Rom.zip</code></li>
-                    <li data-translate="rom_install_step10">Before restart go to wipe and format data.</li>
-                    <li data-translate="rom_install_step11">Reboot and enjoy!</li>
-                </ol>
-            </div>
-        </section>
-
-        <section class="changelog-section">
-            <div class="container">
-                <h2 class="section-title" data-translate="changelog_title">Changelog</h2>
-                <a target="_blank" href="changelog.html" class="cta-button-secondary" data-translate="view_changelog_button" style="text-decoration: none;">View Full Changelog</a>
-            </div>
-        </section>
-
-        <section id="devices" class="devices-section">
-            <div class="container">
-                <h2 class="section-title" data-translate="devices_title">Supported Devices</h2>
-                <div class="device-list">
-                    <div class="device-card">
-                        <p class="device-name">Galaxy S21FE 5G (r9s)</p>
-                        <div class="device-buttons">
-                            <a href="https://drive.google.com/file/d/1wbxa2orGMzOSfoQKnq74GQ73rmWVzpgM/view?usp=sharing" target="_blank" class="download-button drive-button">
-                                <i class="fab fa-google-drive"></i>
-                                <span>Drive</span>
-                            </a>
-                        </div>
-                    </div>
-                     <div class="device-card">
-                        <p class="device-name">Galaxy S21 5G (o1s)</p>
-                        <div class="device-buttons">
-                            <a href="https://drive.google.com/file/d/1uu-vFZme-iz4Y1G2kEpM8tL6Mx3xjvfT/view?usp=drive_link" target="_blank" class="download-button drive-button">
-                                <i class="fab fa-google-drive"></i>
-                                <span>Drive</span>
-                            </a>
-                        </div>
-                    </div>
-                     <div class="device-card">
-                        <p class="device-name">Galaxy S21+ (t2s) OneUI 8.0</p>
-                        <div class="device-buttons">
-                            <a href="https://drive.google.com/file/d/1l9_7TFEvfBvDP9m5n53h9EJiqHcFXKzJ/view?usp=sharing" target="_blank" class="download-button drive-button">
-                                <i class="fab fa-google-drive"></i>
-                                <span>Drive</span>
-                            </a>
-                            <a href="https://pixeldrain.com/u/RncEZsR4" target="_blank" class="download-button pixeldrain-button">
-                                <i class="fas fa-cube"></i>
-                                <span>PixelDrain (old version)<</span>
-                            </a>
-                        </div>
-                    </div>
-                     <div class="device-card">
-                        <p class="device-name">Galaxy S21 Ultra (p3s)</p>
-                        <div class="device-buttons">
-                            <a href="Google.com" target="_blank" class="download-button drive-button">
-                                <i class="fab fa-google-drive"></i>
-                                <span>Only for VIPs</span>
-                            </a>
-                            <a href="Google.com" target="_blank" class="download-button pixeldrain-button">
-                                <i class="fas fa-cube"></i>
-                                <span>Only for VIPs</span>
-                            </a>
-                        </div>
-                    </div>
+                <div class="stat-item reveal reveal-delay-1">
+                    <div class="stat-number" data-count="4">0</div>
+                    <div class="stat-label">Supported Devices</div>
+                </div>
+                <div class="stat-item reveal reveal-delay-2">
+                    <div class="stat-number" data-count="8">0</div>
+                    <div class="stat-label">Active Features</div>
+                </div>
+                <div class="stat-item reveal reveal-delay-3">
+                    <div class="stat-number" data-suffix=".5" data-count="8">0</div>
+                    <div class="stat-label">OneUI Base</div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <p data-translate="credits">Credits to Tizziano Provenzano 'elite', SAMSUNG (all)
-ExtremeROM (commits)
-Ronoa Enzo🇦🇷 (testing and help)
-Ravindu🇱🇰 (tools and general help)
-Orangecat🇹🇭 (random build.prop tweaks shared in October 2024)
-oevrik🇷🇺 (ROM design)
-ExtremeXT🇷🇴 (for commits)
-Luminance🇻🇳 (ROM design)
-FPSensor🇦🇷 (kernel dev)
-Flopster🇦🇷 (kernel dev)
-Pritam🇮🇳 (Camera features)
-Matteo🇮🇹 (Tips, ideas, and general guides on various things. Thank you so much for all)
-Pablo🇦🇷 (emotional support)
-Nico Lopez 🇦🇷 (testing)
-LZTEAMPROJECT 🇧🇷 (ROM design) </p>
-    </footer>
+    <!-- About -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title reveal" data-translate="about_title">What is Elite UI?</h2>
+            <div class="section-title-line reveal"></div>
+            <p class="about-description reveal" data-translate="what_is_custom_rom">A custom ROM based on One UI 8.5 is a modified version of Samsung's official software. It retains the core look and feel of One UI but adds new features, performance enhancements, and customizations that aren't available on the standard firmware.</p>
+            <p class="about-description reveal reveal-delay-1" data-translate="what_is_elite_ui">Elite UI is a custom firmware currently in development for Samsung Galaxy devices. It is engineered upon the latest version of Samsung's user experience and incorporates extra features and adjustments to deliver the best out-of-the-box performance and usability.</p>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Features -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title reveal" data-translate="features_title">Features</h2>
+            <div class="section-title-line reveal"></div>
+            <div class="carousel-container-features">
+                <div class="features-grid">
+                    <div class="feature-card reveal">
+                        <span class="feature-icon">🤖</span>
+                        <h3 data-translate="feature1_title">S23 Series Galaxy AI</h3>
+                        <p data-translate="feature1_desc">Integrates all Artificial Intelligence features from the S25 series, ported directly to your device.</p>
+                    </div>
+                    <div class="feature-card reveal reveal-delay-1">
+                        <span class="feature-icon">⚡</span>
+                        <h3 data-translate="feature2_title">Built with Proton+</h3>
+                        <p data-translate="feature2_desc">Upstreamed, undervolted and GPU Overclocked kernel (with stock voltage for GPU).</p>
+                    </div>
+                    <div class="feature-card reveal reveal-delay-2">
+                        <span class="feature-icon">🔊</span>
+                        <h3 data-translate="feature3_title">Audio enhancements for S21FE</h3>
+                        <p data-translate="feature3_desc">Better bass and general speaker management.</p>
+                    </div>
+                    <div class="feature-card reveal reveal-delay-1">
+                        <span class="feature-icon">🔒</span>
+                        <h3 data-translate="feature4_title">Extreme Privacy (No Logging)</h3>
+                        <p data-translate="feature4_desc">Massive disabling of ATrace, graphics tracing, and system logging for maximum smoothness and privacy.</p>
+                    </div>
+                    <div class="feature-card reveal reveal-delay-2">
+                        <span class="feature-icon">📷</span>
+                        <h3 data-translate="feature5_title">Pro Camera (Full RAW)</h3>
+                        <p data-translate="feature5_desc">Full Camera2API and RAW support on all lenses for S21FE.</p>
+                    </div>
+                    <div class="feature-card reveal reveal-delay-3">
+                        <span class="feature-icon">✨</span>
+                        <h3 data-translate="feature6_title">OneUI 8.5 Base</h3>
+                        <p data-translate="feature6_desc">Enjoy the latest OneUI 8.5 base (S23FE).</p>
+                    </div>
+                </div>
+                <button class="carousel-button features-prev" id="featuresPrevBtn">&#10094;</button>
+                <button class="carousel-button features-next" id="featuresNextBtn">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section id="screenshots" class="screenshots-section">
+        <div class="container">
+            <h2 class="section-title reveal" data-translate="screenshots_title">Screenshots</h2>
+            <div class="section-title-line reveal"></div>
+            <div class="carousel-container-desktop">
+                <div class="screenshots-grid-desktop">
+                    <div class="screenshot-item"><img src="images/screenshot.jpg" alt="Screenshot 1" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot2.jpg" alt="Screenshot 2" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot3.jpg" alt="Screenshot 3" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot4.jpg" alt="Screenshot 4" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot5.jpg" alt="Screenshot 5" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot6.jpg" alt="Screenshot 6" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot7.jpg" alt="Screenshot 7" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot8.jpg" alt="Screenshot 8" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot9.jpg" alt="Screenshot 9" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot10.jpg" alt="Screenshot 10" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot11.jpg" alt="Screenshot 11" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot12.jpg" alt="Screenshot 12" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot13.jpg" alt="Screenshot 13" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot14.jpg" alt="Screenshot 14" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot15.jpg" alt="Screenshot 15" loading="lazy"></div>
+                </div>
+                <button class="carousel-button desktop-prev" id="desktopPrevBtn">&#10094;</button>
+                <button class="carousel-button desktop-next" id="desktopNextBtn">&#10095;</button>
+            </div>
+            <div class="carousel-container">
+                <div class="screenshots-grid">
+                    <div class="screenshot-item"><img src="images/screenshot.jpg" alt="Screenshot 1" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot2.jpg" alt="Screenshot 2" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot3.jpg" alt="Screenshot 3" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot4.jpg" alt="Screenshot 4" loading="lazy"></div>
+                    <div class="screenshot-item"><img src="images/screenshot5.jpg" alt="Screenshot 5" loading="lazy"></div>
+                </div>
+                <button class="carousel-button prev">&#10094;</button>
+                <button class="carousel-button next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIP Promo Teaser -->
+    <section class="vip-promo-section">
+        <div class="container">
+            <div class="vip-promo-card reveal">
+                <span class="vip-crown">👑</span>
+                <h2 class="vip-promo-title">
+                    Go <span class="gold">VIP</span> — <span class="red">Elite</span> Access
+                </h2>
+                <p class="vip-promo-desc">
+                    Support the project and unlock exclusive builds, priority support, and the latest updates before anyone else.
+                </p>
+                <div class="vip-benefits-mini">
+                    <span class="vip-benefit-pill">🚀 Beta Builds</span>
+                    <span class="vip-benefit-pill">⚡ Instant Updates</span>
+                    <span class="vip-benefit-pill">💬 Priority Support</span>
+                    <span class="vip-benefit-pill">🗳️ Vote on Features</span>
+                    <span class="vip-benefit-pill">🏆 VIP Rank</span>
+                </div>
+                <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                    <a href="vip.html" class="cta-button vip-btn" style="font-size:1rem; padding:15px 40px;">
+                        ⭐ See VIP Plans — from $5
+                    </a>
+                    <a href="https://t.me/eliteui" target="_blank" class="cta-button-secondary">Join Community</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Install Steps -->
+    <section class="install-steps-section">
+        <div class="container">
+            <h2 class="section-title reveal" data-translate="install_steps_title">Install Steps</h2>
+            <div class="section-title-line reveal"></div>
+
+            <h3 class="reveal" data-translate="disclaimer_title">Disclaimer</h3>
+            <div class="disclaimer-box reveal">
+                <ul>
+                    <li data-translate="disclaimer_1">Your warranty is now void.</li>
+                    <li data-translate="disclaimer_2">We are not responsible for bricked devices, dead SD cards, thermonuclear war, or you getting fired because the alarm app failed.</li>
+                    <li data-translate="disclaimer_3">Please do some research if you have any concerns about flashing this ROM before flashing it!</li>
+                    <li data-translate="disclaimer_4">YOU are choosing to make these modifications, and if you point the finger at us for messing up your device, we will laugh at you. HARD!</li>
+                </ul>
+            </div>
+
+            <h3 class="reveal" data-translate="bootloader_title">Bootloader unlocking</h3>
+            <ol class="reveal">
+                <li data-translate="bootloader_step1">Enable Developer options in settings.</li>
+                <li data-translate="bootloader_step2">Plug the phone to the PC.</li>
+                <li data-translate="bootloader_step3">Keep pressing the button of volumen up and volumen down.</li>
+                <li data-translate="bootloader_step4">Now keep pressed up button to get in Bootloader Unlock Mode.</li>
+                <li data-translate="bootloader_step5">Press vol + to unlock bootloader.</li>
+            </ol>
+
+            <h3 class="reveal" data-translate="rom_install_title">ROM Install Steps</h3>
+            <ol class="reveal">
+                <li data-translate="rom_install_step1">Make sure you're on the latest Stock firmware (Check on SamFW).</li>
+                <li data-translate="rom_install_step2">Make sure your OEM Bootloader is Unlocked.</li>
+                <li data-translate="rom_install_step3">Download OFOX/TWRP, VBmeta.img.</li>
+                <li data-translate="rom_install_step4">Put device in Download Mode.</li>
+                <li data-translate="rom_install_step5">Load OFOX/TWRP TAR file in AP, and under Odin Options, untick Auto Reboot.</li>
+                <li data-translate="rom_install_step6">Force reboot by holding POWER + Vol Down.</li>
+                <li data-translate="rom_install_step7">While on OFOX/TWRP, go to Wipe, Advanced and wipe all partitions.</li>
+                <li data-translate="rom_install_step8">Put OFOX/TWRP in Sideload mode (Advance page).</li>
+                <li data-translate="rom_install_step9">Sideload the ROM: <code>adb sideload C:\Path\to\Rom.zip</code></li>
+                <li data-translate="rom_install_step10">Before restart go to wipe and format data.</li>
+                <li data-translate="rom_install_step11">Reboot and enjoy!</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Changelog -->
+    <section class="changelog-section">
+        <div class="container">
+            <h2 class="section-title reveal" data-translate="changelog_title">Changelog</h2>
+            <div class="section-title-line reveal"></div>
+            <a target="_blank" href="changelog.html" class="cta-button-secondary reveal" data-translate="view_changelog_button" style="text-decoration:none; display:inline-flex;">
+                View Full Changelog →
+            </a>
+        </div>
+    </section>
+
+    <!-- Devices -->
+    <section id="devices" class="devices-section">
+        <div class="container">
+            <h2 class="section-title reveal" data-translate="devices_title">Supported Devices</h2>
+            <div class="section-title-line reveal"></div>
+            <div class="device-list">
+                <div class="device-card reveal">
+                    <p class="device-name">Galaxy S21FE 5G (r9s)</p>
+                    <div class="device-buttons">
+                        <a href="https://drive.google.com/file/d/1wbxa2orGMzOSfoQKnq74GQ73rmWVzpgM/view?usp=sharing" target="_blank" class="download-button drive-button">
+                            <i class="fab fa-google-drive"></i> <span>Drive</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="device-card reveal reveal-delay-1">
+                    <p class="device-name">Galaxy S21 5G (o1s)</p>
+                    <div class="device-buttons">
+                        <a href="https://drive.google.com/file/d/1uu-vFZme-iz4Y1G2kEpM8tL6Mx3xjvfT/view?usp=drive_link" target="_blank" class="download-button drive-button">
+                            <i class="fab fa-google-drive"></i> <span>Drive</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="device-card reveal reveal-delay-2">
+                    <p class="device-name">Galaxy S21+ (t2s) OneUI 8.0</p>
+                    <div class="device-buttons">
+                        <a href="https://drive.google.com/file/d/1l9_7TFEvfBvDP9m5n53h9EJiqHcFXKzJ/view?usp=sharing" target="_blank" class="download-button drive-button">
+                            <i class="fab fa-google-drive"></i> <span>Drive</span>
+                        </a>
+                        <a href="https://pixeldrain.com/u/RncEZsR4" target="_blank" class="download-button pixeldrain-button">
+                            <i class="fas fa-cube"></i> <span>PixelDrain (old)</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="device-card vip-only reveal reveal-delay-3">
+                    <p class="device-name">Galaxy S21 Ultra (p3s)</p>
+                    <p style="color: #f5c842; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem;">👑 VIP Exclusive</p>
+                    <div class="device-buttons">
+                        <a href="vip.html" class="download-button" style="border-color: rgba(245,200,66,0.3); color: #f5c842;">
+                            <i class="fas fa-crown"></i> <span>Get VIP Access</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <a href="#" class="footer-logo">Elite UI</a>
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="#devices">Devices</a>
+                <a href="vip.html">VIP</a>
+                <a href="changelog.html">Changelog</a>
+                <a href="https://t.me/eliteui" target="_blank">Telegram</a>
+            </div>
+            <p class="footer-credits" data-translate="credits">Credits to Tizziano Provenzano 'elite', SAMSUNG, ExtremeROM, Ronoa Enzo🇦🇷, Ravindu🇱🇰, Orangecat🇹🇭, oevrik🇷🇺, ExtremeXT🇷🇴, Luminance🇻🇳, FPSensor🇦🇷, Flopster🇦🇷, Pritam🇮🇳, Matteo🇮🇹, Pablo🇦🇷, Nico Lopez🇦🇷, LZTEAMPROJECT🇧🇷</p>
+            <p class="footer-copy">&copy; 2026 Elite UI Project. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

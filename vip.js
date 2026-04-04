@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const vipUsers = [
         { name: "Andrey Nikolaevich", startDate: "2028-01-01", plan: 12 },
         { name: "Javier", startDate: "2026-02-05", plan: 12 },
@@ -39,124 +40,134 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const container = document.getElementById('vip-members-list');
+    if (!container) return;
 
+    // ---- Helpers ----
     const getEndDate = (user) => {
-        const startDate = new Date(user.startDate);
-        const monthsToAdd = user.plan ? user.plan : 3;
-        startDate.setMonth(startDate.getMonth() + monthsToAdd);
-        return startDate;
+        const d = new Date(user.startDate);
+        d.setMonth(d.getMonth() + (user.plan || 3));
+        return d;
     };
 
-    const displayVipMembers = () => {
-        if (!container) return;
-        
-        container.innerHTML = '';
+    const getInitials = (name) => {
+        const clean = name.replace(/\(.*?\)/g, '').trim();
+        const parts = clean.split(/\s+/);
+        if (parts.length === 1) return clean.slice(0, 2).toUpperCase();
+        return (parts[0][0] + parts[1][0]).toUpperCase();
+    };
 
-        vipUsers.forEach((user, index) => {
-            const userCard = document.createElement('div');
-            userCard.className = 'device-card';
+    const formatCountdown = (ms) => {
+        if (ms <= 0) return null;
+        const days    = Math.floor(ms / 86400000);
+        const hours   = Math.floor((ms % 86400000) / 3600000);
+        const minutes = Math.floor((ms % 3600000) / 60000);
+        const seconds = Math.floor((ms % 60000) / 1000);
+        const h = String(hours).padStart(2, '0');
+        const m = String(minutes).padStart(2, '0');
+        const s = String(seconds).padStart(2, '0');
+        return `${days}d ${h}h ${m}m ${s}s`;
+    };
 
-            const userName = document.createElement('p');
-            userName.className = 'device-name';
-            
-            if (user.plan === 12) {
-                userName.innerHTML = `${user.name} <span class="vip-badge">VIP+</span>`;
+    // ---- Render all cards ----
+    const timers = []; // { timerEl, endDate }
+
+    vipUsers.forEach((user, index) => {
+        const endDate   = getEndDate(user);
+        const isVipPlus = user.plan === 12;
+        const isExpired = endDate <= new Date();
+
+        const card = document.createElement('div');
+        card.className = `vip-card${isVipPlus ? ' vip-plus' : ''}${isExpired ? ' is-expired' : ''}`;
+        card.style.animationDelay = `${(index % 6) * 60}ms`;
+
+        // Avatar
+        const avatar = document.createElement('div');
+        avatar.className = 'vip-avatar';
+        avatar.textContent = getInitials(user.name);
+
+        // Info
+        const info = document.createElement('div');
+        info.className = 'vip-card-info';
+
+        // Name row
+        const nameEl = document.createElement('div');
+        nameEl.className = 'vip-card-name';
+        nameEl.textContent = user.name;
+        if (isVipPlus) {
+            const badge = document.createElement('span');
+            badge.className = 'vip-badge';
+            badge.textContent = 'VIP+';
+            nameEl.appendChild(badge);
+        }
+
+        // Timer
+        const timerEl = document.createElement('span');
+        timerEl.className = 'vip-timer';
+        timerEl.id = `timer-${index}`;
+
+        if (isExpired) {
+            timerEl.textContent = 'Expired';
+            timerEl.classList.add('expired');
+        } else {
+            const ms = endDate - new Date();
+            timerEl.textContent = formatCountdown(ms) || 'Expired';
+            timers.push({ timerEl, endDate, index });
+        }
+
+        info.appendChild(nameEl);
+        info.appendChild(timerEl);
+        card.appendChild(avatar);
+        card.appendChild(info);
+        container.appendChild(card);
+    });
+
+    // ---- Live countdown tick ----
+    const tick = () => {
+        const now = new Date();
+        timers.forEach(({ timerEl, endDate }) => {
+            if (timerEl.classList.contains('expired')) return;
+            const ms = endDate - now;
+            if (ms <= 0) {
+                timerEl.textContent = 'Expired';
+                timerEl.classList.add('expired');
+                // mark parent card
+                timerEl.closest('.vip-card')?.classList.add('is-expired');
             } else {
-                userName.textContent = user.name;
+                timerEl.textContent = formatCountdown(ms);
             }
-
-            const timerDisplay = document.createElement('p');
-            timerDisplay.id = `timer-${index}`;
-            timerDisplay.className = 'vip-timer';
-
-            userCard.appendChild(userName);
-            userCard.appendChild(timerDisplay);
-            container.appendChild(userCard);
-
-            startCountdown(user, index);
         });
     };
 
-    const startCountdown = (user, index) => {
-        const endDate = getEndDate(user);
-        const timerElement = document.getElementById(`timer-${index}`);
+    setInterval(tick, 1000);
 
-        const updateTimer = () => {
-            const now = new Date();
-            const timeRemaining = endDate - now;
+    // ---- Payment buttons ----
+    const binanceBtn      = document.getElementById('binance-btn');
+    const mercadopagoBtn  = document.getElementById('mercadopago-btn');
+    const popupContainer  = document.getElementById('popup-container');
+    const popupMessage    = document.getElementById('popup-message');
 
-            if (timeRemaining <= 0) {
-                timerElement.textContent = "Subscription Expired";
-                timerElement.classList.add('expired');
-                clearInterval(interval);
-                return;
-            }
-
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-            const h = hours.toString().padStart(2, '0');
-            const m = minutes.toString().padStart(2, '0');
-            const s = seconds.toString().padStart(2, '0');
-
-            timerElement.textContent = `${days}d ${h}h ${m}m ${s}s`;
-        };
-        
-        const interval = setInterval(updateTimer, 1000);
-        updateTimer();
-    };
-
-    displayVipMembers();
-
-    const binanceBtn = document.getElementById('binance-btn');
-    const mercadopagoBtn = document.getElementById('mercadopago-btn');
-    const popupContainer = document.getElementById('popup-container');
-    const popupMessage = document.getElementById('popup-message');
-
-    const binanceId = '872571792';
-    const mercadopagoCvu = '0000003100092907465723';
+    const binanceId       = '872571792';
+    const mercadopagoCvu  = '0000003100092907465723';
 
     const showPopup = (message) => {
+        if (!popupContainer || !popupMessage) return;
         popupMessage.textContent = message;
         popupContainer.style.display = 'flex';
-        
-        setTimeout(() => {
-            popupContainer.style.display = 'none';
-        }, 2000);
+        setTimeout(() => { popupContainer.style.display = 'none'; }, 2400);
     };
-    
+
     const copyToClipboard = (text, message) => {
-        if (!navigator.clipboard) {
-            alert("Clipboard functionality not available.");
-            return;
-        }
-        navigator.clipboard.writeText(text).then(() => {
-            showPopup(message);
-        }).catch(err => {
-            console.error('Failed to copy text: ', err);
-            alert("Failed to copy text.");
-        });
+        if (!navigator.clipboard) { alert('Clipboard not available.'); return; }
+        navigator.clipboard.writeText(text)
+            .then(() => showPopup(message))
+            .catch(() => alert('Failed to copy.'));
     };
 
-    if (binanceBtn) {
-        binanceBtn.addEventListener('click', () => {
-            copyToClipboard(binanceId, 'Binance ID copied!');
-        });
-    }
-
-    if (mercadopagoBtn) {
-        mercadopagoBtn.addEventListener('click', () => {
-            copyToClipboard(mercadopagoCvu, 'CVU MercadoPago copied!');
-        });
-    }
-
+    if (binanceBtn)     binanceBtn.addEventListener('click', () => copyToClipboard(binanceId, '✓ Binance ID copied!'));
+    if (mercadopagoBtn) mercadopagoBtn.addEventListener('click', () => copyToClipboard(mercadopagoCvu, '✓ CVU MercadoPago copied!'));
     if (popupContainer) {
-        popupContainer.addEventListener('click', (event) => {
-            if (event.target === popupContainer) {
-                popupContainer.style.display = 'none';
-            }
+        popupContainer.addEventListener('click', (e) => {
+            if (e.target === popupContainer) popupContainer.style.display = 'none';
         });
     }
 });

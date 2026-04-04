@@ -3,304 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <title>Changelog - Elite UI</title>
+    <meta name="color-scheme" content="dark">
+    <title>Changelog — Elite UI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:red' y='.9em' font-size='90'>E</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:%23e84050' y='.9em' font-size='90'>E</text></svg>">
     <style>
         .vip-highlight {
-            color: #ffd700;
-            font-weight: 600;
-            animation: glow 1.5s ease-in-out infinite alternate;
+            color: #f5c842;
+            font-weight: 700;
+            animation: vipGlow 2s ease-in-out infinite alternate;
+        }
+        @keyframes vipGlow {
+            from { text-shadow: 0 0 4px rgba(245,200,66,0.3); }
+            to   { text-shadow: 0 0 12px rgba(245,200,66,0.7), 0 0 24px rgba(245,200,66,0.3); }
         }
 
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 5px #fad506, 0 0 10px #030300, 0 0 15px #000000;
-            }
-            to {
-                text-shadow: 0 0 10px #ffd700, 0 0 20px #ffc300, 0 0 30px #ff8c00;
-            }
+        .changelog-version-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
         }
+
+        .changelog-version-tag::before {
+            content: '';
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            box-shadow: 0 0 8px var(--primary-glow);
+        }
+
+        .changelog-entry h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .changelog-entry.latest {
+            border-color: rgba(232, 64, 80, 0.35);
+            background: linear-gradient(135deg, rgba(232,64,80,0.06) 0%, var(--card-bg) 60%);
+        }
+
+        .changelog-entry.latest::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        }
+
+        .changelog-entry { position: relative; }
+
+        .changelog-hero {
+            text-align: center;
+            padding: 5rem 0 3rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--primary-color); }
     </style>
 </head>
 <body>
 
-<nav class="navbar">
+<div id="scroll-progress"></div>
+
+<nav class="navbar" id="navbar">
     <div class="container">
         <a href="index.html" class="logo">Elite UI</a>
         <button class="hamburger" id="hamburger-btn" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
         <div class="nav-menu" id="mobile-menu">
             <a href="index.html#features" data-translate="features_link">Features</a>
-            <a href="index.html#devices" data-translate="devices_link">Supported Devices</a>
+            <a href="index.html#devices" data-translate="devices_link">Devices</a>
+            <a href="vip.html" class="nav-vip-link">⭐ VIP</a>
             <button id="translate-button">Español</button>
         </div>
     </div>
 </nav>
+
 <main>
+    <div class="changelog-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1 class="section-title" style="font-size: clamp(2rem, 5vw, 3rem);">Changelog</h1>
+            <div class="section-title-line"></div>
+            <p class="about-description">Full release history for Elite UI — every build, every fix.</p>
+        </div>
+    </div>
+
     <section class="changelog-content-section">
         <div class="container">
-            <h1 class="section-title">Changelog</h1>
-            
-            <div class="changelog-entry mb-10">
-                <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.5</h3>
-                <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
+
+            <div class="changelog-entry latest reveal">
+                <div class="changelog-version-tag">Latest Release</div>
+                <h3>Elite UI v8.5</h3>
+                <ul>
                     <li>Initial release of OneUI 8.5 based on Android 16 QPR2.</li>
                     <li><span class="vip-highlight">VIP Version:</span> Includes constant updates and bug fixes.</li>
                     <li><strong>Free Version:</strong> A courtesy release that does not receive patches or bug fixes.</li>
                 </ul>
             </div>
 
-            <div class="changelog-entry mb-10">
-                <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.4 </h3>
-                <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
+            <div class="changelog-entry reveal">
+                <h3>Elite UI v8.4</h3>
+                <ul>
                     <li>OneUI 8.5 apps</li>
                     <li>S25 Ultra wallpapers</li>
                     <li>More optimization</li>
                     <li>Nuked logging/tracing using a new way</li>
-                    <li>Added MultiControl</li>
-                    <li>Added MyDevice</li>
-                    <li>Added MCFDeviceSync</li>
-                    <li>Added HWResourceShare</li>
+                    <li>Added MultiControl, MyDevice, MCFDeviceSync, HWResourceShare</li>
                     <li>Disabled ATrace: Turned off various Android system and app-level tracing features.</li>
-                    <li>Disabled Graphics Tracing: Disabled tracing for EGL, Vulkan, and Skia (the 2D graphics engine).</li>
-                    <li>Disabled Hardware UI (HWUI) Tracing: Turned off tracing for the hardware-accelerated UI renderer, including GPU resource tracking.</li>
-                    <li>Disabled General & Third-Party Logging: Disabled some master log switches and logging from third-party apps.</li>
-                    <li>Disabled HDR Logging: Turned off specific logging for HDR10+ video processing.</li>
-                    <li>Disabled ML Tracing: Disabled tracing for TensorFlow Lite (on-device machine learning).</li>
-                    <li>Disabled Document Scanner Logging: Turned off logging for a specific document scanning service.</li>
-                    <li>Disabled Incremental FS Logging: Disabled logging related to the Incremental File System (used for app loading).</li>
+                    <li>Disabled Graphics Tracing: EGL, Vulkan, and Skia (2D graphics engine).</li>
+                    <li>Disabled Hardware UI (HWUI) Tracing: GPU resource tracking.</li>
+                    <li>Disabled General & Third-Party Logging.</li>
+                    <li>Disabled HDR Logging: Specific logging for HDR10+ video processing.</li>
+                    <li>Disabled ML Tracing: TensorFlow Lite (on-device machine learning).</li>
+                    <li>Disabled Document Scanner Logging.</li>
+                    <li>Disabled Incremental FS Logging.</li>
                 </ul>
             </div>
 
-            <div class="changelog-entry mb-10">
-                <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.3.1</h3>
-                <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
+            <div class="changelog-entry reveal">
+                <h3>Elite UI v8.3.1</h3>
+                <ul>
                     <li>Nuked Samsung's Low Memory Killer Daemon.</li>
                     <li>Switched to AOSP's Low Memory Killer Daemon.</li>
                     <li>Fixed HDR rebooting issues in r9s/o1s/t2s.</li>
                     <li>Adapted LMK values for better RAM management.</li>
-                    <li>Disabled App Freezer.</li>
-                    <li>Enabled erofs_hipri.</li>
+                    <li>Disabled App Freezer. Enabled erofs_hipri.</li>
                     <li>Fixed edge lightning corners.</li>
-                    <li>Fixed audio modes / quality (will need clean flash or just delete data of dolby app and force close).</li>
+                    <li>Fixed audio modes / quality.</li>
                     <li>Finally fixed camera 30x processing.</li>
                     <li>Fixed light mode glitch.</li>
-                    <li>Added nearby devices.</li>
-                    <li>Added wifi guider.</li>
-                    <li>Added contextual search overlay from s25fe.</li>
-                    <li>Added game tools.</li>
-                    <li>Added game optimizing service.</li>
-                    <li>Added battery bypass in game tools.</li>
-                    <li>Re-added smb_server.</li>
-                    <li>default BBR.</li>
-                    <li>Disabled powerdelivery charger hv.</li>
-                    <li>Enabled EROFS_FS_PCPU_KTHREAD.</li>
-                    <li>Crc enabled.</li>
-                    <li>Dtc quiet.</li>
-                    <li>Backport percpu threads</li>
-                    <li>Enabled battery bypass.</li>
-                    <li>Improved benchmark process name visibility and refactored the code.</li>
-                    <li>Increased and enabled the USAP Pool for faster app startup (Zygote).</li>
+                    <li>Added nearby devices, wifi guider, contextual search overlay from s25fe.</li>
+                    <li>Added game tools, game optimizing service, battery bypass in game tools.</li>
+                    <li>Re-added smb_server. Default BBR.</li>
+                    <li>Disabled powerdelivery charger hv. Enabled EROFS_FS_PCPU_KTHREAD. CRC enabled.</li>
+                    <li>Backport percpu threads. Enabled battery bypass.</li>
+                    <li>Increased USAP Pool for faster app startup (Zygote).</li>
                     <li>Enabled "Fast Dormancy" to reduce modem battery consumption.</li>
-                    <li>Reduced Wi-Fi scanning frequency to save power.</li>
-                    <li>Enabled modem deep sleep mode for longer battery life.</li>
+                    <li>Reduced Wi-Fi scanning frequency. Enabled modem deep sleep mode.</li>
                     <li>Improved device power-on time (Quick Power-On).</li>
-                    <li>UI smoothness and rendering tweaks.</li>
-                    <li>Reduced screen composition latency.</li>
+                    <li>UI smoothness, rendering tweaks, reduced screen composition latency.</li>
                 </ul>
             </div>
 
-            <div class="changelog-entry mb-10">
-                <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.2</h3>
-                <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
-                    <li>Fixed SecureFolder.</li>
-                    <li>Fixed Dex.</li>
-                    <li>Added KnoxPatch.</li>
-                    <li>Added BT Library patcher.</li>
-                    <li>Fixed E-sim in s21 (o1s).</li>
-                    <li>Fixed E-sim in s21+ (t2s).</li>
-                    <li>Fixed DualSIM issue in s21fe (r9s).</li>
+            <div class="changelog-entry reveal">
+                <h3>Elite UI v8.2</h3>
+                <ul>
+                    <li>Fixed SecureFolder. Fixed Dex.</li>
+                    <li>Added KnoxPatch, BT Library patcher.</li>
+                    <li>Fixed E-sim in S21 (o1s) and S21+ (t2s).</li>
+                    <li>Fixed DualSIM issue in S21FE (r9s).</li>
                     <li>Fixed camera post-processing in 10x/20x/30x zoom.</li>
-                    <li>Added AppLock.</li>
-                    <li>Added OutDoor mode.</li>
-                    <li>Added Adaptative color tone.</li>
+                    <li>Added AppLock, OutDoor mode, Adaptive color tone.</li>
                     <li>Added ROM Logo in software info.</li>
                     <li>Fixed Fingerprint issue in S21/S21+ (o1s/t2s).</li>
-                    <li>Proton+ 5.F.</li>
-                    <li>Added Battery Info & Health in settings.</li>
-                    <li>Enhanced multitask experience.</li>
-                    <li>Built using EROFS with LZ4HC level 12.</li>
-                    <li>Fixed some camera crashes in S21 (o1s)</li>
+                    <li>Proton+ 5.F. Added Battery Info & Health in settings.</li>
+                    <li>Enhanced multitask experience. Built using EROFS with LZ4HC level 12.</li>
+                    <li>Fixed some camera crashes in S21 (o1s).</li>
                     <li>Added KernelSU Next Manager v1.0.9.</li>
-                    <li>Removed useless esim manager in s21fe (r9s).</li>
-                    <li>Another new features & mods.</li>
-                    <li>Another general fixes.</li>
-                    <li>Another tweaks.</li>
+                    <li>Removed useless esim manager in S21FE (r9s).</li>
+                    <li>Various new features, fixes and tweaks.</li>
                 </ul>
             </div>
-            <div class="changelog-entry mb-10">
-                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.1</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <li>Based on Stable OneUI 8 from S25FE firmware.</li>
-                        <li>Only64 port.</li>
-                        <li>All Galaxy AI from S25 Series.</li>
-                        <li>Proton+ 5.F with Linux 5.4.299.</li>
-                        <li>Used UI8 libs from official firmware of S21FE.</li>
-                        <li>Fixed "DeX".</li>
-                        <li>Fixed MTP.</li>
-                        <li>Fixed USB-C earphones (need tests).</li>
-                        <li>Fixed SELinux State, now is Enforcing by default.</li>
-                        <li>Fixed camera post-processing, nightmode, hdr, portrait, etc.</li>
-                        <li>Fixed Audio Quality.</li>
-                        <li>Fixed VoLTE.</li>
-                        <li>Multi-CSC support.</li>
-                        <li>Removed Aditya.</li>
-                        <li>Improved Memory Management.</li>
-                        <li>Fixed high battery drain (it only happened in leaked builds).</li>
-                        <li>More debloat.</li>
-                        <li>Removed HWResourceShare.</li>
-                        <li>Removed MultiControl.</li>
-                        <li>Removed RubinVersion37.</li>
-                        <li>Removed SamsungExperienceService.</li>
-                        <li>Removed SamsungMultiConnectivity.</li>
-                        <li>Removed StorageShare.</li>
-                        <li>Camera NightMode on S21/21+/21U doesn't work.</li>
-                        <li>Dirty Flash not allowed❌</li>
-                    </ul>
-                </div>
-            <div class="changelog-entry mb-10">
-                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.0.1</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <li>Hotfix update.</li>
-                        <li>Fixed audio quality.</li>
-                        <li>Fixed lockscreen warning after reboot.</li>
-                        <li>Fixed SSRM warning after reboot.</li>
-                        <li>Fixed Camera App updates in Galaxy Store (Uninstall updates if u have some).</li>
-                        <li>Spoofed S24+.</li>
-                        <li>Appropriately changed vndk version.</li>
-                        <li>Changed default wallpapers.</li>
-                        <li>Reduced System lags and battery consumption.</li>
-                        <li>Dirty Flash from v8.0 allowed✅</li>
-                    </ul>
-                </div>
-            <div class="changelog-entry mb-10">
-                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v8.0</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <li>Initial release.</li>
-                        <li>Based on S23FE OneUI 8 firmware.</li>
-                        <li>Spoofed Z Flip 7.</li>
-                        <li>Fixed Smartview.</li>
-                        <li>Implemented BT library patcher.</li>
-                        <li>Fixed DEX.</li>
-                        <li>Full camera2api in all lens.</li>
-                        <li>RAW support in all lens.</li>
-                        <li>Fixed Screensharing.</li>
-                        <li>Fixed MTP.</li>
-                        <li>Fixed camera. (don't update it in galaxy store or it will stop working)</li>
-                        <li>Fixed NightMode.</li>
-                        <li>Fixed Portrait.</li>
-                        <li>Implemented rezetprop.</li>
-                        <li>Optimized all system apps.</li>
-                        <li>Reduced unnecessary logging.</li>
-                        <li>Fixed CSC.</li>
-                        <li>Added NowBrief.</li>
-                        <li>Fixed bloatware.</li>
-                        <li>Full fixed audio quality.</li>
-                        <li>Fixed Samsung Cloud.</li>
-                        <li>Fixed RIL.</li>
-                        <li>Fixed VoLTE</li>
-                        <li>Fixed NFC.</li>
-                        <li>Default fingerprint animation.</li>
-                        <li>No mods included in framework because they don't work in OneUI 8 and also ApkTool 2.12.0 doesn't work fine in Android 16.</li>
-                    </ul>
-                </div>
 
-                <div class="changelog-entry mb-10">
-                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">Elite UI v7.1</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <li>Based on latest s23fe firmware.</li>
-                        <li>Removed useless libs.</li>
-                        <li>Fixed CSC.</li>
-                        <li>Spoofed Galaxy S24+.</li>
-                        <li>Optimized ram values again.</li>
-                        <li>Ported s23fe slmk values.</li>
-                        <li>Full camera2api support for ALL lens.</li>
-                        <li>RAW support in all camera lens.</li>
-                        <li>Fixed telephoto lens in Pro mode.</li>
-                        <li>All cameras enabled in gcam.</li>
-                        <li>Better support for all gcams.</li>
-                        <li>De-knoxed.</li>
-                        <li>Added (& fixed) SecureFolder.</li>
-                        <li>AI Search in settings.</li>
-                        <li>Rezetprop.</li>
-                        <li>Build.prop adjustments for deknox.</li>
-                        <li>Enhanced general system smoothness.</li>
-                        <li>Few optimizations.</li>
-                        <li>Allow app downgrade.</li>
-                        <li>Bypass app target sdk.</li>
-                        <li>Set auto confirm PIN min digits to 4.</li>
-                        <li>Allow Zipped Overlay APKs.</li>
-                        <li>Fixed camera postprocessing.</li>
-                        <li>Added all stock camera libs.</li>
-                        <li>Removed OAT.</li>
-                        <li>Initial build.prop tweaks.</li>
-                        <li>Added camera feature from Elite UI.</li>
-                        <li>Added/Replaced all audio libs with stock ones.</li>
-                        <li>Added adaptative refresh rate.</li>
-                        <li>Fixed Samsung Cloud.</li>
-                        <li>Added KnoxPatch.</li>
-                        <li>Added secure screenshot mod.</li>
-                        <li>Z Fold 7 now brief.</li>
-                        <li>Added SGAI.</li>
-                        <li>Added Odex optimizations.</li>
-                        <li>SSRM Warning fix.</li>
-                        <li>Dex fix.</li>
-                        <li>Floating Feature adjustments for camera.</li>
-                        <li>Added more AI.</li>
-                        <li>Fixed Cameras ID.</li>
-                        <li>Fixed bootanimation fps.</li>
-                        <li>Optimized ram management values.</li>
-                        <li>Deknoxed.</li>
-                        <li>Fixed Padding.</li>
-                        <li>Fixed NFC.</li>
-                        <li>Fixed camera modes.</li>
-                        <li>Fixed gallery portrait.</li>
-                        <li>OneUI 8 apps.</li>
-                        <li>Full fixed audio quality.</li>
-                        <li>Added extra brightness option.</li>
-                        <li>Added outdoor mode.</li>
-                        <li>VoLTE working.</li>
-                        <li>Fixed wireless Dex.</li>
-                    </ul>
-                </div>
+            <div class="changelog-entry reveal">
+                <h3>Elite UI v8.1</h3>
+                <ul>
+                    <li>Based on Stable OneUI 8 from S25FE firmware. Only64 port.</li>
+                    <li>All Galaxy AI from S25 Series.</li>
+                    <li>Proton+ 5.F with Linux 5.4.299.</li>
+                    <li>Used UI8 libs from official firmware of S21FE.</li>
+                    <li>Fixed DeX, MTP, USB-C earphones, SELinux (now Enforcing by default).</li>
+                    <li>Fixed camera post-processing, nightmode, HDR, portrait.</li>
+                    <li>Fixed Audio Quality, VoLTE. Multi-CSC support.</li>
+                    <li>Improved Memory Management. Fixed high battery drain. More debloat.</li>
+                    <li>Removed HWResourceShare, MultiControl, RubinVersion37, SamsungExperienceService, SamsungMultiConnectivity, StorageShare.</li>
+                    <li>⚠️ Camera NightMode on S21/21+/21U doesn't work.</li>
+                    <li>❌ Dirty Flash not allowed.</li>
+                </ul>
+            </div>
 
-                <div class="changelog-entry">
-                    <h3 class="text-2xl font-semibold mb-4 text-cyan-400">5202 (2025-08-09)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-300 bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <li>First public release for site.</li>
-                        <li>Built in EROFS.</li>
-                        <li>New Fingerprint animation.</li>
-                        <li>Added AppLock.</li>
-                        <li>Initial battery and performance optimizations.</li>
-                    </ul>
-                </div>
+            <div class="changelog-entry reveal">
+                <h3>Elite UI v8.0.1</h3>
+                <ul>
+                    <li>Hotfix update.</li>
+                    <li>Fixed audio quality, lockscreen warning after reboot, SSRM warning after reboot.</li>
+                    <li>Fixed Camera App updates in Galaxy Store.</li>
+                    <li>Spoofed S24+. Appropriately changed vndk version.</li>
+                    <li>Changed default wallpapers. Reduced System lags and battery consumption.</li>
+                    <li>✅ Dirty Flash from v8.0 allowed.</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry reveal">
+                <h3>Elite UI v8.0</h3>
+                <ul>
+                    <li>Initial release. Based on S23FE OneUI 8 firmware. Spoofed Z Flip 7.</li>
+                    <li>Fixed Smartview. Implemented BT library patcher. Fixed DEX.</li>
+                    <li>Full Camera2API & RAW support in all lenses. Fixed Screensharing, MTP.</li>
+                    <li>Fixed Camera, NightMode, Portrait. Implemented rezetprop.</li>
+                    <li>Optimized all system apps. Reduced unnecessary logging. Fixed CSC.</li>
+                    <li>Added NowBrief. Fixed bloatware. Full fixed audio quality.</li>
+                    <li>Fixed Samsung Cloud, RIL, VoLTE, NFC. Default fingerprint animation.</li>
+                    <li>No framework mods (incompatible with OneUI 8 / Android 16).</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry reveal">
+                <h3>Elite UI v7.1</h3>
+                <ul>
+                    <li>Based on latest S23FE firmware. Removed useless libs. Fixed CSC.</li>
+                    <li>Spoofed Galaxy S24+. Optimized RAM values. Ported S23FE slmk values.</li>
+                    <li>Full Camera2API support & RAW on ALL lenses. Fixed telephoto lens in Pro mode.</li>
+                    <li>All cameras enabled in gcam. Better support for all gcams. De-knoxed.</li>
+                    <li>Added (& fixed) SecureFolder. AI Search in settings. Rezetprop.</li>
+                    <li>Enhanced general system smoothness. Allow app downgrade.</li>
+                    <li>Fixed camera post-processing. Added all stock camera libs. Removed OAT.</li>
+                    <li>Added camera feature from Elite UI. Added/Replaced all audio libs with stock ones.</li>
+                    <li>Added adaptive refresh rate. Fixed Samsung Cloud. Added KnoxPatch.</li>
+                    <li>Added secure screenshot mod. Z Fold 7 NowBrief. Added SGAI, Odex optimizations.</li>
+                    <li>SSRM Warning fix. Dex fix. Floating Feature camera adjustments.</li>
+                    <li>Fixed Cameras ID, bootanimation fps, NFC, padding, camera modes, gallery portrait.</li>
+                    <li>OneUI 8 apps. Full fixed audio quality. Extra brightness option. Outdoor mode.</li>
+                    <li>VoLTE working. Fixed wireless Dex.</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry reveal">
+                <h3>5202 — First Public Release (2025-08-09)</h3>
+                <ul>
+                    <li>First public release for site.</li>
+                    <li>Built in EROFS.</li>
+                    <li>New Fingerprint animation.</li>
+                    <li>Added AppLock.</li>
+                    <li>Initial battery and performance optimizations.</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 </main>
 
 <footer class="footer">
-    <p data-translate="credits">Credits to Tizziano Provenzano, @YACINEGTI</p>
+    <div class="container">
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Elite UI</a>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="vip.html">VIP</a>
+                <a href="https://t.me/eliteui" target="_blank">Telegram</a>
+            </div>
+            <p class="footer-credits" data-translate="credits">Credits to Tizziano Provenzano, @YACINEGTI</p>
+            <p class="footer-copy">&copy; 2026 Elite UI Project. All rights reserved.</p>
+        </div>
+    </div>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>

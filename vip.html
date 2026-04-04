@@ -3,111 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light">
-    <title>VIP Membership - Elite UI</title>
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Elite UI VIP Membership — Exclusive builds, priority support and more">
+    <title>VIP Membership — Elite UI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:%23c43a3a' y='.9em' font-size='90'>E</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous"/>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text style='fill:%23e84050' y='.9em' font-size='90'>E</text></svg>">
+    <style>
+        /* VIP-page specific extras */
+        .vip-member-count-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(245, 200, 66, 0.1);
+            border: 1px solid rgba(245, 200, 66, 0.3);
+            color: #f5c842;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .vip-member-count-badge::before {
+            content: '';
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #f5c842;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        .vip-section-separator {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 4rem 0;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s var(--ease);
+        }
+
+        .benefit-card:hover {
+            border-color: rgba(232, 64, 80, 0.3);
+            background: var(--card-bg-hover);
+            transform: translateY(-4px);
+        }
+
+        .benefit-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 8px var(--primary-glow));
+        }
+
+        .benefit-content h4 {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+
+        .benefit-content p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .pricing-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .pricing-cta-btn {
+            display: block;
+            background: linear-gradient(135deg, var(--primary-color), #c43a3a);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s var(--ease);
+        }
+
+        .pricing-cta-btn:hover {
+            box-shadow: 0 4px 20px var(--primary-glow);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .members-filter {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: var(--primary-glow-sm);
+        }
+
+        .filter-btn.gold.active,
+        .filter-btn.gold:hover {
+            border-color: #f5c842;
+            color: #f5c842;
+            background: rgba(245,200,66,0.08);
+        }
+    </style>
 </head>
 <body>
+
+<div id="scroll-progress"></div>
 
 <div id="popup-container">
     <div id="popup-message">Copied to clipboard</div>
 </div>
 
-<nav class="navbar">
+<nav class="navbar" id="navbar">
     <div class="container">
         <a href="index.html" class="logo">Elite UI</a>
-        
         <button class="hamburger" id="hamburger-btn">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
-
         <div class="nav-menu" id="mobile-menu">
-            <a href="index.html">Home</a>
-            <a href="vip.html" style="color: var(--primary-color); font-weight: 600;">VIP</a>
+            <a href="index.html" data-translate="features_link">Home</a>
+            <a href="index.html#devices" data-translate="devices_link">Devices</a>
+            <a href="vip.html" class="nav-vip-link">⭐ VIP</a>
             <button id="translate-button">Español</button>
         </div>
     </div>
 </nav>
 
+<!-- VIP Hero -->
+<header class="vip-hero">
+    <div class="container">
+        <div class="vip-member-count-badge">36 Active Members Worldwide</div>
+        <h1 class="vip-hero-title">Join <span class="gold">VIP</span> Access</h1>
+        <p class="about-description" style="margin-bottom: 2rem;">
+            Support Elite UI development and get exclusive access to the latest builds, priority support, and a voice in the project's future.
+        </p>
+        <a href="#plans" class="cta-button vip-btn" style="font-size:1rem; padding:15px 40px;">
+            ⭐ See Plans from $5
+        </a>
+    </div>
+</header>
+
 <main>
-    <section id="vip-info" class="vip-info-section">
+    <!-- Benefits Grid -->
+    <section class="vip-info-section">
         <div class="container">
-            
-            <h2 class="section-title">VIP Membership Terms & Benefits</h2>
-            
-            <div class="disclaimer-box">
+            <h2 class="section-title reveal">What You Get</h2>
+            <div class="section-title-line reveal"></div>
+
+            <div class="benefit-grid">
+                <div class="benefit-card reveal">
+                    <span class="benefit-icon">🚀</span>
+                    <div class="benefit-content">
+                        <h4>Exclusive Beta Builds</h4>
+                        <p>Access beta builds and cutting-edge features before the public release.</p>
+                    </div>
+                </div>
+                <div class="benefit-card reveal reveal-delay-1">
+                    <span class="benefit-icon">⚡</span>
+                    <div class="benefit-content">
+                        <h4>Instant Updates</h4>
+                        <p>Get the latest ROM versions the moment they drop, with no waiting.</p>
+                    </div>
+                </div>
+                <div class="benefit-card reveal reveal-delay-2">
+                    <span class="benefit-icon">💬</span>
+                    <div class="benefit-content">
+                        <h4>Priority Support</h4>
+                        <p>Direct attention from the developer. Your issues are addressed first.</p>
+                    </div>
+                </div>
+                <div class="benefit-card reveal reveal-delay-3">
+                    <span class="benefit-icon">🗳️</span>
+                    <div class="benefit-content">
+                        <h4>Feature Voting</h4>
+                        <p>A voice and vote in the future direction of Elite UI features.</p>
+                    </div>
+                </div>
+                <div class="benefit-card reveal">
+                    <span class="benefit-icon">🏆</span>
+                    <div class="benefit-content">
+                        <h4>VIP Telegram Rank</h4>
+                        <p>Exclusive VIP rank displayed in the Elite UI Telegram group.</p>
+                    </div>
+                </div>
+                <div class="benefit-card reveal reveal-delay-1">
+                    <span class="benefit-icon">🤝</span>
+                    <div class="benefit-content">
+                        <h4>Support Development</h4>
+                        <p>This is a voluntary contribution that keeps Elite UI alive and growing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="disclaimer-box reveal" style="margin-top:2rem;">
                 <ul>
-                    <li>Access to <strong>exclusive beta builds</strong> and priority support.</li>
-                    <li><strong>Instant access</strong> to the latest ROM versions.</li>
-                    <li>Direct attention and support channel.</li>
-                    <li>A voice and vote in the future of the project.</li>
-                    <li><strong>VIP Rank</strong> in the Elite UI Telegram chat.</li>
                     <li>This is a voluntary contribution to support development. Refunds are not applicable.</li>
                     <li>Access is managed via a private Telegram group. You must provide your username.</li>
                     <li>We reserve the right to revoke access for inappropriate behavior or leaking files.</li>
                 </ul>
             </div>
-            
-            <div style="text-align: center; margin-top: 4rem;">
-                <h2 class="section-title" style="margin-bottom: 1rem;">Choose Your Plan</h2>
-                <p class="about-description">Select your preferred membership tier and elevate your Elite UI experience:</p>
-                
-                <div class="pricing-cards">
-                    <div class="pricing-card">
-                        <h3>1 Month</h3>
-                        <div class="price">$5<span>USD</span></div>
-                        <p>Perfect for trying out the VIP exclusive benefits.</p>
-                    </div>
-                    <div class="pricing-card popular">
-                        <div class="badge">🔥 Best Value</div>
-                        <h3>1 Year</h3>
-                        <div class="price">$10<span>USD</span></div>
-                        <p>The ultimate Elite UI experience at the best price.</p>
-                    </div>
-                    <div class="pricing-card">
-                        <h3>3 Months</h3>
-                        <div class="price">$8<span>USD</span></div>
-                        <p>Great value for medium-term priority access.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <p class="about-description" style="margin-bottom: 1rem; font-weight: 600;">Select your payment method:</p>
-                <div class="payment-buttons">
-                    <a href="https://onetouch.astropay.com/payment?external_reference_id=dCYtjQ33AKqEioevpbDvZVVkL2wnJAMz" target="_blank" class="payment-btn">AstroPay</a>
-                    <button id="binance-btn" class="payment-btn">Binance ID</button>
-                    <button id="mercadopago-btn" class="payment-btn">MercadoPago (Argentina)</button>
-                </div>
-            </div>
-
-            <div class="important-note">
-                <strong>IMPORTANT:</strong> After payment, send the proof of payment along with your selected plan to <a href="https://t.me/elitegalaxy" target="_blank">@elitegalaxy</a> on Telegram to be added to the private VIP group.
-            </div>
-
-            <h2 class="section-title" style="margin-top: 5rem;">Active VIP Members</h2>
-            <p class="about-description">Real-time subscription status for our supporters.</p>
-            
-            <div id="vip-members-list" class="device-list">
-                </div>
         </div>
     </section>
+
+    <div class="vip-section-separator"></div>
+
+    <!-- Plans -->
+    <section id="plans" style="padding: 2rem 0 4rem;">
+        <div class="container">
+            <h2 class="section-title reveal">Choose Your Plan</h2>
+            <div class="section-title-line reveal"></div>
+            <p class="about-description reveal">Select your preferred membership tier and elevate your Elite UI experience.</p>
+
+            <div class="pricing-cards">
+                <div class="pricing-card reveal reveal-delay-1">
+                    <h3>1 Month</h3>
+                    <div class="price">$5<span>USD</span></div>
+                    <p>Perfect for trying out VIP exclusive benefits.</p>
+                </div>
+                <div class="pricing-card popular reveal">
+                    <div class="badge">🔥 Best Value</div>
+                    <h3>1 Year</h3>
+                    <div class="price">$10<span>USD</span></div>
+                    <p>The ultimate Elite UI experience at the best price.</p>
+                </div>
+                <div class="pricing-card reveal reveal-delay-2">
+                    <h3>3 Months</h3>
+                    <div class="price">$8<span>USD</span></div>
+                    <p>Great value for medium-term priority access.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p class="about-description" style="margin-bottom: 1.5rem; font-weight: 600; color: var(--text);">
+                    Choose your payment method:
+                </p>
+                <div class="payment-buttons reveal">
+                    <a href="https://onetouch.astropay.com/payment?external_reference_id=dCYtjQ33AKqEioevpbDvZVVkL2wnJAMz" target="_blank" class="payment-btn">
+                        <i class="fas fa-credit-card"></i> AstroPay
+                    </a>
+                    <button id="binance-btn" class="payment-btn">
+                        <i class="fas fa-coins"></i> Binance ID
+                    </button>
+                    <button id="mercadopago-btn" class="payment-btn">
+                        <i class="fas fa-wallet"></i> MercadoPago 🇦🇷
+                    </button>
+                </div>
+            </div>
+
+            <div class="important-note reveal" style="margin-top: 2.5rem;">
+                <strong>IMPORTANT:</strong> After payment, send proof of payment + your selected plan to 
+                <a href="https://t.me/elitegalaxy" target="_blank">@elitegalaxy</a> on Telegram to be added to the private VIP group.
+            </div>
+        </div>
+    </section>
+
+    <div class="vip-section-separator"></div>
+
+    <!-- Active Members -->
+    <section style="padding: 2rem 0 5rem;">
+        <div class="container">
+            <h2 class="section-title reveal">Active VIP Members</h2>
+            <div class="section-title-line reveal"></div>
+            <p class="about-description reveal">Real-time subscription status for our amazing supporters.</p>
+
+            <div class="members-filter reveal">
+                <button class="filter-btn active" data-filter="all">All Members</button>
+                <button class="filter-btn gold" data-filter="vip-plus">⭐ VIP+ (Annual)</button>
+                <button class="filter-btn" data-filter="active">Active Only</button>
+            </div>
+
+            <div id="vip-members-list" class="vip-members-grid"></div>
+        </div>
+    </section>
+
 </main>
 
 <footer class="footer">
-    <div class="container" style="text-align: center; padding: 2rem 0; color: #888; font-size: 0.9rem;">
-        <p>&copy; 2026 Elite UI Project. All rights reserved.</p>
+    <div class="container">
+        <div class="footer-inner">
+            <a href="index.html" class="footer-logo">Elite UI</a>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="vip.html">VIP</a>
+                <a href="changelog.html">Changelog</a>
+                <a href="https://t.me/eliteui" target="_blank">Telegram</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Elite UI Project. All rights reserved.</p>
+        </div>
     </div>
 </footer>
 
 <script src="script.js"></script>
 <script src="vip.js"></script>
-
 </body>
 </html>
