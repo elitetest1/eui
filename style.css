@@ -799,3 +799,74 @@ html {
         letter-spacing: 0.5px;
     }
 }
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #000000;
+        
+        --card-background: rgba(15, 15, 15, 0.8);
+        --card-border: rgba(196, 58, 58, 0.2); 
+        
+        --navbar-background: rgba(0, 0, 0, 0.85);
+
+        --text-color: #ffffff;
+        --subtle-text-color: #a0a0a0;
+        
+        --border-color: rgba(196, 58, 58, 0.3);
+        --shadow-elevation: 0 8px 30px rgba(196, 58, 58, 0.15);
+    .device-card {
+        border-color: var(--card-border);
+    }
+
+    .device-card:hover {
+        background-color: rgba(25, 25, 25, 0.95);
+        border-color: rgba(196, 58, 58, 0.5);
+    }
+    }
+
+    body {
+        background-image: radial-gradient(circle at 10% 20%, rgba(196, 58, 58, 0.15) 0%, transparent 30%);
+    }
+
+    .nav-menu {
+        background-color: rgba(0, 0, 0, 0.98);
+        border-left: 1px solid rgba(196, 58, 58, 0.3);
+    }
+
+    .download-button {
+        background: #111111;
+        color: #a01313;
+        border: 1px solid rgba(196, 58, 58, 0.4);
+    }
+    
+    .download-button:hover {
+        background: #1a1a1a;
+        box-shadow: 0 4px 15px rgba(196, 58, 58, 0.2);
+    }
+
+    .drive-button:hover { background-color: rgba(25, 103, 210, 0.2); color: #8ab4f8; }
+    .pixeldrain-button:hover { background-color: rgba(255, 255, 255, 0.1); color: #ffffff; }
+
+    .special-offer, .pricing-card.popular {
+        background: linear-gradient(145deg, #111111 0%, #1a0505 100%);
+    }
+
+    .disclaimer-box {
+        background-color: #0a0a0a;
+        border-color: var(--primary-color);
+    }
+
+    .important-note {
+        background-color: #1a0505; 
+    }
+
+    .carousel-button {
+        background-color: rgba(0, 0, 0, 0.85);
+        border-color: rgba(196, 58, 58, 0.5);
+    }
+
+    #popup-message {
+        background-color: #111111;
+        color: #ffffff;
+        border: 1px solid var(--primary-color);
+    }
+}
