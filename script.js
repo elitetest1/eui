@@ -246,32 +246,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(type, 800);
     }
-
-    const counters = document.querySelectorAll('.stat-number[data-count]');
+    
+    const counters = document.querySelectorAll('.stat-number');
+    
     if (counters.length > 0) {
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
-                    const target = parseInt(el.getAttribute('data-count'), 10);
-                    const suffix = el.getAttribute('data-suffix') || '';
-                    const duration = 1200;
-                    const stepTime = 16;
-                    const steps = duration / stepTime;
-                    const increment = target / steps;
-                    let current = 0;
+                    const duration = 2100;
+                    if (el.hasAttribute('data-versions')) {
+                        const versions = el.getAttribute('data-versions').split(',');
+                        let startTime = null;
 
-                    const update = () => {
-                        current = Math.min(current + increment, target);
-                        el.textContent = Math.floor(current) + suffix;
-                        if (current < target) {
-                            requestAnimationFrame(update);
-                        } else {
-                            el.textContent = target + suffix;
-                        }
-                    };
-                    requestAnimationFrame(update);
-                    counterObserver.unobserve(el);
+                        const updateVersions = (timestamp) => {
+                            if (!startTime) startTime = timestamp;
+                            const progress = timestamp - startTime;
+                            const percentage = Math.min(progress / duration, 1);
+           
+                            const index = Math.floor(percentage * (versions.length - 1));
+                            el.textContent = versions[index];
+
+                            if (progress < duration) {
+                                requestAnimationFrame(updateVersions);
+                            } else {
+                                el.textContent = versions[versions.length - 1];
+                            }
+                        };
+                        requestAnimationFrame(updateVersions);
+                        counterObserver.unobserve(el);
+                    }
+                    else if (el.hasAttribute('data-count')) {
+                        const target = parseInt(el.getAttribute('data-count'), 10);
+                        const suffix = el.getAttribute('data-suffix') || '';
+                        const stepTime = 16;
+                        const steps = duration / stepTime;
+                        const increment = target / steps;
+                        let current = 0;
+
+                        const updateNumeric = () => {
+                            current = Math.min(current + increment, target);
+                            el.textContent = Math.floor(current) + suffix;
+                            if (current < target) {
+                                requestAnimationFrame(updateNumeric);
+                            } else {
+                                el.textContent = target + suffix;
+                            }
+                        };
+                        requestAnimationFrame(updateNumeric);
+                        counterObserver.unobserve(el);
+                    }
                 }
             });
         }, { threshold: 0.5 });
