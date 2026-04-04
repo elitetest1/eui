@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             what_is_elite_ui: "Elite UI is a custom firmware currently in development for Samsung Galaxy devices. It is engineered upon the latest version of Samsung's user experience and incorporates extra features and adjustments to deliver the best out-of-the-box performance and usability.",
             features_title: "Features",
             feature1_title: "S23 Series Galaxy AI",
-            feature1_desc: "Integrates all Artificial Intelligence features from the S25 series, ported directly to your device.",
+            feature1_desc: "Integrates all Artificial Intelligence features from the S23 series, ported directly to your device.",
             feature2_title: "Built with Proton+",
             feature2_desc: "Upstreamed, undervolted and GPU Overclocked kernel (with stock voltage for GPU).",
             feature3_title: "Audio enhancements for S21FE",
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             what_is_elite_ui: "Elite UI es un firmware personalizado en desarrollo para dispositivos Samsung Galaxy. Está diseñado sobre la última versión de la experiencia de usuario de Samsung e incorpora funciones adicionales para el mejor rendimiento.",
             features_title: "Características",
             feature1_title: "Galaxy AI de la Serie S23",
-            feature1_desc: "Integra todas las funciones de IA de la serie S25, porteadas directamente a tu dispositivo.",
+            feature1_desc: "Integra todas las funciones de IA de la serie S23, porteadas directamente a tu dispositivo.",
             feature2_title: "Construido con Proton+",
             feature2_desc: "Kernel actualizado, con undervolt y GPU overclockeada.",
             feature3_title: "Mejoras de audio para el S21FE",
@@ -165,23 +165,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // =============================================
-    //  SCROLL PROGRESS BAR
-    // =============================================
     const progressBar = document.getElementById('scroll-progress');
     if (progressBar) {
+        let isTicking = false;
+        
         const updateProgress = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
             progressBar.style.width = pct + '%';
+            isTicking = false;
         };
-        window.addEventListener('scroll', updateProgress, { passive: true });
+
+        window.addEventListener('scroll', () => {
+            if (!isTicking) {
+                window.requestAnimationFrame(updateProgress);
+                isTicking = true;
+            }
+        }, { passive: true });
     }
 
-    // =============================================
-    //  NAVBAR SCROLL SHRINK
-    // =============================================
     const navbar = document.getElementById('navbar');
     if (navbar) {
         window.addEventListener('scroll', () => {
@@ -189,9 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    // =============================================
-    //  SCROLL REVEAL (IntersectionObserver)
-    // =============================================
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -203,9 +203,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // =============================================
-    //  TYPED TEXT EFFECT (hero subtitle)
-    // =============================================
     const subtitleEl = document.getElementById('hero-subtitle');
     if (subtitleEl) {
         const phrases = [
@@ -219,7 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let deleting = false;
         let pauseTimeout = null;
 
-        // Add cursor
         subtitleEl.innerHTML = '<span class="typed-cursor"></span>';
 
         const type = () => {
@@ -251,9 +247,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, 800);
     }
 
-    // =============================================
-    //  ANIMATED COUNTERS (stats bar)
-    // =============================================
     const counters = document.querySelectorAll('.stat-number[data-count]');
     if (counters.length > 0) {
         const counterObserver = new IntersectionObserver((entries) => {
@@ -286,9 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
         counters.forEach(c => counterObserver.observe(c));
     }
 
-    // =============================================
-    //  CAROUSELS (unchanged from original)
-    // =============================================
     function setupCarousel(carouselContainer) {
         const grid = carouselContainer.querySelector('.features-grid, .screenshots-grid, .screenshots-grid-desktop');
         const prevBtn = carouselContainer.querySelector('.prev, .features-prev, .desktop-prev');
@@ -333,9 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (c) setupCarousel(c);
     });
 
-    // =============================================
-    //  VIP MEMBER FILTER BUTTONS
-    // =============================================
     const filterBtns = document.querySelectorAll('.filter-btn');
     if (filterBtns.length > 0) {
         filterBtns.forEach(btn => {

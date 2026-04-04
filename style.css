@@ -619,6 +619,16 @@ html {
     .device-list { grid-template-columns: 1fr; }
     .special-offer { padding: 1.5rem; }
     .offer-price { font-size: 2.5rem; }
+
+    .feature-card {
+        padding: 2rem 3.5rem; 
+    }
+    
+    .carousel-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
 }
 
 .pricing-cards {
@@ -718,9 +728,6 @@ html {
         transform: translateY(-8px);
     }
 }
-/* =============================================
-   STATS BAR (Barra de Estadísticas)
-   ============================================= */
 .stats-bar {
     padding: 3rem 0;
     margin-bottom: 2rem;
@@ -813,14 +820,6 @@ html {
         
         --border-color: rgba(196, 58, 58, 0.3);
         --shadow-elevation: 0 8px 30px rgba(196, 58, 58, 0.15);
-    .device-card {
-        border-color: var(--card-border);
-    }
-
-    .device-card:hover {
-        background-color: rgba(25, 25, 25, 0.95);
-        border-color: rgba(196, 58, 58, 0.5);
-    }
     }
 
     body {
@@ -869,4 +868,66 @@ html {
         color: #ffffff;
         border: 1px solid var(--primary-color);
     }
+
+    .device-card {
+        border-color: var(--card-border);
+    }
+
+    .device-card:hover {
+        background-color: rgba(25, 25, 25, 0.95);
+        border-color: rgba(196, 58, 58, 0.5);
+    }
+}
+.vip-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.vip-card {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(196, 58, 58, 0.15);
+    border-color: rgba(196, 58, 58, 0.3);
+}
+
+.vip-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), #ff6b6b);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(196, 58, 58, 0.3);
+}
+
+.vip-card-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.vip-card-name {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
