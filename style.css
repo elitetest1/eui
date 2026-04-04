@@ -655,11 +655,11 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    cursor: default; /* Añadido para que no se perciba como botón */
 }
 
 .pricing-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(196, 58, 58, 0.15);
+    box-shadow: 0 15px 35px rgba(196, 58, 58, 0.15); /* Eliminado el translateY */
 }
 
 .pricing-card h3 {
@@ -699,7 +699,7 @@ html {
 }
 
 .pricing-card.popular:hover {
-    transform: scale(1.05) translateY(-8px);
+    transform: scale(1.05); /* Mantenemos el scale pero sin translateY */
 }
 
 .pricing-card .badge {
@@ -725,9 +725,10 @@ html {
         order: -1;
     }
     .pricing-card.popular:hover {
-        transform: translateY(-8px);
+        transform: scale(1); /* Mantenemos sin translateY en móviles */
     }
 }
+
 .stats-bar {
     padding: 3rem 0;
     margin-bottom: 2rem;
