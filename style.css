@@ -629,6 +629,11 @@ html {
         height: 35px;
         font-size: 1rem;
     }
+
+    .subtitle {
+        min-height: 6rem;
+        font-size: 1.1rem;
+    }
 }
 
 .pricing-cards {
@@ -655,11 +660,11 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    cursor: default; /* Añadido para que no se perciba como botón */
+    cursor: default;
 }
 
 .pricing-card:hover {
-    box-shadow: 0 15px 35px rgba(196, 58, 58, 0.15); /* Eliminado el translateY */
+    box-shadow: 0 15px 35px rgba(196, 58, 58, 0.15);
 }
 
 .pricing-card h3 {
@@ -699,7 +704,7 @@ html {
 }
 
 .pricing-card.popular:hover {
-    transform: scale(1.05); /* Mantenemos el scale pero sin translateY */
+    transform: scale(1.05);
 }
 
 .pricing-card .badge {
@@ -725,7 +730,7 @@ html {
         order: -1;
     }
     .pricing-card.popular:hover {
-        transform: scale(1); /* Mantenemos sin translateY en móviles */
+        transform: scale(1);
     }
 }
 
