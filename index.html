@@ -15,7 +15,6 @@
 </head>
 <body>
 
-<!-- Scroll Progress Bar -->
 <div id="scroll-progress"></div>
 
 <nav class="navbar" id="navbar">
@@ -29,16 +28,21 @@
             <a href="#screenshots"  data-translate="screenshots_link">Screenshots</a>
             <a href="#devices"      data-translate="devices_link">Supported Devices</a>
             <a href="vip.html" class="nav-vip-link">⭐ VIP</a>
-            <button id="translate-button">Español</button>
+            
+            <select id="language-select" class="lang-select" aria-label="Select language">
+                <option value="en">🌐 English</option>
+                <option value="es">🌐 Español</option>
+                <option value="hi">🌐 हिन्दी</option>
+                <option value="pt">🌐 Português</option>
+            </select>
         </div>
     </div>
 </nav>
 
 <header class="hero">
-    <!-- [NEW] Ambient glow blob behind the hero title -->
     <div class="hero-glow"></div>
     <div class="container">
-        <div class="hero-badge">One UI 8.5 — Now Available</div>
+        <div class="hero-badge" data-translate="hero_badge">One UI 8.5 — Now Available</div>
         <h1 class="main-title" data-translate="main_title">Elite <span>UI</span></h1>
         <p class="subtitle" id="hero-subtitle"></p>
         <div class="hero-buttons-container">
@@ -54,41 +58,38 @@
 
 <main>
 
-    <!-- Stats Bar -->
     <section class="stats-bar">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item reveal">
                     <div class="stat-number" data-count="36">0</div>
-                    <div class="stat-label">VIP Members</div>
+                    <div class="stat-label" data-translate="stat_vip">VIP Members</div>
                 </div>
                 <div class="stat-item reveal reveal-delay-1">
                     <div class="stat-number" data-count="4">0</div>
-                    <div class="stat-label">Supported Devices</div>
+                    <div class="stat-label" data-translate="stat_devices">Supported Devices</div>
                 </div>
                 <div class="stat-item reveal reveal-delay-2">
                     <div class="stat-number" data-count="8">0</div>
-                    <div class="stat-label">Active Features</div>
+                    <div class="stat-label" data-translate="stat_features">Active Features</div>
                 </div>
                 <div class="stat-item reveal reveal-delay-3">
                     <div class="stat-number" data-versions="1.0,1.1,1.5,2.0,2.1,2.5,3.0,3.1,4.0,4.1,5.0,5.1,5.1.1,6.0,6.1,6.1.1,7.0,8.0,8.5">0</div>
-                    <div class="stat-label">OneUI Base</div>
+                    <div class="stat-label" data-translate="stat_base">OneUI Base</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About -->
     <section id="about" class="about-section">
         <div class="container">
             <h2 class="section-title reveal" data-translate="about_title">What is Elite UI?</h2>
             <div class="section-title-line reveal"></div>
-            <p class="about-description reveal"     data-translate="what_is_custom_rom">A custom ROM based on One UI 8.5 is a modified version of Samsung's official software. It retains the core look and feel of One UI but adds new features, performance enhancements, and customizations that aren't available on the standard firmware.</p>
+            <p class="about-description reveal" data-translate="what_is_custom_rom">A custom ROM based on One UI 8.5 is a modified version of Samsung's official software. It retains the core look and feel of One UI but adds new features, performance enhancements, and customizations that aren't available on the standard firmware.</p>
             <p class="about-description reveal reveal-delay-1" data-translate="what_is_elite_ui">Elite UI is a custom firmware currently in development for Samsung Galaxy devices. It is engineered upon the latest version of Samsung's user experience and incorporates extra features and adjustments to deliver the best out-of-the-box performance and usability.</p>
         </div>
     </section>
 
-    <!-- Features -->
     <section id="features" class="features-section">
         <div class="container">
             <h2 class="section-title reveal" data-translate="features_title">Features</h2>
@@ -98,32 +99,32 @@
                     <div class="feature-card reveal">
                         <span class="feature-icon">🤖</span>
                         <h3 data-translate="feature1_title">S23 Series Galaxy AI</h3>
-                        <p  data-translate="feature1_desc">Integrates all Artificial Intelligence features from the S25 series, ported directly to your device.</p>
+                        <p data-translate="feature1_desc">Integrates all Artificial Intelligence features from the S25 series, ported directly to your device.</p>
                     </div>
                     <div class="feature-card reveal reveal-delay-1">
                         <span class="feature-icon">⚡</span>
                         <h3 data-translate="feature2_title">Built with Proton+</h3>
-                        <p  data-translate="feature2_desc">Upstreamed, undervolted and GPU Overclocked kernel (with stock voltage for GPU).</p>
+                        <p data-translate="feature2_desc">Upstreamed, undervolted and GPU Overclocked kernel (with stock voltage for GPU).</p>
                     </div>
                     <div class="feature-card reveal reveal-delay-2">
                         <span class="feature-icon">🔊</span>
                         <h3 data-translate="feature3_title">Audio enhancements for S21FE</h3>
-                        <p  data-translate="feature3_desc">Better bass and general speaker management.</p>
+                        <p data-translate="feature3_desc">Better bass and general speaker management.</p>
                     </div>
                     <div class="feature-card reveal reveal-delay-1">
                         <span class="feature-icon">🔒</span>
                         <h3 data-translate="feature4_title">Extreme Privacy (No Logging)</h3>
-                        <p  data-translate="feature4_desc">Massive disabling of ATrace, graphics tracing, and system logging for maximum smoothness and privacy.</p>
+                        <p data-translate="feature4_desc">Massive disabling of ATrace, graphics tracing, and system logging for maximum smoothness and privacy.</p>
                     </div>
                     <div class="feature-card reveal reveal-delay-2">
                         <span class="feature-icon">📷</span>
                         <h3 data-translate="feature5_title">Pro Camera (Full RAW)</h3>
-                        <p  data-translate="feature5_desc">Full Camera2API and RAW support on all lenses for S21FE.</p>
+                        <p data-translate="feature5_desc">Full Camera2API and RAW support on all lenses for S21FE.</p>
                     </div>
                     <div class="feature-card reveal reveal-delay-3">
                         <span class="feature-icon">✨</span>
                         <h3 data-translate="feature6_title">OneUI 8.5 Base</h3>
-                        <p  data-translate="feature6_desc">Enjoy the latest OneUI 8.5 base (S23FE).</p>
+                        <p data-translate="feature6_desc">Enjoy the latest OneUI 8.5 base (S23FE).</p>
                     </div>
                 </div>
                 <button class="carousel-button features-prev" id="featuresPrevBtn">&#10094;</button>
@@ -132,12 +133,10 @@
         </div>
     </section>
 
-    <!-- Screenshots -->
     <section id="screenshots" class="screenshots-section">
         <div class="container">
             <h2 class="section-title reveal" data-translate="screenshots_title">Screenshots</h2>
             <div class="section-title-line reveal"></div>
-            <!-- Desktop carousel -->
             <div class="carousel-container-desktop">
                 <div class="screenshots-grid-desktop">
                     <div class="screenshot-item"><img src="images/screenshot1.jpg" alt="Screenshot 1" loading="lazy"></div>
@@ -153,7 +152,6 @@
                 <button class="carousel-button desktop-prev" id="desktopPrevBtn">&#10094;</button>
                 <button class="carousel-button desktop-next" id="desktopNextBtn">&#10095;</button>
             </div>
-            <!-- Mobile carousel -->
             <div class="carousel-container">
                 <div class="screenshots-grid">
                     <div class="screenshot-item"><img src="images/screenshot1.jpg" alt="Screenshot 1" loading="lazy"></div>
@@ -168,35 +166,33 @@
         </div>
     </section>
 
-    <!-- VIP Promo Teaser -->
     <section class="vip-promo-section">
         <div class="container">
             <div class="vip-promo-card reveal">
                 <span class="vip-crown">👑</span>
-                <h2 class="vip-promo-title">
+                <h2 class="vip-promo-title" data-translate="vip_promo_title">
                     Go <span class="gold">VIP</span> — <span class="red">Elite</span> Access
                 </h2>
-                <p class="vip-promo-desc">
+                <p class="vip-promo-desc" data-translate="vip_promo_desc">
                     Support the project and unlock exclusive builds, priority support, and the latest updates before anyone else.
                 </p>
                 <div class="vip-benefits-mini">
-                    <span class="vip-benefit-pill">🚀 Beta Builds</span>
-                    <span class="vip-benefit-pill">⚡ Instant Updates</span>
-                    <span class="vip-benefit-pill">💬 Priority Support</span>
-                    <span class="vip-benefit-pill">🗳️ Vote on Features</span>
-                    <span class="vip-benefit-pill">🏆 VIP Rank</span>
+                    <span class="vip-benefit-pill" data-translate="vip_pill_1">🚀 Beta Builds</span>
+                    <span class="vip-benefit-pill" data-translate="vip_pill_2">⚡ Instant Updates</span>
+                    <span class="vip-benefit-pill" data-translate="vip_pill_3">💬 Priority Support</span>
+                    <span class="vip-benefit-pill" data-translate="vip_pill_4">🗳️ Vote on Features</span>
+                    <span class="vip-benefit-pill" data-translate="vip_pill_5">🏆 VIP Rank</span>
                 </div>
                 <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-                    <a href="vip.html" class="cta-button vip-btn" style="font-size:1rem; padding:15px 40px;">
+                    <a href="vip.html" class="cta-button vip-btn" style="font-size:1rem; padding:15px 40px;" data-translate="vip_plans_btn">
                         See VIP Plans — from $5
                     </a>
-                    <a href="https://t.me/eliteui" target="_blank" class="cta-button-secondary">Join Community</a>
+                    <a href="https://t.me/eliteui" target="_blank" class="cta-button-secondary" data-translate="join_community_btn">Join Community</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Install Steps -->
     <section class="install-steps-section">
         <div class="container">
             <h2 class="section-title reveal" data-translate="install_steps_title">Install Steps</h2>
@@ -238,7 +234,6 @@
         </div>
     </section>
 
-    <!-- Changelog teaser -->
     <section class="changelog-section">
         <div class="container">
             <h2 class="section-title reveal" data-translate="changelog_title">Changelog</h2>
@@ -248,6 +243,7 @@
             </a>
         </div>
     </section>
+    
     <section id="devices" class="devices-section">
         <div class="container">
             <h2 class="section-title reveal" data-translate="devices_title">Supported Devices</h2>
@@ -255,107 +251,69 @@
 
             <div class="device-list">
 
-                <!-- Galaxy S21 FE 5G (r9s) -->
                 <div class="device-card reveal">
-                    <!-- [DEVICE-IMG] Phone image — replace src with your render -->
                     <div class="device-image-wrap">
-                        <img
-                            src="assets/images/devices/r9s.png"
-                            alt="Samsung Galaxy S21 FE 5G"
-                            class="device-img"
-                            loading="lazy"
-                            onerror="this.style.display='none'; this.parentElement.querySelector('.device-img-fallback').style.display='block';"
-                        >
-                        <!-- Fallback icon shown when image is missing -->
+                        <img src="assets/images/devices/r9s.png" alt="Samsung Galaxy S21 FE 5G" class="device-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.device-img-fallback').style.display='block';">
                         <span class="device-img-fallback" style="display:none; font-size:3.5rem; filter:drop-shadow(0 0 16px rgba(232,64,80,0.35));">📱</span>
                     </div>
                     <div class="device-info">
                         <p class="device-name">Galaxy S21 FE 5G</p>
                         <p class="device-codename">r9s</p>
                         <div class="device-buttons">
-                            <a href="https://drive.google.com/file/d/1wbxa2orGMzOSfoQKnq74GQ73rmWVzpgM/view?usp=sharing"
-                               target="_blank" class="download-button drive-button">
+                            <a href="https://drive.google.com/file/d/1wbxa2orGMzOSfoQKnq74GQ73rmWVzpgM/view?usp=sharing" target="_blank" class="download-button drive-button">
                                 <i class="fab fa-google-drive"></i> <span>Drive</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Galaxy S21 5G (o1s) -->
                 <div class="device-card reveal reveal-delay-1">
-                    <!-- [DEVICE-IMG] -->
                     <div class="device-image-wrap">
-                        <img
-                            src="assets/images/devices/o1s.png"
-                            alt="Samsung Galaxy S21 5G"
-                            class="device-img"
-                            loading="lazy"
-                            onerror="this.style.display='none'; this.parentElement.querySelector('.device-img-fallback').style.display='block';"
-                        >
+                        <img src="assets/images/devices/o1s.png" alt="Samsung Galaxy S21 5G" class="device-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.device-img-fallback').style.display='block';">
                         <span class="device-img-fallback" style="display:none; font-size:3.5rem; filter:drop-shadow(0 0 16px rgba(232,64,80,0.35));">📱</span>
                     </div>
                     <div class="device-info">
                         <p class="device-name">Galaxy S21 5G</p>
                         <p class="device-codename">o1s</p>
                         <div class="device-buttons">
-                            <a href="https://drive.google.com/file/d/1uu-vFZme-iz4Y1G2kEpM8tL6Mx3xjvfT/view?usp=drive_link"
-                               target="_blank" class="download-button drive-button">
+                            <a href="https://drive.google.com/file/d/1uu-vFZme-iz4Y1G2kEpM8tL6Mx3xjvfT/view?usp=drive_link" target="_blank" class="download-button drive-button">
                                 <i class="fab fa-google-drive"></i> <span>Drive</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Galaxy S21+ (t2s) -->
                 <div class="device-card reveal reveal-delay-2">
-                    <!-- [DEVICE-IMG] -->
                     <div class="device-image-wrap">
-                        <img
-                            src="assets/images/devices/t2s.png"
-                            alt="Samsung Galaxy S21+ 5G"
-                            class="device-img"
-                            loading="lazy"
-                            onerror="this.style.display='none'; this.parentElement.querySelector('.device-img-fallback').style.display='block';"
-                        >
+                        <img src="assets/images/devices/t2s.png" alt="Samsung Galaxy S21+ 5G" class="device-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.device-img-fallback').style.display='block';">
                         <span class="device-img-fallback" style="display:none; font-size:3.5rem; filter:drop-shadow(0 0 16px rgba(232,64,80,0.35));">📱</span>
                     </div>
                     <div class="device-info">
                         <p class="device-name">Galaxy S21+ <small style="font-weight:400; color:var(--text-muted); font-size:0.78rem;">OneUI 8.0</small></p>
                         <p class="device-codename">t2s</p>
                         <div class="device-buttons">
-                            <a href="https://drive.google.com/file/d/1l9_7TFEvfBvDP9m5n53h9EJiqHcFXKzJ/view?usp=sharing"
-                               target="_blank" class="download-button drive-button">
+                            <a href="https://drive.google.com/file/d/1l9_7TFEvfBvDP9m5n53h9EJiqHcFXKzJ/view?usp=sharing" target="_blank" class="download-button drive-button">
                                 <i class="fab fa-google-drive"></i> <span>Drive</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Galaxy S21 Ultra (p3s) — VIP ONLY -->
                 <div class="device-card vip-only reveal reveal-delay-3">
-                    <!-- [DEVICE-IMG] VIP card uses gold tint (handled by .vip-only in CSS) -->
                     <div class="device-image-wrap">
-                        <img
-                            src="assets/images/devices/p3s.png"
-                            alt="Samsung Galaxy S21 Ultra"
-                            class="device-img"
-                            loading="lazy"
-                            onerror="this.style.display='none'; this.parentElement.querySelector('.device-img-fallback').style.display='block';"
-                        >
+                        <img src="assets/images/devices/p3s.png" alt="Samsung Galaxy S21 Ultra" class="device-img" loading="lazy" onerror="this.style.display='none'; this.parentElement.querySelector('.device-img-fallback').style.display='block';">
                         <span class="device-img-fallback" style="display:none; font-size:3.5rem; filter:drop-shadow(0 0 16px rgba(245,200,66,0.35));">👑</span>
                     </div>
                     <div class="device-info">
                         <p class="device-name">Galaxy S21 Ultra</p>
-                        <p class="device-codename" style="color:#f5c842;">p3s — VIP Exclusive</p>
+                        <p class="device-codename" style="color:#f5c842;" data-translate="vip_exclusive">p3s — VIP Exclusive</p>
                         <div class="device-buttons">
-                            <a href="vip.html" class="download-button"
-                               style="border-color:rgba(245,200,66,0.30); color:#f5c842; background:rgba(245,200,66,0.06);">
-                                <i class="fas fa-crown"></i> <span>Get VIP Access</span>
+                            <a href="vip.html" class="download-button" style="border-color:rgba(245,200,66,0.30); color:#f5c842; background:rgba(245,200,66,0.06);">
+                                <i class="fas fa-crown"></i> <span data-translate="get_vip_access">Get VIP Access</span>
                             </a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -367,11 +325,11 @@
         <div class="footer-inner">
             <a href="#" class="footer-logo">Elite UI</a>
             <div class="footer-links">
-                <a href="#features">Features</a>
-                <a href="#devices">Devices</a>
-                <a href="vip.html">VIP</a>
-                <a href="changelog.html">Changelog</a>
-                <a href="https://t.me/eliteui" target="_blank">Telegram</a>
+                <a href="#features" data-translate="features_link">Features</a>
+                <a href="#devices" data-translate="devices_link">Devices</a>
+                <a href="vip.html" data-translate="vip_link">VIP</a>
+                <a href="changelog.html" data-translate="changelog_title">Changelog</a>
+                <a href="https://t.me/eliteui" target="_blank" data-translate="telegram_button">Telegram</a>
             </div>
             <p class="footer-credits" data-translate="credits">Credits to Tizziano Provenzano 'elite', SAMSUNG, ExtremeROM, Ronoa Enzo🇦🇷, Ravindu🇱🇰, Orangecat🇹🇭, oevrik🇷🇺, ExtremeXT🇷🇴, Luminance🇻🇳, FPSensor🇦🇷, Flopster🇦🇷, Pritam🇮🇳, Matteo🇮🇹, Pablo🇦🇷, Nico Lopez🇦🇷, LZTEAMPROJECT🇧🇷</p>
             <p class="footer-copy">&copy; 2026 Elite UI Project. All rights reserved.</p>

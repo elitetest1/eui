@@ -70,13 +70,22 @@ body {
     overflow-x: hidden;
 }
 
+/* Prevenir repintados masivos (Anti-Lag GPU Acceleration) */
+body::before, 
+body::after, 
+.hero::before, 
+.hero-glow {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    pointer-events: none;
+}
+
 /* Subtle noise texture overlay */
 body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-    pointer-events: none;
     z-index: 0;
     opacity: 0.4;
 }
@@ -89,7 +98,6 @@ body::after {
     border-radius: 50%;
     background: radial-gradient(circle, rgba(232, 64, 80, 0.06) 0%, transparent 70%);
     top: -200px; right: -200px;
-    pointer-events: none;
     z-index: 0;
 }
 
@@ -114,6 +122,14 @@ body::after {
     transition: transform 0.1s linear;
     box-shadow: 0 0 12px var(--primary-glow);
     will-change: transform;
+}
+
+/* Aceleración de Hardware para elementos con Blur */
+.navbar, .stat-item, .feature-card, .device-card, 
+.vip-card, .disclaimer-box, .pricing-card, .changelog-entry {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0); 
 }
 
 /* ---- Navbar ---- */
@@ -201,11 +217,12 @@ body::after {
     font-weight: 700 !important;
 }
 
-#translate-button {
+/* ---- Language Selector ---- */
+.lang-select {
     background: transparent;
     border: 1.5px solid rgba(255,255,255,0.2);
     color: var(--text-muted);
-    padding: 0.4rem 1.2rem;
+    padding: 0.4rem 1rem;
     border-radius: 50px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
@@ -213,12 +230,21 @@ body::after {
     font-weight: 600;
     margin-left: 1.75rem;
     transition: all 0.3s var(--ease);
+    outline: none;
+    appearance: none; /* Estilo más limpio sin flecha fea en algunos navegadores */
+    -webkit-appearance: none;
 }
 
-#translate-button:hover {
+.lang-select:hover, .lang-select:focus {
     border-color: var(--primary-color);
     color: var(--primary-color);
     background: var(--primary-glow-sm);
+}
+
+.lang-select option {
+    background: var(--bg-2);
+    color: var(--text);
+    font-weight: 500;
 }
 
 /* ---- Hamburger ---- */
@@ -276,7 +302,6 @@ body::after {
     transform: translate(-50%, -50%);
     width: 700px; height: 400px;
     background: radial-gradient(ellipse, rgba(232, 64, 80, 0.08) 0%, transparent 70%);
-    pointer-events: none;
     animation: glowPulse 4s ease-in-out infinite alternate;
 }
 
@@ -342,7 +367,6 @@ body::after {
     line-height: 1.6;
     animation: fadeInUp 0.7s var(--ease-out) 0.2s both;
     display: block;
-    /* FIX: Espacio fijo reservado para que no salte al escribirse a 2 líneas */
     min-height: 4rem; 
 }
 
@@ -466,7 +490,7 @@ body::after {
 .stat-item:hover {
     border-color: var(--card-border-hover);
     background: var(--card-bg-hover);
-    transform: translateY(-4px);
+    transform: translate3d(0, -4px, 0); /* Fix de aceleracion */
     box-shadow: var(--shadow-red);
 }
 
@@ -537,7 +561,7 @@ body::after {
 .carousel-container-desktop {
     position: relative !important;
     overflow: hidden;
-    padding: 1.5rem 0;
+    padding: 1.5rem 50px; /* Padding para flechas */
     width: 100%;
 }
 
@@ -580,8 +604,8 @@ body::after {
     color: white;
 }
 
-.carousel-button.prev, .features-prev, .desktop-prev { left: 10px; }
-.carousel-button.next, .features-next, .desktop-next { right: 10px; }
+.carousel-button.prev, .features-prev, .desktop-prev { left: 0; }
+.carousel-button.next, .features-next, .desktop-next { right: 0; }
 
 .feature-card {
     flex: 0 0 calc(100% - 20px);
@@ -614,7 +638,7 @@ body::after {
 
 .feature-card:hover {
     border-color: rgba(232, 64, 80, 0.35);
-    transform: translateY(-6px);
+    transform: translate3d(0, -6px, 0); /* Fix Aceleración */
     box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(232,64,80,0.2);
 }
 
@@ -739,16 +763,15 @@ body::after {
 }
 
 .device-card:hover {
-    transform: translateY(-6px);
+    transform: translate3d(0, -6px, 0); /* Fix aceleración */
     border-color: rgba(232, 64, 80, 0.3);
     box-shadow: 0 20px 50px rgba(0,0,0,0.4), var(--shadow-red);
     background: var(--card-bg-hover);
 }
 
-/* FIX: Contenedor y estilos para imágenes de resolución irregular */
 .device-image-wrap {
     width: 100%;
-    height: 220px; /* Alto fijo para uniformar todas las imágenes */
+    height: 220px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -758,15 +781,14 @@ body::after {
 .device-img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Encaja la imagen sin estirarla */
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4)); /* Sombra para resaltar */
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
     transition: transform 0.3s var(--ease);
 }
 
 .device-card:hover .device-img {
-    transform: scale(1.05) translateY(-4px); /* Efecto al pasar el cursor */
+    transform: scale(1.05) translateY(-4px); 
 }
-/* Fin del FIX de imágenes */
 
 .device-name {
     font-size: 1.05rem;
@@ -1471,12 +1493,13 @@ body::after {
 
     .nav-menu.active { transform: translateX(0); }
     .nav-menu a { margin: 1.2rem 2rem; font-size: 1.15rem; }
-    #translate-button { margin: 1.2rem 2rem; }
     
-    .subtitle {
-        min-height: 5.5rem; 
+    .lang-select { 
+        margin: 1.2rem 2rem; 
+        width: max-content; 
     }
-
+    
+    .subtitle { min-height: 5.5rem; }
     .main-title { font-size: 3rem; letter-spacing: -2px; }
     .device-list { grid-template-columns: 1fr; }
     .special-offer { padding: 2rem 1.5rem; }
@@ -1489,6 +1512,10 @@ body::after {
     .stat-number { font-size: 2.2rem; }
     .hero { padding: 5rem 0 3.5rem; }
     .vip-members-grid { grid-template-columns: 1fr 1fr; }
+    
+    .carousel-container, .carousel-container-features {
+        padding: 1.5rem 40px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1503,61 +1530,4 @@ body::after {
 @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-16px); }
     to { opacity: 1; transform: translateY(0); }
-}
-/* Prevenir repintados masivos en los fondos y texturas */
-body::before, 
-body::after, 
-.hero::before, 
-.hero-glow {
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
-    pointer-events: none;
-}
-
-/* Aceleración por hardware para las tarjetas con Blur para eliminar el lag */
-.navbar,
-.stat-item,
-.feature-card,
-.device-card,
-.vip-card,
-.disclaimer-box,
-.pricing-card,
-.changelog-entry {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translate3d(0, 0, 0); 
-}
-
-/* Debemos ajustar los :hover para respetar el translate3d */
-.stat-item:hover {
-    transform: translate3d(0, -4px, 0);
-}
-.feature-card:hover {
-    transform: translate3d(0, -6px, 0);
-}
-.device-card:hover {
-    transform: translate3d(0, -6px, 0);
-}
-.carousel-container,
-.carousel-container-features,
-.carousel-container-desktop {
-    position: relative !important;
-    overflow: hidden;
-    /* Agregamos padding lateral para dejar espacio a los botones */
-    padding: 1.5rem 50px; 
-    width: 100%;
-}
-
-.carousel-button.prev, .features-prev, .desktop-prev { 
-    left: 0; /* Pegado al borde izquierdo, fuera de la tarjeta */
-}
-.carousel-button.next, .features-next, .desktop-next { 
-    right: 0; /* Pegado al borde derecho, fuera de la tarjeta */
-}
-
-/* Ajuste específico para móviles (botones de carrusel) */
-@media (max-width: 768px) {
-    .carousel-container, .carousel-container-features {
-        padding: 1.5rem 40px; /* Un poco menos de espacio en celular */
-    }
 }

@@ -15,6 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Galaxy AI. Full RAW camera. Proton+ kernel.",
                 "Built for enthusiasts. Refined for everyone."
             ],
+            hero_badge: "One UI 8.5 — Now Available",
+            stat_vip: "VIP Members",
+            stat_devices: "Supported Devices",
+            stat_features: "Active Features",
+            stat_base: "OneUI Base",
+            vip_promo_title: "Go <span class='gold'>VIP</span> — <span class='red'>Elite</span> Access",
+            vip_promo_desc: "Support the project and unlock exclusive builds, priority support, and the latest updates before anyone else.",
+            vip_pill_1: "🚀 Beta Builds",
+            vip_pill_2: "⚡ Instant Updates",
+            vip_pill_3: "💬 Priority Support",
+            vip_pill_4: "🗳️ Vote on Features",
+            vip_pill_5: "🏆 VIP Rank",
+            vip_plans_btn: "See VIP Plans — from $5",
+            join_community_btn: "Join Community",
             download_button: "View Devices",
             telegram_button: "Telegram",
             donations_button: "Donations",
@@ -37,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
             screenshots_title: "Screenshots",
             devices_title: "Supported Devices",
             credits: "Credits to Tizziano Provenzano 'elite', SAMSUNG, ExtremeROM, Ronoa Enzo🇦🇷, Ravindu🇱🇰, Orangecat🇹🇭, oevrik🇷🇺, ExtremeXT🇷🇴, Luminance🇻🇳, FPSensor🇦🇷, Flopster🇦🇷, Pritam🇮🇳, Matteo🇮🇹, Pablo🇦🇷, Nico Lopez🇦🇷, LZTEAMPROJECT🇧🇷",
-            translate_button_text: "Español",
             install_steps_title: "Install Steps",
             disclaimer_title: "Disclaimer",
             disclaimer_1: "Your warranty is now void.",
@@ -65,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
             changelog_title: "Changelog",
             view_changelog_button: "View Full Changelog →",
             join_vip_button: "⭐ Join VIP",
+            vip_link: "VIP",
+            vip_exclusive: "p3s — VIP Exclusive",
+            get_vip_access: "Get VIP Access",
         },
         es: {
             features_link: "Características",
@@ -77,6 +93,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Galaxy AI. Cámara RAW completa. Kernel Proton+.",
                 "Creado para entusiastas. Refinado para todos."
             ],
+            hero_badge: "One UI 8.5 — Ya Disponible",
+            stat_vip: "Miembros VIP",
+            stat_devices: "Dispositivos Soportados",
+            stat_features: "Funciones Activas",
+            stat_base: "Base OneUI",
+            vip_promo_title: "Hazte <span class='gold'>VIP</span> — Acceso <span class='red'>Elite</span>",
+            vip_promo_desc: "Apoya el proyecto y desbloquea builds exclusivas, soporte prioritario y las últimas actualizaciones antes que nadie.",
+            vip_pill_1: "🚀 Builds Beta",
+            vip_pill_2: "⚡ Actualizaciones Rápidas",
+            vip_pill_3: "💬 Soporte Prioritario",
+            vip_pill_4: "🗳️ Votar Funciones",
+            vip_pill_5: "🏆 Rango VIP",
+            vip_plans_btn: "Ver Planes VIP — desde $5",
+            join_community_btn: "Unirse a la Comunidad",
             download_button: "Ver Dispositivos",
             telegram_button: "Telegram",
             donations_button: "Donaciones",
@@ -99,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
             screenshots_title: "Capturas de Pantalla",
             devices_title: "Dispositivos Soportados",
             credits: "Créditos a Tizziano Provenzano 'Elite', SAMSUNG, ExtremeROM, Ronoa Enzo🇦🇷, Ravindu🇱🇰, Orangecat🇹🇭, oevrik🇷🇺, ExtremeXT🇷🇴, Luminance🇻🇳, FPSensor🇦🇷, Flopster🇦🇷, Pritam🇮🇳, Matteo🇮🇹, Pablo🇦🇷, Nico Lopez🇦🇷, LZTEAMPROJECT🇧🇷",
-            translate_button_text: "English",
             install_steps_title: "Pasos de Instalación",
             disclaimer_title: "Descargo de Responsabilidad",
             disclaimer_1: "Tu garantía queda anulada.",
@@ -127,33 +156,192 @@ document.addEventListener('DOMContentLoaded', () => {
             changelog_title: "Lista de Cambios",
             view_changelog_button: "Ver Lista de Cambios Completa →",
             join_vip_button: "⭐ Unirse al VIP",
+            vip_link: "VIP",
+            vip_exclusive: "p3s — Exclusivo VIP",
+            get_vip_access: "Obtener Acceso VIP",
+        },
+        hi: {
+            features_link: "विशेषताएँ",
+            screenshots_link: "स्क्रीनशॉट",
+            devices_link: "डिवाइस",
+            main_title: "Elite UI",
+            subtitle_phrases: [
+                "वन यूआई 8.5 पर आधारित बेहतरीन अनुभव",
+                "अत्यधिक गोपनीयता। अधिकतम प्रदर्शन।",
+                "गैलेक्सी एआई। पूर्ण रॉ (RAW) कैमरा। प्रोटॉन+ कर्नेल।",
+                "उत्साही लोगों के लिए निर्मित। सभी के लिए परिष्कृत।"
+            ],
+            hero_badge: "वन यूआई 8.5 — अब उपलब्ध है",
+            stat_vip: "वीआईपी सदस्य",
+            stat_devices: "समर्थित डिवाइस",
+            stat_features: "सक्रिय विशेषताएँ",
+            stat_base: "वन यूआई बेस",
+            vip_promo_title: "<span class='gold'>वीआईपी</span> बनें — <span class='red'>एलीट</span> एक्सेस",
+            vip_promo_desc: "प्रोजेक्ट का समर्थन करें और विशेष बिल्ड, प्राथमिकता समर्थन, और सबसे पहले नवीनतम अपडेट अनलॉक करें।",
+            vip_pill_1: "🚀 बीटा बिल्ड",
+            vip_pill_2: "⚡ त्वरित अपडेट",
+            vip_pill_3: "💬 प्राथमिकता समर्थन",
+            vip_pill_4: "🗳️ सुविधाओं पर वोट करें",
+            vip_pill_5: "🏆 वीआईपी रैंक",
+            vip_plans_btn: "वीआईपी प्लान देखें — $5 से शुरू",
+            join_community_btn: "समुदाय से जुड़ें",
+            download_button: "डिवाइस देखें",
+            telegram_button: "टेलीग्राम",
+            donations_button: "दान",
+            about_title: "एलीट यूआई क्या है?",
+            what_is_custom_rom: "वन यूआई 8.5 पर आधारित कस्टम रोम सैमसंग के आधिकारिक सॉफ़्टवेयर का एक संशोधित संस्करण है। यह वन यूआई के मुख्य स्वरूप को बरकरार रखता है, लेकिन इसमें नई सुविधाएँ, प्रदर्शन संवर्द्धन और अनुकूलन शामिल हैं जो मानक फ़र्मवेयर पर उपलब्ध नहीं हैं।",
+            what_is_elite_ui: "एलीट यूआई एक कस्टम फर्मवेयर है जो वर्तमान में सैमसंग गैलेक्सी उपकरणों के लिए विकास में है। यह सैमसंग के नवीनतम उपयोगकर्ता अनुभव पर बनाया गया है और बॉक्स के बाहर सर्वश्रेष्ठ प्रदर्शन और उपयोगिता प्रदान करने के लिए अतिरिक्त सुविधाओं और समायोजनों को शामिल करता है।",
+            features_title: "विशेषताएँ",
+            feature1_title: "S23 सीरीज़ गैलेक्सी एआई",
+            feature1_desc: "S23 श्रृंखला से सभी कृत्रिम बुद्धिमत्ता (AI) सुविधाओं को सीधे आपके डिवाइस में एकीकृत करता है।",
+            feature2_title: "प्रोटॉन+ के साथ निर्मित",
+            feature2_desc: "अपस्ट्रीम, अंडरवोल्टेड और जीपीयू ओवरक्लॉक्ड कर्नेल।",
+            feature3_title: "S21FE के लिए ऑडियो संवर्द्धन",
+            feature3_desc: "बेहतर बेस (bass) और सामान्य स्पीकर प्रबंधन।",
+            feature4_title: "अत्यधिक गोपनीयता (कोई लॉगिंग नहीं)",
+            feature4_desc: "अधिकतम सुगमता और गोपनीयता के लिए ATrace, ग्राफिक्स ट्रेसिंग और सिस्टम लॉगिंग को बड़े पैमाने पर अक्षम किया गया।",
+            feature5_title: "प्रो कैमरा (पूर्ण रॉ)",
+            feature5_desc: "S21FE के लिए सभी लेंसों पर पूर्ण Camera2API और रॉ (RAW) समर्थन।",
+            feature6_title: "वन यूआई 8.5 बेस",
+            feature6_desc: "नवीनतम वन यूआई 8.5 बेस (S23FE) का आनंद लें।",
+            screenshots_title: "स्क्रीनशॉट",
+            devices_title: "समर्थित डिवाइस",
+            credits: "श्रेय: Tizziano Provenzano 'elite', SAMSUNG, ExtremeROM, Ronoa Enzo🇦🇷, Ravindu🇱🇰, Orangecat🇹🇭, oevrik🇷🇺, ExtremeXT🇷🇴, Luminance🇻🇳, FPSensor🇦🇷, Flopster🇦🇷, Pritam🇮🇳, Matteo🇮🇹, Pablo🇦🇷, Nico Lopez🇦🇷, LZTEAMPROJECT🇧🇷",
+            install_steps_title: "स्थापना के चरण",
+            disclaimer_title: "अस्वीकरण (Disclaimer)",
+            disclaimer_1: "आपकी वारंटी अब शून्य हो गई है।",
+            disclaimer_2: "हम ईंट (bricked) हुए उपकरणों, डेड एसडी कार्ड, थर्मोन्यूक्लियर युद्ध, या अलार्म ऐप के विफल होने के कारण आपकी नौकरी जाने के लिए ज़िम्मेदार नहीं हैं।",
+            disclaimer_3: "कृपया इस रोम को फ्लैश करने से पहले शोध करें यदि आपको कोई चिंता है!",
+            disclaimer_4: "आप इन संशोधनों को करने का विकल्प चुन रहे हैं, और यदि आप अपने डिवाइस को खराब करने के लिए हम पर उंगली उठाते हैं, तो हम आप पर हंसेंगे। बहुत ज़ोर से!",
+            bootloader_title: "बूटलोडर अनलॉक करना",
+            bootloader_step1: "सेटिंग्स में डेवलपर विकल्प (Developer options) सक्षम करें।",
+            bootloader_step2: "फोन को पीसी से कनेक्ट करें।",
+            bootloader_step3: "वॉल्यूम अप और वॉल्यूम डाउन बटन को दबाए रखें।",
+            bootloader_step4: "अब बूटलोडर अनलॉक मोड में जाने के लिए अप बटन को दबाए रखें।",
+            bootloader_step5: "बूटलोडर अनलॉक करने के लिए vol + दबाएं।",
+            rom_install_title: "रोम स्थापना के चरण",
+            rom_install_step1: "सुनिश्चित करें कि आप नवीनतम स्टॉक फर्मवेयर पर हैं (SamFW पर जांचें)।",
+            rom_install_step2: "सुनिश्चित करें कि आपका ओईएम (OEM) बूटलोडर अनलॉक है।",
+            rom_install_step3: "OFOX/TWRP, VBmeta.img डाउनलोड करें।",
+            rom_install_step4: "डिवाइस को डाउनलोड मोड (Download Mode) में रखें।",
+            rom_install_step5: "OFOX/TWRP TAR फ़ाइल को AP में लोड करें, और Odin विकल्पों के अंतर्गत, Auto Reboot को अनटिक करें।",
+            rom_install_step6: "POWER + Vol Down दबाकर जबरन रीबूट करें।",
+            rom_install_step7: "OFOX/TWRP पर रहते हुए, Wipe, Advanced पर जाएं और सभी पार्टीशन वाइप करें।",
+            rom_install_step8: "OFOX/TWRP को साइडलोड (Sideload) मोड में रखें।",
+            rom_install_step9: "कंप्यूटर से रोम को साइडलोड करें:",
+            rom_install_step10: "रीस्टार्ट करने से पहले वाइप (wipe) पर जाएं और डेटा फॉर्मेट करें।",
+            rom_install_step11: "रीबूट करें और आनंद लें!",
+            changelog_title: "चेंजलॉग (Changelog)",
+            view_changelog_button: "पूरा चेंजलॉग देखें →",
+            join_vip_button: "⭐ वीआईपी से जुड़ें",
+            vip_link: "वीआईपी",
+            vip_exclusive: "p3s — वीआईपी एक्सक्लूसिव",
+            get_vip_access: "वीआईपी एक्सेस प्राप्त करें",
+        },
+        pt: {
+            features_link: "Recursos",
+            screenshots_link: "Capturas",
+            devices_link: "Dispositivos",
+            main_title: "Elite UI",
+            subtitle_phrases: [
+                "A experiência definitiva, construída sobre a One UI 8.5",
+                "Privacidade extrema. Desempenho máximo.",
+                "Galaxy AI. Câmera RAW completa. Kernel Proton+.",
+                "Feito para entusiastas. Refinado para todos."
+            ],
+            hero_badge: "One UI 8.5 — Já Disponível",
+            stat_vip: "Membros VIP",
+            stat_devices: "Dispositivos Suportados",
+            stat_features: "Recursos Ativos",
+            stat_base: "Base OneUI",
+            vip_promo_title: "Seja <span class='gold'>VIP</span> — Acesso <span class='red'>Elite</span>",
+            vip_promo_desc: "Apoie o projeto e desbloqueie builds exclusivas, suporte prioritário e as últimas atualizações antes de todo mundo.",
+            vip_pill_1: "🚀 Builds Beta",
+            vip_pill_2: "⚡ Atualizações Rápidas",
+            vip_pill_3: "💬 Suporte Prioritário",
+            vip_pill_4: "🗳️ Votar em Recursos",
+            vip_pill_5: "🏆 Rank VIP",
+            vip_plans_btn: "Ver Planos VIP — a partir de $5",
+            join_community_btn: "Entrar na Comunidade",
+            download_button: "Ver Dispositivos",
+            telegram_button: "Telegram",
+            donations_button: "Doações",
+            about_title: "O que é a Elite UI?",
+            what_is_custom_rom: "Uma ROM customizada baseada na One UI 8.5 é uma versão modificada do software oficial da Samsung. Ela mantém o visual principal da One UI, mas adiciona novos recursos, melhorias de desempenho e personalizações que não estão disponíveis no firmware padrão.",
+            what_is_elite_ui: "A Elite UI é um firmware customizado atualmente em desenvolvimento para dispositivos Samsung Galaxy. É construído sobre a versão mais recente da experiência de usuário da Samsung e incorpora recursos extras e ajustes para entregar o melhor desempenho e usabilidade.",
+            features_title: "Recursos",
+            feature1_title: "Galaxy AI da Série S23",
+            feature1_desc: "Integra todos os recursos de Inteligência Artificial da série S23, portados diretamente para o seu dispositivo.",
+            feature2_title: "Construído com Proton+",
+            feature2_desc: "Kernel atualizado, com undervolt e GPU overclocked.",
+            feature3_title: "Melhorias de áudio para o S21FE",
+            feature3_desc: "Graves melhores e gerenciamento geral dos alto-falantes.",
+            feature4_title: "Privacidade Extrema (Sem Logs)",
+            feature4_desc: "Desativação massiva de ATrace, rastreamento gráfico e logs do sistema para máxima fluidez e privacidade.",
+            feature5_title: "Câmera Pro (RAW Completo)",
+            feature5_desc: "Suporte completo à Camera2API e RAW em todas as lentes para o S21FE.",
+            feature6_title: "Base OneUI 8.5",
+            feature6_desc: "Aproveite a base OneUI 8.5 mais recente (S23FE).",
+            screenshots_title: "Capturas de Tela",
+            devices_title: "Dispositivos Suportados",
+            credits: "Créditos a Tizziano Provenzano 'elite', SAMSUNG, ExtremeROM, Ronoa Enzo🇦🇷, Ravindu🇱🇰, Orangecat🇹🇭, oevrik🇷🇺, ExtremeXT🇷🇴, Luminance🇻🇳, FPSensor🇦🇷, Flopster🇦🇷, Pritam🇮🇳, Matteo🇮🇹, Pablo🇦🇷, Nico Lopez🇦🇷, LZTEAMPROJECT🇧🇷",
+            install_steps_title: "Passos de Instalação",
+            disclaimer_title: "Aviso Legal",
+            disclaimer_1: "Sua garantia agora é nula.",
+            disclaimer_2: "Não nos responsabilizamos por dispositivos brickados, cartões SD mortos, guerra termonuclear ou você ser demitido porque o aplicativo de alarme falhou.",
+            disclaimer_3: "Por favor, pesquise antes se tiver alguma dúvida sobre como instalar esta ROM antes de flasheá-la!",
+            disclaimer_4: "VOCÊ está escolhendo fazer essas modificações e, se apontar o dedo para nós por bagunçar seu dispositivo, nós vamos rir de você. MUITO!",
+            bootloader_title: "Desbloqueio do Bootloader",
+            bootloader_step1: "Ative as Opções de Desenvolvedor nas configurações.",
+            bootloader_step2: "Conecte o telefone ao PC.",
+            bootloader_step3: "Mantenha pressionados os botões de aumentar e diminuir volume.",
+            bootloader_step4: "Agora mantenha pressionado o botão de aumentar volume para entrar no Modo de Desbloqueio do Bootloader.",
+            bootloader_step5: "Pressione vol + para desbloquear o bootloader.",
+            rom_install_title: "Passos de Instalação da ROM",
+            rom_install_step1: "Certifique-se de estar no firmware de fábrica mais recente (verifique no SamFW).",
+            rom_install_step2: "Certifique-se de que o seu Bootloader OEM está Desbloqueado.",
+            rom_install_step3: "Baixe o OFOX/TWRP, VBmeta.img.",
+            rom_install_step4: "Coloque o dispositivo no Modo Download.",
+            rom_install_step5: "Carregue o arquivo TAR do OFOX/TWRP no Odin (AP) e desmarque o Auto Reboot.",
+            rom_install_step6: "Force a reinicialização segurando POWER + Vol Para Baixo.",
+            rom_install_step7: "Enquanto estiver no OFOX/TWRP, vá para Wipe -> Advanced e limpe todas as partições.",
+            rom_install_step8: "Coloque o OFOX/TWRP no modo Sideload.",
+            rom_install_step9: "Faça o sideload da ROM do computador:",
+            rom_install_step10: "Antes de reiniciar, vá em wipe e formate os dados.",
+            rom_install_step11: "Reinicie e aproveite!",
+            changelog_title: "Registro de Alterações",
+            view_changelog_button: "Ver Registro Completo →",
+            join_vip_button: "⭐ Entrar no VIP",
+            vip_link: "VIP",
+            vip_exclusive: "p3s — Exclusivo VIP",
+            get_vip_access: "Obter Acesso VIP",
         }
     };
 
     let currentLanguage = 'en';
-    let typewriterTimeout; // Variable global para reiniciar la animación
+    let typewriterTimeout; 
+
+    const languageSelect = document.getElementById('language-select');
 
     const setLanguage = (lang) => {
         document.documentElement.lang = lang;
         document.querySelectorAll('[data-translate]').forEach(el => {
             const key = el.getAttribute('data-translate');
             if (translations[lang]?.[key]) {
-                el.textContent = translations[lang][key];
+                el.innerHTML = translations[lang][key]; 
             }
         });
-        const btn = document.querySelector('.nav-menu #translate-button');
-        if (btn) btn.textContent = translations[lang].translate_button_text;
         
-        // Reiniciar animación de subtítulo al cambiar idioma
+        if (languageSelect) languageSelect.value = lang;
         initTypewriter();
     };
 
-    document.querySelectorAll('#translate-button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            currentLanguage = (currentLanguage === 'en') ? 'es' : 'en';
+    if (languageSelect) {
+        languageSelect.addEventListener('change', (e) => {
+            currentLanguage = e.target.value;
             setLanguage(currentLanguage);
         });
-    });
+    }
 
     // =============================================
     //  TYPEWRITER ANIMATION
@@ -162,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const subtitleEl = document.getElementById('hero-subtitle');
         if (!subtitleEl) return;
         
-        clearTimeout(typewriterTimeout); // Detener cualquier loop anterior
+        clearTimeout(typewriterTimeout); 
         
         const phrases = translations[currentLanguage].subtitle_phrases;
         let phraseIdx = 0;
@@ -200,11 +388,10 @@ document.addEventListener('DOMContentLoaded', () => {
         typewriterTimeout = setTimeout(type, 800);
     };
 
-    // Inicializar idioma (esto también iniciará el Typewriter)
     setLanguage(currentLanguage);
 
     // =============================================
-    //  HAMBURGER MENU
+    //  HAMBURGER MENU & SCROLL FIX
     // =============================================
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -215,13 +402,29 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenu.classList.toggle('active');
         });
 
-        document.querySelectorAll('#mobile-menu a, #mobile-menu button').forEach(item => {
+        document.querySelectorAll('#mobile-menu a').forEach(item => {
             item.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
                     hamburgerBtn.classList.remove('open');
                     mobileMenu.classList.remove('active');
                 }
             });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768 && mobileMenu.classList.contains('active')) {
+                hamburgerBtn.classList.remove('open');
+                mobileMenu.classList.remove('active');
+            }
+        }, { passive: true });
+
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && mobileMenu.classList.contains('active')) {
+                if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                    hamburgerBtn.classList.remove('open');
+                    mobileMenu.classList.remove('active');
+                }
+            }
         });
     }
 
@@ -237,7 +440,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) : 0;
             
-            // Usar scaleX en lugar de width evita recálculos de layout pesados (GPU friendly)
             progressBar.style.transform = `scaleX(${pct})`;
             isTicking = false;
         };
@@ -278,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
-                    const duration = 1500;
+                    const duration = 2100;
                     if (el.hasAttribute('data-versions')) {
                         const versions = el.getAttribute('data-versions').split(',');
                         let startTime = null;
