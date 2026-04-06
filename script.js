@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
-                    const duration = 2100;
+                    const duration = 1500;
                     if (el.hasAttribute('data-versions')) {
                         const versions = el.getAttribute('data-versions').split(',');
                         let startTime = null;
