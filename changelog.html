@@ -48,9 +48,10 @@
             color: var(--primary-color);
         }
 
+        /* override for latest — uses updated var name */
         .changelog-entry.latest {
             border-color: rgba(232, 64, 80, 0.35);
-            background: linear-gradient(135deg, rgba(232,64,80,0.06) 0%, var(--card-bg) 60%);
+            background: linear-gradient(135deg, rgba(232,64,80,0.08) 0%, var(--card-bg, var(--card-background)) 60%);
         }
 
         .changelog-entry.latest::before {

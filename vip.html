@@ -50,19 +50,19 @@
         }
 
         .benefit-card {
-            background: var(--card-bg);
+            background: var(--card-bg, var(--card-background));
             border: 1px solid var(--card-border);
             border-radius: var(--radius-lg);
             padding: 1.75rem;
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            transition: all 0.3s var(--ease);
+            transition: all 0.3s var(--ease, cubic-bezier(0.22,1,0.36,1));
         }
 
         .benefit-card:hover {
             border-color: rgba(232, 64, 80, 0.3);
-            background: var(--card-bg-hover);
+            background: var(--card-bg-hover, var(--card-background));
             transform: translateY(-4px);
         }
 
