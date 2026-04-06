@@ -106,11 +106,14 @@ body::after {
     position: fixed;
     top: 0; left: 0;
     height: 3px;
-    width: 0%;
+    width: 100%;
     background: linear-gradient(90deg, var(--primary-color), #ff8a60);
     z-index: 9999;
-    transition: width 0.1s linear;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.1s linear;
     box-shadow: 0 0 12px var(--primary-glow);
+    will-change: transform;
 }
 
 /* ---- Navbar ---- */
@@ -1500,4 +1503,61 @@ body::after {
 @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-16px); }
     to { opacity: 1; transform: translateY(0); }
+}
+/* Prevenir repintados masivos en los fondos y texturas */
+body::before, 
+body::after, 
+.hero::before, 
+.hero-glow {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    pointer-events: none;
+}
+
+/* Aceleración por hardware para las tarjetas con Blur para eliminar el lag */
+.navbar,
+.stat-item,
+.feature-card,
+.device-card,
+.vip-card,
+.disclaimer-box,
+.pricing-card,
+.changelog-entry {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0); 
+}
+
+/* Debemos ajustar los :hover para respetar el translate3d */
+.stat-item:hover {
+    transform: translate3d(0, -4px, 0);
+}
+.feature-card:hover {
+    transform: translate3d(0, -6px, 0);
+}
+.device-card:hover {
+    transform: translate3d(0, -6px, 0);
+}
+.carousel-container,
+.carousel-container-features,
+.carousel-container-desktop {
+    position: relative !important;
+    overflow: hidden;
+    /* Agregamos padding lateral para dejar espacio a los botones */
+    padding: 1.5rem 50px; 
+    width: 100%;
+}
+
+.carousel-button.prev, .features-prev, .desktop-prev { 
+    left: 0; /* Pegado al borde izquierdo, fuera de la tarjeta */
+}
+.carousel-button.next, .features-next, .desktop-next { 
+    right: 0; /* Pegado al borde derecho, fuera de la tarjeta */
+}
+
+/* Ajuste específico para móviles (botones de carrusel) */
+@media (max-width: 768px) {
+    .carousel-container, .carousel-container-features {
+        padding: 1.5rem 40px; /* Un poco menos de espacio en celular */
+    }
 }

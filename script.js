@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // =============================================
-    //  TRANSLATIONS (unchanged)
+    //  TRANSLATIONS
     // =============================================
     const translations = {
         en: {
@@ -9,7 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
             screenshots_link: "Screenshots",
             devices_link: "Devices",
             main_title: "Elite UI",
-            subtitle: "The definitive experience, built upon One UI 8.5",
+            subtitle_phrases: [
+                "The definitive experience, built upon One UI 8.5",
+                "Extreme privacy. Maximum performance.",
+                "Galaxy AI. Full RAW camera. Proton+ kernel.",
+                "Built for enthusiasts. Refined for everyone."
+            ],
             download_button: "View Devices",
             telegram_button: "Telegram",
             donations_button: "Donations",
@@ -66,7 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
             screenshots_link: "Capturas",
             devices_link: "Dispositivos",
             main_title: "Elite UI",
-            subtitle: "La experiencia definitiva, construida sobre One UI 8.5",
+            subtitle_phrases: [
+                "La experiencia definitiva, construida sobre One UI 8.5",
+                "Privacidad extrema. Máximo rendimiento.",
+                "Galaxy AI. Cámara RAW completa. Kernel Proton+.",
+                "Creado para entusiastas. Refinado para todos."
+            ],
             download_button: "Ver Dispositivos",
             telegram_button: "Telegram",
             donations_button: "Donaciones",
@@ -120,8 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const translateButton = document.getElementById('translate-button');
     let currentLanguage = 'en';
+    let typewriterTimeout; // Variable global para reiniciar la animación
 
     const setLanguage = (lang) => {
         document.documentElement.lang = lang;
@@ -133,6 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const btn = document.querySelector('.nav-menu #translate-button');
         if (btn) btn.textContent = translations[lang].translate_button_text;
+        
+        // Reiniciar animación de subtítulo al cambiar idioma
+        initTypewriter();
     };
 
     document.querySelectorAll('#translate-button').forEach(btn => {
@@ -141,6 +154,53 @@ document.addEventListener('DOMContentLoaded', () => {
             setLanguage(currentLanguage);
         });
     });
+
+    // =============================================
+    //  TYPEWRITER ANIMATION
+    // =============================================
+    const initTypewriter = () => {
+        const subtitleEl = document.getElementById('hero-subtitle');
+        if (!subtitleEl) return;
+        
+        clearTimeout(typewriterTimeout); // Detener cualquier loop anterior
+        
+        const phrases = translations[currentLanguage].subtitle_phrases;
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let deleting = false;
+
+        subtitleEl.innerHTML = '<span class="typed-cursor"></span>';
+
+        const type = () => {
+            const currentPhrase = phrases[phraseIdx];
+            const cursor = '<span class="typed-cursor"></span>';
+
+            if (!deleting) {
+                charIdx++;
+                subtitleEl.innerHTML = currentPhrase.substring(0, charIdx) + cursor;
+                if (charIdx === currentPhrase.length) {
+                    deleting = true;
+                    typewriterTimeout = setTimeout(type, 2200);
+                    return;
+                }
+                typewriterTimeout = setTimeout(type, 42);
+            } else {
+                charIdx--;
+                subtitleEl.innerHTML = currentPhrase.substring(0, charIdx) + cursor;
+                if (charIdx === 0) {
+                    deleting = false;
+                    phraseIdx = (phraseIdx + 1) % phrases.length;
+                    typewriterTimeout = setTimeout(type, 400);
+                    return;
+                }
+                typewriterTimeout = setTimeout(type, 20);
+            }
+        };
+
+        typewriterTimeout = setTimeout(type, 800);
+    };
+
+    // Inicializar idioma (esto también iniciará el Typewriter)
     setLanguage(currentLanguage);
 
     // =============================================
@@ -165,6 +225,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // =============================================
+    //  SCROLL PROGRESS (OPTIMIZED FOR PERFORMANCE)
+    // =============================================
     const progressBar = document.getElementById('scroll-progress');
     if (progressBar) {
         let isTicking = false;
@@ -172,8 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const updateProgress = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-            progressBar.style.width = pct + '%';
+            const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) : 0;
+            
+            // Usar scaleX en lugar de width evita recálculos de layout pesados (GPU friendly)
+            progressBar.style.transform = `scaleX(${pct})`;
             isTicking = false;
         };
 
@@ -202,51 +267,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    const subtitleEl = document.getElementById('hero-subtitle');
-    if (subtitleEl) {
-        const phrases = [
-            "The definitive experience, built upon One UI 8.5",
-            "Extreme privacy. Maximum performance.",
-            "Galaxy AI. Full RAW camera. Proton+ kernel.",
-            "Built for enthusiasts. Refined for everyone.",
-        ];
-        let phraseIdx = 0;
-        let charIdx = 0;
-        let deleting = false;
-        let pauseTimeout = null;
-
-        subtitleEl.innerHTML = '<span class="typed-cursor"></span>';
-
-        const type = () => {
-            const currentPhrase = phrases[phraseIdx];
-            const cursor = '<span class="typed-cursor"></span>';
-
-            if (!deleting) {
-                charIdx++;
-                subtitleEl.innerHTML = currentPhrase.substring(0, charIdx) + cursor;
-                if (charIdx === currentPhrase.length) {
-                    deleting = true;
-                    pauseTimeout = setTimeout(type, 2200);
-                    return;
-                }
-                pauseTimeout = setTimeout(type, 42);
-            } else {
-                charIdx--;
-                subtitleEl.innerHTML = currentPhrase.substring(0, charIdx) + cursor;
-                if (charIdx === 0) {
-                    deleting = false;
-                    phraseIdx = (phraseIdx + 1) % phrases.length;
-                    pauseTimeout = setTimeout(type, 400);
-                    return;
-                }
-                pauseTimeout = setTimeout(type, 20);
-            }
-        };
-
-        setTimeout(type, 800);
-    }
     
+    // =============================================
+    //  STATS COUNTER
+    // =============================================
     const counters = document.querySelectorAll('.stat-number');
     
     if (counters.length > 0) {
@@ -303,6 +327,9 @@ document.addEventListener('DOMContentLoaded', () => {
         counters.forEach(c => counterObserver.observe(c));
     }
 
+    // =============================================
+    //  CAROUSEL LOGIC
+    // =============================================
     function setupCarousel(carouselContainer) {
         const grid = carouselContainer.querySelector('.features-grid, .screenshots-grid, .screenshots-grid-desktop');
         const prevBtn = carouselContainer.querySelector('.prev, .features-prev, .desktop-prev');
@@ -347,6 +374,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (c) setupCarousel(c);
     });
 
+    // =============================================
+    //  VIP FILTERS
+    // =============================================
     const filterBtns = document.querySelectorAll('.filter-btn');
     if (filterBtns.length > 0) {
         filterBtns.forEach(btn => {
