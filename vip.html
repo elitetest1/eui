@@ -161,89 +161,104 @@
 <nav class="navbar" id="navbar">
     <div class="container">
         <a href="index.html" class="logo">Elite UI</a>
-        <button class="hamburger" id="hamburger-btn">
-            <span></span><span></span><span></span>
-        </button>
-        <div class="nav-menu" id="mobile-menu">
-            <a href="index.html" data-translate="features_link">Home</a>
-            <a href="index.html#devices" data-translate="devices_link">Devices</a>
-            <a href="vip.html" class="nav-vip-link">⭐ VIP</a>
-            <button id="translate-button">Español</button>
+        
+        <div class="nav-right-section">
+            <div class="nav-menu" id="mobile-menu">
+                <a href="index.html" data-translate="features_link">Home</a>
+                <a href="index.html#devices" data-translate="devices_link">Devices</a>
+                <a href="vip.html" class="nav-vip-link">⭐ VIP</a>
+            </div>
+
+            <div class="nav-controls">
+                <div class="lang-wrapper">
+                    <button id="lang-menu-btn" class="lang-btn" aria-label="Select language">
+                        <i class="fas fa-globe"></i> <span class="current-lang">EN</span>
+                    </button>
+                    <div id="lang-dropdown" class="lang-dropdown">
+                        <button class="lang-option active" data-value="en">English</button>
+                        <button class="lang-option" data-value="es">Español</button>
+                        <button class="lang-option" data-value="hi">हिन्दी</button>
+                        <button class="lang-option" data-value="pt">Português</button>
+                    </div>
+                </div>
+
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </div>
 </nav>
 
-<!-- VIP Hero -->
 <header class="vip-hero">
     <div class="container">
-        <div class="vip-member-count-badge">36 Active Members Worldwide</div>
-        <h1 class="vip-hero-title">Join <span class="gold">VIP</span> Access</h1>
-        <p class="about-description" style="margin-bottom: 2rem;">
+        <div class="vip-member-count-badge" data-translate="vip_hero_badge">36 Active Members Worldwide</div>
+        <h1 class="vip-hero-title" data-translate="vip_hero_title">Join <span class="gold">VIP</span> Access</h1>
+        <p class="about-description" style="margin-bottom: 2rem;" data-translate="vip_hero_desc">
             Support Elite UI development and get exclusive access to the latest builds, priority support, and a voice in the project's future.
         </p>
-        <a href="#plans" class="cta-button vip-btn" style="font-size:1rem; padding:15px 40px;">
+        <a href="#plans" class="cta-button vip-btn" style="font-size:1rem; padding:15px 40px;" data-translate="vip_hero_btn">
             ⭐ See Plans from $5
         </a>
     </div>
 </header>
 
 <main>
-    <!-- Benefits Grid -->
     <section class="vip-info-section">
         <div class="container">
-            <h2 class="section-title reveal">What You Get</h2>
+            <h2 class="section-title reveal" data-translate="vip_benefits_title">What You Get</h2>
             <div class="section-title-line reveal"></div>
 
             <div class="benefit-grid">
                 <div class="benefit-card reveal">
                     <span class="benefit-icon">🚀</span>
                     <div class="benefit-content">
-                        <h4>Exclusive Beta Builds</h4>
-                        <p>Access beta builds and cutting-edge features before the public release.</p>
+                        <h4 data-translate="vip_benefit1_title">Exclusive Beta Builds</h4>
+                        <p data-translate="vip_benefit1_desc">Access beta builds and cutting-edge features before the public release.</p>
                     </div>
                 </div>
                 <div class="benefit-card reveal reveal-delay-1">
                     <span class="benefit-icon">⚡</span>
                     <div class="benefit-content">
-                        <h4>Instant Updates</h4>
-                        <p>Get the latest ROM versions the moment they drop, with no waiting.</p>
+                        <h4 data-translate="vip_benefit2_title">Instant Updates</h4>
+                        <p data-translate="vip_benefit2_desc">Get the latest ROM versions the moment they drop, with no waiting.</p>
                     </div>
                 </div>
                 <div class="benefit-card reveal reveal-delay-2">
                     <span class="benefit-icon">💬</span>
                     <div class="benefit-content">
-                        <h4>Priority Support</h4>
-                        <p>Direct attention from the developer. Your issues are addressed first.</p>
+                        <h4 data-translate="vip_benefit3_title">Priority Support</h4>
+                        <p data-translate="vip_benefit3_desc">Direct attention from the developer. Your issues are addressed first.</p>
                     </div>
                 </div>
                 <div class="benefit-card reveal reveal-delay-3">
                     <span class="benefit-icon">🗳️</span>
                     <div class="benefit-content">
-                        <h4>Feature Voting</h4>
-                        <p>A voice and vote in the future direction of Elite UI features.</p>
+                        <h4 data-translate="vip_benefit4_title">Feature Voting</h4>
+                        <p data-translate="vip_benefit4_desc">A voice and vote in the future direction of Elite UI features.</p>
                     </div>
                 </div>
                 <div class="benefit-card reveal">
                     <span class="benefit-icon">🏆</span>
                     <div class="benefit-content">
-                        <h4>VIP Telegram Rank</h4>
-                        <p>Exclusive VIP rank displayed in the Elite UI Telegram group.</p>
+                        <h4 data-translate="vip_benefit5_title">VIP Telegram Rank</h4>
+                        <p data-translate="vip_benefit5_desc">Exclusive VIP rank displayed in the Elite UI Telegram group.</p>
                     </div>
                 </div>
                 <div class="benefit-card reveal reveal-delay-1">
                     <span class="benefit-icon">🤝</span>
                     <div class="benefit-content">
-                        <h4>Support Development</h4>
-                        <p>This is a voluntary contribution that keeps Elite UI alive and growing.</p>
+                        <h4 data-translate="vip_benefit6_title">Support Development</h4>
+                        <p data-translate="vip_benefit6_desc">This is a voluntary contribution that keeps Elite UI alive and growing.</p>
                     </div>
                 </div>
             </div>
 
             <div class="disclaimer-box reveal" style="margin-top:2rem;">
                 <ul>
-                    <li>This is a voluntary contribution to support development. Refunds are not applicable.</li>
-                    <li>Access is managed via a private Telegram group. You must provide your username.</li>
-                    <li>We reserve the right to revoke access for inappropriate behavior or leaking files.</li>
+                    <li data-translate="vip_disc1">This is a voluntary contribution to support development. Refunds are not applicable.</li>
+                    <li data-translate="vip_disc2">Access is managed via a private Telegram group. You must provide your username.</li>
+                    <li data-translate="vip_disc3">We reserve the right to revoke access for inappropriate behavior or leaking files.</li>
                 </ul>
             </div>
         </div>
@@ -251,34 +266,33 @@
 
     <div class="vip-section-separator"></div>
 
-    <!-- Plans -->
     <section id="plans" style="padding: 2rem 0 4rem;">
         <div class="container">
-            <h2 class="section-title reveal">Choose Your Plan</h2>
+            <h2 class="section-title reveal" data-translate="vip_plans_section_title">Choose Your Plan</h2>
             <div class="section-title-line reveal"></div>
-            <p class="about-description reveal">Select your preferred membership tier and elevate your Elite UI experience.</p>
+            <p class="about-description reveal" data-translate="vip_plans_section_desc">Select your preferred membership tier and elevate your Elite UI experience.</p>
 
             <div class="pricing-cards">
                 <div class="pricing-card reveal reveal-delay-1">
-                    <h3>1 Month</h3>
+                    <h3 data-translate="vip_plan1_name">1 Month</h3>
                     <div class="price">$5<span>USD</span></div>
-                    <p>Perfect for trying out VIP exclusive benefits.</p>
+                    <p data-translate="vip_plan1_desc">Perfect for trying out VIP exclusive benefits.</p>
                 </div>
                 <div class="pricing-card popular reveal">
-                    <div class="badge">🔥 Best Value</div>
-                    <h3>1 Year</h3>
+                    <div class="badge" data-translate="vip_plan2_badge">🔥 Best Value</div>
+                    <h3 data-translate="vip_plan2_name">1 Year</h3>
                     <div class="price">$10<span>USD</span></div>
-                    <p>The ultimate Elite UI experience at the best price.</p>
+                    <p data-translate="vip_plan2_desc">The ultimate Elite UI experience at the best price.</p>
                 </div>
                 <div class="pricing-card reveal reveal-delay-2">
-                    <h3>3 Months</h3>
+                    <h3 data-translate="vip_plan3_name">3 Months</h3>
                     <div class="price">$8<span>USD</span></div>
-                    <p>Great value for medium-term priority access.</p>
+                    <p data-translate="vip_plan3_desc">Great value for medium-term priority access.</p>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 3rem;">
-                <p class="about-description" style="margin-bottom: 1.5rem; font-weight: 600; color: var(--text);">
+                <p class="about-description" style="margin-bottom: 1.5rem; font-weight: 600; color: var(--text);" data-translate="vip_payment_title">
                     Choose your payment method:
                 </p>
                 <div class="payment-buttons reveal">
@@ -294,7 +308,7 @@
                 </div>
             </div>
 
-            <div class="important-note reveal" style="margin-top: 2.5rem;">
+            <div class="important-note reveal" style="margin-top: 2.5rem;" data-translate="vip_payment_note">
                 <strong>IMPORTANT:</strong> After payment, send proof of payment + your selected plan to 
                 <a href="https://t.me/elitegalaxy" target="_blank">@elitegalaxy</a> on Telegram to be added to the private VIP group.
             </div>
@@ -303,17 +317,16 @@
 
     <div class="vip-section-separator"></div>
 
-    <!-- Active Members -->
     <section style="padding: 2rem 0 5rem;">
         <div class="container">
-            <h2 class="section-title reveal">Active VIP Members</h2>
+            <h2 class="section-title reveal" data-translate="vip_members_title">Active VIP Members</h2>
             <div class="section-title-line reveal"></div>
-            <p class="about-description reveal">Real-time subscription status for our amazing supporters.</p>
+            <p class="about-description reveal" data-translate="vip_members_desc">Real-time subscription status for our amazing supporters.</p>
 
             <div class="members-filter reveal">
-                <button class="filter-btn active" data-filter="all">All Members</button>
-                <button class="filter-btn gold" data-filter="vip-plus">⭐ VIP+ (Annual)</button>
-                <button class="filter-btn" data-filter="active">Active Only</button>
+                <button class="filter-btn active" data-filter="all" data-translate="vip_filter_all">All Members</button>
+                <button class="filter-btn gold" data-filter="vip-plus" data-translate="vip_filter_plus">⭐ VIP+ (Annual)</button>
+                <button class="filter-btn" data-filter="active" data-translate="vip_filter_active">Active Only</button>
             </div>
 
             <div id="vip-members-list" class="vip-members-grid"></div>
@@ -327,10 +340,10 @@
         <div class="footer-inner">
             <a href="index.html" class="footer-logo">Elite UI</a>
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="vip.html">VIP</a>
-                <a href="changelog.html">Changelog</a>
-                <a href="https://t.me/eliteui" target="_blank">Telegram</a>
+                <a href="index.html" data-translate="features_link">Home</a>
+                <a href="vip.html" data-translate="vip_link">VIP</a>
+                <a href="changelog.html" data-translate="changelog_title">Changelog</a>
+                <a href="https://t.me/eliteui" target="_blank" data-translate="telegram_button">Telegram</a>
             </div>
             <p class="footer-copy">&copy; 2026 Elite UI Project. All rights reserved.</p>
         </div>

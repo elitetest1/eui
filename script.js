@@ -81,6 +81,43 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_link: "VIP",
             vip_exclusive: "p3s — VIP Exclusive",
             get_vip_access: "Get VIP Access",
+            // --- VIP PAGE TRANSLATIONS ---
+            vip_hero_badge: "36 Active Members Worldwide",
+            vip_hero_title: "Join <span class='gold'>VIP</span> Access",
+            vip_hero_desc: "Support Elite UI development and get exclusive access to the latest builds, priority support, and a voice in the project's future.",
+            vip_hero_btn: "⭐ See Plans from $5",
+            vip_benefits_title: "What You Get",
+            vip_benefit1_title: "Exclusive Beta Builds",
+            vip_benefit1_desc: "Access beta builds and cutting-edge features before the public release.",
+            vip_benefit2_title: "Instant Updates",
+            vip_benefit2_desc: "Get the latest ROM versions the moment they drop, with no waiting.",
+            vip_benefit3_title: "Priority Support",
+            vip_benefit3_desc: "Direct attention from the developer. Your issues are addressed first.",
+            vip_benefit4_title: "Feature Voting",
+            vip_benefit4_desc: "A voice and vote in the future direction of Elite UI features.",
+            vip_benefit5_title: "VIP Telegram Rank",
+            vip_benefit5_desc: "Exclusive VIP rank displayed in the Elite UI Telegram group.",
+            vip_benefit6_title: "Support Development",
+            vip_benefit6_desc: "This is a voluntary contribution that keeps Elite UI alive and growing.",
+            vip_disc1: "This is a voluntary contribution to support development. Refunds are not applicable.",
+            vip_disc2: "Access is managed via a private Telegram group. You must provide your username.",
+            vip_disc3: "We reserve the right to revoke access for inappropriate behavior or leaking files.",
+            vip_plans_section_title: "Choose Your Plan",
+            vip_plans_section_desc: "Select your preferred membership tier and elevate your Elite UI experience.",
+            vip_plan1_name: "1 Month",
+            vip_plan1_desc: "Perfect for trying out VIP exclusive benefits.",
+            vip_plan2_badge: "🔥 Best Value",
+            vip_plan2_name: "1 Year",
+            vip_plan2_desc: "The ultimate Elite UI experience at the best price.",
+            vip_plan3_name: "3 Months",
+            vip_plan3_desc: "Great value for medium-term priority access.",
+            vip_payment_title: "Choose your payment method:",
+            vip_payment_note: "<strong>IMPORTANT:</strong> After payment, send proof of payment + your selected plan to <a href='https://t.me/elitegalaxy' target='_blank'>@elitegalaxy</a> on Telegram to be added to the private VIP group.",
+            vip_members_title: "Active VIP Members",
+            vip_members_desc: "Real-time subscription status for our amazing supporters.",
+            vip_filter_all: "All Members",
+            vip_filter_plus: "⭐ VIP+ (Annual)",
+            vip_filter_active: "Active Only"
         },
         es: {
             features_link: "Características",
@@ -159,6 +196,43 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_link: "VIP",
             vip_exclusive: "p3s — Exclusivo VIP",
             get_vip_access: "Obtener Acceso VIP",
+            // --- VIP PAGE TRANSLATIONS ---
+            vip_hero_badge: "36 Miembros Activos en el Mundo",
+            vip_hero_title: "Únete al Acceso <span class='gold'>VIP</span>",
+            vip_hero_desc: "Apoya el desarrollo de Elite UI y obtén acceso exclusivo a las últimas builds, soporte prioritario y voz en el futuro del proyecto.",
+            vip_hero_btn: "⭐ Ver Planes desde $5",
+            vip_benefits_title: "Lo que Obtienes",
+            vip_benefit1_title: "Builds Beta Exclusivas",
+            vip_benefit1_desc: "Accede a builds beta y funciones de vanguardia antes del lanzamiento público.",
+            vip_benefit2_title: "Actualizaciones Instantáneas",
+            vip_benefit2_desc: "Obtén las últimas versiones de la ROM en el momento en que salen, sin esperas.",
+            vip_benefit3_title: "Soporte Prioritario",
+            vip_benefit3_desc: "Atención directa del desarrollador. Tus problemas se atienden primero.",
+            vip_benefit4_title: "Votación de Funciones",
+            vip_benefit4_desc: "Voz y voto en la dirección futura de las funciones de Elite UI.",
+            vip_benefit5_title: "Rango VIP en Telegram",
+            vip_benefit5_desc: "Rango VIP exclusivo mostrado en el grupo de Telegram de Elite UI.",
+            vip_benefit6_title: "Apoyo al Desarrollo",
+            vip_benefit6_desc: "Esta es una contribución voluntaria que mantiene a Elite UI vivo y creciendo.",
+            vip_disc1: "Esta es una contribución voluntaria para apoyar el desarrollo. No se aplican reembolsos.",
+            vip_disc2: "El acceso se gestiona mediante un grupo privado de Telegram. Debes proporcionar tu usuario.",
+            vip_disc3: "Nos reservamos el derecho de revocar el acceso por comportamiento inapropiado o filtración de archivos.",
+            vip_plans_section_title: "Elige tu Plan",
+            vip_plans_section_desc: "Selecciona tu nivel de membresía preferido y eleva tu experiencia Elite UI.",
+            vip_plan1_name: "1 Mes",
+            vip_plan1_desc: "Perfecto para probar los beneficios exclusivos VIP.",
+            vip_plan2_badge: "🔥 Mejor Valor",
+            vip_plan2_name: "1 Año",
+            vip_plan2_desc: "La experiencia definitiva de Elite UI al mejor precio.",
+            vip_plan3_name: "3 Meses",
+            vip_plan3_desc: "Gran valor para acceso prioritario a medio plazo.",
+            vip_payment_title: "Elige tu método de pago:",
+            vip_payment_note: "<strong>IMPORTANTE:</strong> Después del pago, envía el comprobante + tu plan seleccionado a <a href='https://t.me/elitegalaxy' target='_blank'>@elitegalaxy</a> en Telegram para ser añadido al grupo VIP privado.",
+            vip_members_title: "Miembros VIP Activos",
+            vip_members_desc: "Estado de suscripción en tiempo real de nuestros increíbles seguidores.",
+            vip_filter_all: "Todos los Miembros",
+            vip_filter_plus: "⭐ VIP+ (Anual)",
+            vip_filter_active: "Solo Activos"
         },
         hi: {
             features_link: "विशेषताएँ",
@@ -237,6 +311,43 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_link: "वीआईपी",
             vip_exclusive: "p3s — वीआईपी एक्सक्लूसिव",
             get_vip_access: "वीआईपी एक्सेस प्राप्त करें",
+            // --- VIP PAGE TRANSLATIONS ---
+            vip_hero_badge: "दुनिया भर में 36 सक्रिय सदस्य",
+            vip_hero_title: "<span class='gold'>वीआईपी</span> एक्सेस से जुड़ें",
+            vip_hero_desc: "एलीट यूआई विकास का समर्थन करें और नवीनतम बिल्ड, प्राथमिकता समर्थन और प्रोजेक्ट के भविष्य में एक आवाज तक विशेष पहुंच प्राप्त करें।",
+            vip_hero_btn: "⭐ $5 से शुरू होने वाले प्लान देखें",
+            vip_benefits_title: "आपको क्या मिलता है",
+            vip_benefit1_title: "विशेष बीटा बिल्ड",
+            vip_benefit1_desc: "सार्वजनिक रिलीज से पहले बीटा बिल्ड और अत्याधुनिक सुविधाओं तक पहुंचें।",
+            vip_benefit2_title: "त्वरित अपडेट",
+            vip_benefit2_desc: "बिना किसी प्रतीक्षा के, रिलीज़ होते ही नवीनतम रोम संस्करण प्राप्त करें।",
+            vip_benefit3_title: "प्राथमिकता समर्थन",
+            vip_benefit3_desc: "डेवलपर से सीधा ध्यान। आपकी समस्याओं का पहले समाधान किया जाता है।",
+            vip_benefit4_title: "सुविधाओं पर मतदान",
+            vip_benefit4_desc: "एलीट यूआई सुविधाओं की भविष्य की दिशा में एक आवाज और वोट।",
+            vip_benefit5_title: "वीआईपी टेलीग्राम रैंक",
+            vip_benefit5_desc: "एलीट यूआई टेलीग्राम समूह में विशेष वीआईपी रैंक प्रदर्शित।",
+            vip_benefit6_title: "विकास का समर्थन करें",
+            vip_benefit6_desc: "यह एक स्वैच्छिक योगदान है जो एलीट यूआई को जीवित और विकसित रखता है।",
+            vip_disc1: "यह विकास का समर्थन करने के लिए एक स्वैच्छिक योगदान है। रिफंड लागू नहीं हैं।",
+            vip_disc2: "एक्सेस एक निजी टेलीग्राम समूह के माध्यम से प्रबंधित किया जाता है। आपको अपना उपयोगकर्ता नाम प्रदान करना होगा।",
+            vip_disc3: "हम अनुचित व्यवहार या फाइलों को लीक करने के लिए एक्सेस रद्द करने का अधिकार सुरक्षित रखते हैं।",
+            vip_plans_section_title: "अपना प्लान चुनें",
+            vip_plans_section_desc: "अपना पसंदीदा सदस्यता स्तर चुनें और अपने एलीट यूआई अनुभव को बढ़ाएं।",
+            vip_plan1_name: "1 महीना",
+            vip_plan1_desc: "वीआईपी विशेष लाभों को आजमाने के लिए बिल्कुल सही।",
+            vip_plan2_badge: "🔥 सर्वोत्तम मूल्य",
+            vip_plan2_name: "1 वर्ष",
+            vip_plan2_desc: "सबसे अच्छी कीमत पर बेहतरीन एलीट यूआई अनुभव।",
+            vip_plan3_name: "3 महीने",
+            vip_plan3_desc: "मध्यम अवधि की प्राथमिकता पहुंच के लिए बढ़िया मूल्य।",
+            vip_payment_title: "अपनी भुगतान विधि चुनें:",
+            vip_payment_note: "<strong>महत्वपूर्ण:</strong> भुगतान के बाद, निजी वीआईपी समूह में जोड़े जाने के लिए टेलीग्राम पर <a href='https://t.me/elitegalaxy' target='_blank'>@elitegalaxy</a> को भुगतान का प्रमाण + अपना चयनित प्लान भेजें।",
+            vip_members_title: "सक्रिय वीआईपी सदस्य",
+            vip_members_desc: "हमारे अद्भुत समर्थकों के लिए वास्तविक समय सदस्यता स्थिति।",
+            vip_filter_all: "सभी सदस्य",
+            vip_filter_plus: "⭐ वीआईपी+ (वार्षिक)",
+            vip_filter_active: "केवल सक्रिय"
         },
         pt: {
             features_link: "Recursos",
@@ -315,13 +426,48 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_link: "VIP",
             vip_exclusive: "p3s — Exclusivo VIP",
             get_vip_access: "Obter Acesso VIP",
+            // --- VIP PAGE TRANSLATIONS ---
+            vip_hero_badge: "36 Membros Ativos no Mundo",
+            vip_hero_title: "Junte-se ao Acesso <span class='gold'>VIP</span>",
+            vip_hero_desc: "Apoie o desenvolvimento da Elite UI e obtenha acesso exclusivo às builds mais recentes, suporte prioritário e voz no futuro do projeto.",
+            vip_hero_btn: "⭐ Ver Planos a partir de $5",
+            vip_benefits_title: "O que Você Ganha",
+            vip_benefit1_title: "Builds Beta Exclusivas",
+            vip_benefit1_desc: "Acesse builds beta e recursos de ponta antes do lançamento público.",
+            vip_benefit2_title: "Atualizações Rápidas",
+            vip_benefit2_desc: "Obtenha as versões mais recentes da ROM no momento em que são lançadas.",
+            vip_benefit3_title: "Suporte Prioritário",
+            vip_benefit3_desc: "Atenção direta do desenvolvedor. Seus problemas são resolvidos primeiro.",
+            vip_benefit4_title: "Votação de Recursos",
+            vip_benefit4_desc: "Voz e voto na direção futura dos recursos da Elite UI.",
+            vip_benefit5_title: "Rank VIP no Telegram",
+            vip_benefit5_desc: "Rank VIP exclusivo exibido no grupo do Telegram da Elite UI.",
+            vip_benefit6_title: "Apoio ao Desenvolvimento",
+            vip_benefit6_desc: "Esta é uma contribuição voluntária que mantém a Elite UI viva e crescendo.",
+            vip_disc1: "Esta é uma contribuição voluntária para apoiar o desenvolvimento. Não há reembolsos.",
+            vip_disc2: "O acesso é gerenciado via um grupo privado no Telegram. Você deve fornecer seu nome de usuário.",
+            vip_disc3: "Reservamo-nos o direito de revogar o acesso por comportamento inadequado ou vazamento de arquivos.",
+            vip_plans_section_title: "Escolha seu Plano",
+            vip_plans_section_desc: "Selecione o seu nível de assinatura preferido e eleve sua experiência com a Elite UI.",
+            vip_plan1_name: "1 Mês",
+            vip_plan1_desc: "Perfeito para experimentar os benefícios exclusivos VIP.",
+            vip_plan2_badge: "🔥 Melhor Valor",
+            vip_plan2_name: "1 Ano",
+            vip_plan2_desc: "A experiência definitiva da Elite UI com o melhor preço.",
+            vip_plan3_name: "3 Meses",
+            vip_plan3_desc: "Ótimo custo-benefício para acesso prioritário a médio prazo.",
+            vip_payment_title: "Escolha sua forma de pagamento:",
+            vip_payment_note: "<strong>IMPORTANTE:</strong> Após o pagamento, envie o comprovante + seu plano selecionado para <a href='https://t.me/elitegalaxy' target='_blank'>@elitegalaxy</a> no Telegram para ser adicionado ao grupo VIP privado.",
+            vip_members_title: "Membros VIP Ativos",
+            vip_members_desc: "Status de assinatura em tempo real de nossos incríveis apoiadores.",
+            vip_filter_all: "Todos os Membros",
+            vip_filter_plus: "⭐ VIP+ (Anual)",
+            vip_filter_active: "Apenas Ativos"
         }
     };
 
     let currentLanguage = 'en';
     let typewriterTimeout; 
-
-    const languageSelect = document.getElementById('language-select');
 
     const setLanguage = (lang) => {
         document.documentElement.lang = lang;
@@ -331,15 +477,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.innerHTML = translations[lang][key]; 
             }
         });
-        
-        if (languageSelect) languageSelect.value = lang;
         initTypewriter();
     };
 
-    if (languageSelect) {
-        languageSelect.addEventListener('change', (e) => {
-            currentLanguage = e.target.value;
-            setLanguage(currentLanguage);
+    // =============================================
+    //  CUSTOM LANGUAGE DROPDOWN LOGIC
+    // =============================================
+    const langMenuBtn = document.getElementById('lang-menu-btn');
+    const langDropdown = document.getElementById('lang-dropdown');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const currentLangText = document.querySelector('.current-lang');
+
+    if (langMenuBtn && langDropdown) {
+        // Toggle Dropdown
+        langMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+            langMenuBtn.classList.toggle('active');
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!langDropdown.contains(e.target) && e.target !== langMenuBtn) {
+                langDropdown.classList.remove('show');
+                langMenuBtn.classList.remove('active');
+            }
+        });
+
+        // Handle language selection
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-value');
+                
+                // Update active states
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                
+                // Update Button Text
+                if(currentLangText) currentLangText.textContent = lang.toUpperCase();
+                
+                // Close Menu
+                langDropdown.classList.remove('show');
+                langMenuBtn.classList.remove('active');
+                
+                // Fire translation
+                currentLanguage = lang;
+                setLanguage(currentLanguage);
+            });
         });
     }
 
@@ -391,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(currentLanguage);
 
     // =============================================
-    //  HAMBURGER MENU & SCROLL FIX
+    //  HAMBURGER MENU LOGIC
     // =============================================
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -400,6 +584,12 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburgerBtn.addEventListener('click', () => {
             hamburgerBtn.classList.toggle('open');
             mobileMenu.classList.toggle('active');
+            
+            // Close language dropdown if open to prevent overlap
+            if (langDropdown && langDropdown.classList.contains('show')) {
+                langDropdown.classList.remove('show');
+                langMenuBtn.classList.remove('active');
+            }
         });
 
         document.querySelectorAll('#mobile-menu a').forEach(item => {
@@ -411,15 +601,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        window.addEventListener('scroll', () => {
-            if (window.innerWidth <= 768 && mobileMenu.classList.contains('active')) {
-                hamburgerBtn.classList.remove('open');
-                mobileMenu.classList.remove('active');
-            }
-        }, { passive: true });
-
         document.addEventListener('click', (e) => {
             if (window.innerWidth <= 768 && mobileMenu.classList.contains('active')) {
+                // Ensure clicks aren't on hamburger or inside menu
                 if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
                     hamburgerBtn.classList.remove('open');
                     mobileMenu.classList.remove('active');
@@ -429,7 +613,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =============================================
-    //  SCROLL PROGRESS (OPTIMIZED FOR PERFORMANCE)
+    //  SMART STICKY HEADER (SCROLL-UP REVEAL)
+    // =============================================
+    const navbar = document.getElementById('navbar');
+    let lastScrollTop = 0;
+
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add aesthetic background styling when scrolled
+            navbar.classList.toggle('scrolled', scrollTop > 50);
+
+            // Hide/Show logic based on scroll direction
+            if (scrollTop > lastScrollTop && scrollTop > navbar.offsetHeight + 20) {
+                // User is scrolling down & past the header -> Hide header
+                navbar.classList.add('nav-hidden');
+                
+                // Auto-close mobile menus if they are open while scrolling down
+                if (window.innerWidth <= 768 && mobileMenu && mobileMenu.classList.contains('active')) {
+                    hamburgerBtn.classList.remove('open');
+                    mobileMenu.classList.remove('active');
+                }
+                if (langDropdown && langDropdown.classList.contains('show')) {
+                    langDropdown.classList.remove('show');
+                    langMenuBtn.classList.remove('active');
+                }
+            } else if (scrollTop < lastScrollTop) {
+                // User is scrolling up -> Show header
+                navbar.classList.remove('nav-hidden');
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Prevent negative values on mobile bounce
+        }, { passive: true });
+    }
+
+    // =============================================
+    //  SCROLL PROGRESS
     // =============================================
     const progressBar = document.getElementById('scroll-progress');
     if (progressBar) {
@@ -449,13 +669,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.requestAnimationFrame(updateProgress);
                 isTicking = true;
             }
-        }, { passive: true });
-    }
-
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
         }, { passive: true });
     }
 

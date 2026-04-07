@@ -20,21 +20,32 @@
 <nav class="navbar" id="navbar">
     <div class="container">
         <a href="#" class="logo">Elite UI</a>
-        <button class="hamburger" id="hamburger-btn" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-        <div class="nav-menu" id="mobile-menu">
-            <a href="#features"     data-translate="features_link">Features</a>
-            <a href="#screenshots"  data-translate="screenshots_link">Screenshots</a>
-            <a href="#devices"      data-translate="devices_link">Supported Devices</a>
-            <a href="vip.html" class="nav-vip-link">⭐ VIP</a>
-            
-            <select id="language-select" class="lang-select" aria-label="Select language">
-                <option value="en">🌐 English</option>
-                <option value="es">🌐 Español</option>
-                <option value="hi">🌐 हिन्दी</option>
-                <option value="pt">🌐 Português</option>
-            </select>
+        
+        <div class="nav-right-section">
+            <div class="nav-menu" id="mobile-menu">
+                <a href="#features"     data-translate="features_link">Features</a>
+                <a href="#screenshots"  data-translate="screenshots_link">Screenshots</a>
+                <a href="#devices"      data-translate="devices_link">Supported Devices</a>
+                <a href="vip.html" class="nav-vip-link">⭐ VIP</a>
+            </div>
+
+            <div class="nav-controls">
+                <div class="lang-wrapper">
+                    <button id="lang-menu-btn" class="lang-btn" aria-label="Select language">
+                        <i class="fas fa-globe"></i> <span class="current-lang">EN</span>
+                    </button>
+                    <div id="lang-dropdown" class="lang-dropdown">
+                        <button class="lang-option active" data-value="en">English</button>
+                        <button class="lang-option" data-value="es">Español</button>
+                        <button class="lang-option" data-value="hi">हिन्दी</button>
+                        <button class="lang-option" data-value="pt">Português</button>
+                    </div>
+                </div>
+
+                <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </div>
 </nav>
