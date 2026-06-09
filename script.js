@@ -817,3 +817,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+// =============================================
+//  HASH SCROLL FIX
+//  The browser scrolls to the anchor before images load,
+//  so the position ends up wrong once the page fully renders.
+//  Re-scroll after window.load to land in the right spot.
+// =============================================
+window.addEventListener('load', () => {
+    if (!window.location.hash) return;
+    const target = document.querySelector(window.location.hash);
+    if (!target) return;
+    setTimeout(() => {
+        const navbar = document.getElementById('navbar');
+        const offset = navbar ? navbar.offsetHeight : 80;
+        const y = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: y, behavior: 'instant' });
+    }, 50);
+});
