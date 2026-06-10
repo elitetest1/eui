@@ -1,46 +1,68 @@
+// ================================================================
+//  VIP MEMBERS — Google Sheets data source
+//
+//  HOW TO SET UP (one-time):
+//  1. Create a Google Sheet with these exact columns in row 1:
+//       name | startDate | plan
+//     Example row: Javier | 2026-02-05 | 12
+//     'plan' is the number of months (3 = quarterly, 12 = annual)
+//
+//  2. Share the sheet: Share → Anyone with the link → Viewer
+//
+//  3. Copy the Sheet ID from the URL:
+//     https://docs.google.com/spreadsheets/d/ → THIS PART ← /edit
+//     Paste it below in SHEET_ID.
+//
+//  TO ADD A NEW USER:
+//  Just add a row in the sheet from phone or desktop. Done.
+// ================================================================
+
+const SHEET_ID   = '1rT9UkRKbfwNj0UwLKf3W4mvacj-Bbp5BqIqaQrSruZ8';
+const SHEET_NAME = 'Sheet1';                        // ← sheet tab name
+
+// FIX: usamos /export?format=csv en lugar de /gviz/tq — este endpoint
+// sí devuelve los headers CORS correctos para fetch desde el browser.
+const SHEET_URL  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&sheet=${SHEET_NAME}`;
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    const vipUsers = [
-        { name: "Andrey Nikolaevich", startDate: "2028-01-01", plan: 12 },
-        { name: "Javier", startDate: "2026-02-05", plan: 12 },
-        { name: "Ludmila", startDate: "2026-01-26", plan: 3 },
-        { name: "XKaczorr (Kaczorek)", startDate: "2026-01-25", plan: 3 },
-        { name: "Aniiii", startDate: "2026-01-25", plan: 12 },
-        { name: "Rodrigo Castro", startDate: "2026-01-24", plan: 12 },
-        { name: "Dan_Bo", startDate: "2026-01-24", plan: 12 },
-        { name: "JDGM", startDate: "2026-01-23", plan: 3 },
-        { name: "akorifuchsia (Akori)", startDate: "2026-01-23", plan: 12 },
-        { name: "noamtu123 (Noam Turkel)", startDate: "2026-01-21", plan: 12 },
-        { name: "lucasfl285 (Lucas)", startDate: "2026-01-21", plan: 12 },
-        { name: "Arafx", startDate: "2026-01-21", plan: 12 },
-        { name: "MR.Rahul", startDate: "2026-01-20", plan: 3 },
-        { name: "MatamBrazo", startDate: "2026-01-20", plan: 3 },
-        { name: "Ouros", startDate: "2026-01-20", plan: 12 },
-        { name: "Wojciech G.", startDate: "2026-01-20", plan: 12 },
-        { name: "parra_esteb_n (:/)", startDate: "2026-01-18", plan: 12 },
-        { name: "Xuntitan", startDate: "2026-01-17", plan: 3 },
-        { name: "Farai Mashonganyika", startDate: "2026-01-15", plan: 12 },
-        { name: "Eilia", startDate: "2026-01-01", plan: 12 },
-        { name: "Daubfy", startDate: "2026-01-01", plan: 12 },
-        { name: "fpp003 (Franco)", startDate: "2025-12-31", plan: 12 },
-        { name: "Gabistoler", startDate: "2025-12-27", plan: 3 },
-        { name: "OrionAltair765 (Marcelo Oliveira)", startDate: "2025-12-25", plan: 3 },
-        { name: "Edgar gamlemshaug", startDate: "2025-12-18", plan: 3 },
-        { name: "Joao Gabriel", startDate: "2025-12-17", plan: 3 },
-        { name: "Andvii", startDate: "2025-12-13", plan: 3 },
-        { name: "kyruf", startDate: "2025-12-06", plan: 3 },
-        { name: "jaydenmerr (Jayden Mert)", startDate: "2025-12-04", plan: 3 },
-        { name: "dgm636 (D G)", startDate: "2025-12-01", plan: 3 },
-        { name: "Marketing Empresarial", startDate: "2025-11-30", plan: 3 },
-        { name: "mrdkly", startDate: "2025-11-30", plan: 3 },
-        { name: "Lwin Myohtwe", startDate: "2025-11-28", plan: 3 },
-        { name: "iPhone15 Prohype", startDate: "2025-11-16", plan: 3 },
-        { name: "NiggesGopi", startDate: "2025-11-08", plan: 3 },
-        { name: "Ram Prakash Naik", startDate: "2025-10-17", plan: 3 }
-    ];
-
     const container = document.getElementById('vip-members-list');
-    if (!container) return;
+
+    // ---- CSV parser (handles quoted fields / commas in names) ----
+    const parseCSVLine = (line) => {
+        const result = [];
+        let current = '';
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (ch === '"') {
+                inQuotes = !inQuotes;
+            } else if (ch === ',' && !inQuotes) {
+                result.push(current.trim());
+                current = '';
+            } else {
+                current += ch;
+            }
+        }
+        result.push(current.trim());
+        return result;
+    };
+
+    const parseCSV = (text) => {
+        const lines = text.trim().split('\n');
+        if (lines.length < 2) return [];
+        // Row 0 = headers, skip it
+        return lines.slice(1)
+            .map(line => {
+                const cols = parseCSVLine(line);
+                const name = cols[0] || '';
+                const startDate = cols[1] || '';
+                const plan = parseInt(cols[2]) || 3;
+                if (!name || !startDate) return null;
+                return { name, startDate, plan };
+            })
+            .filter(Boolean);
+    };
 
     // ---- Helpers ----
     const getEndDate = (user) => {
@@ -51,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const getInitials = (name) => {
         const clean = name.replace(/\(.*?\)/g, '').trim();
-        const parts = clean.split(/\s+/);
+        const parts  = clean.split(/\s+/);
         if (parts.length === 1) return clean.slice(0, 2).toUpperCase();
         return (parts[0][0] + parts[1][0]).toUpperCase();
     };
@@ -68,77 +90,155 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${days}d ${h}h ${m}m ${s}s`;
     };
 
-    // ---- Render all cards ----
-    const timers = []; // { timerEl, endDate }
+    // ---- Actualiza el contador de VIP Members en index.html ----
+    // El elemento stat en index.html tiene data-count="36" (hardcodeado).
+    // Esta función lo reemplaza con el número real de miembros activos
+    // y dispara la animación de conteo si el elemento ya es visible.
+    const updateIndexCounter = (activeCount) => {
+        const statEl = document.querySelector('.stat-number[data-count]');
+        if (!statEl) return; // No estamos en index.html, no hacer nada
 
-    vipUsers.forEach((user, index) => {
-        const endDate   = getEndDate(user);
-        const isVipPlus = user.plan === 12;
-        const isExpired = endDate <= new Date();
+        // Actualizar el atributo para que la animación de script.js use el valor real
+        statEl.setAttribute('data-count', activeCount);
 
-        const card = document.createElement('div');
-        card.className = `vip-card${isVipPlus ? ' vip-plus' : ''}${isExpired ? ' is-expired' : ''}`;
-        card.style.animationDelay = `${(index % 6) * 60}ms`;
+        // Si el elemento ya terminó de animar (muestra un número), actualizarlo directo
+        const currentVal = parseInt(statEl.textContent, 10);
+        if (!isNaN(currentVal)) {
+            // Animar suavemente desde el valor actual al nuevo
+            const duration = 800;
+            const startTime = performance.now();
+            const from = currentVal;
+            const to = activeCount;
 
-        // Avatar
-        const avatar = document.createElement('div');
-        avatar.className = 'vip-avatar';
-        avatar.textContent = getInitials(user.name);
-
-        // Info
-        const info = document.createElement('div');
-        info.className = 'vip-card-info';
-
-        // Name row
-        const nameEl = document.createElement('div');
-        nameEl.className = 'vip-card-name';
-        nameEl.textContent = user.name;
-        if (isVipPlus) {
-            const badge = document.createElement('span');
-            badge.className = 'vip-badge';
-            badge.textContent = 'VIP+';
-            nameEl.appendChild(badge);
+            const animate = (now) => {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const ease = 1 - Math.pow(1 - progress, 3);
+                statEl.textContent = Math.round(from + (to - from) * ease);
+                if (progress < 1) requestAnimationFrame(animate);
+                else statEl.textContent = to;
+            };
+            requestAnimationFrame(animate);
         }
-
-        // Timer
-        const timerEl = document.createElement('span');
-        timerEl.className = 'vip-timer';
-        timerEl.id = `timer-${index}`;
-
-        if (isExpired) {
-            timerEl.textContent = 'Expired';
-            timerEl.classList.add('expired');
-        } else {
-            const ms = endDate - new Date();
-            timerEl.textContent = formatCountdown(ms) || 'Expired';
-            timers.push({ timerEl, endDate, index });
-        }
-
-        info.appendChild(nameEl);
-        info.appendChild(timerEl);
-        card.appendChild(avatar);
-        card.appendChild(info);
-        container.appendChild(card);
-    });
-
-    // ---- Live countdown tick ----
-    const tick = () => {
-        const now = new Date();
-        timers.forEach(({ timerEl, endDate }) => {
-            if (timerEl.classList.contains('expired')) return;
-            const ms = endDate - now;
-            if (ms <= 0) {
-                timerEl.textContent = 'Expired';
-                timerEl.classList.add('expired');
-                // mark parent card
-                timerEl.closest('.vip-card')?.classList.add('is-expired');
-            } else {
-                timerEl.textContent = formatCountdown(ms);
-            }
-        });
     };
 
-    setInterval(tick, 1000);
+    // ---- Render all cards ----
+    const renderCards = (vipUsers) => {
+        const timers = [];
+
+        // Calcular activos ANTES de renderizar (necesario para ambas páginas)
+        const activeCount = vipUsers.filter(u => getEndDate(u) > new Date()).length;
+
+        // Actualizar el badge de vip.html
+        const heroBadge = document.querySelector('[data-translate="vip_hero_badge"]');
+        if (heroBadge) heroBadge.textContent = `${activeCount} Active Members Worldwide`;
+
+        // Actualizar el contador de index.html
+        updateIndexCounter(activeCount);
+
+        // Si no hay contenedor de lista (estamos en index.html), terminar aquí
+        if (!container) return;
+
+        container.innerHTML = '';
+
+        vipUsers.forEach((user, index) => {
+            const endDate   = getEndDate(user);
+            const isVipPlus = user.plan === 12;
+            const isExpired = endDate <= new Date();
+
+            const card = document.createElement('div');
+            card.className = `vip-card${isVipPlus ? ' vip-plus' : ''}${isExpired ? ' is-expired' : ''}`;
+            card.style.animationDelay = `${(index % 6) * 60}ms`;
+
+            const avatar = document.createElement('div');
+            avatar.className = 'vip-avatar';
+            avatar.textContent = getInitials(user.name);
+
+            const info = document.createElement('div');
+            info.className = 'vip-card-info';
+
+            const nameEl = document.createElement('div');
+            nameEl.className = 'vip-card-name';
+            nameEl.textContent = user.name;
+            if (isVipPlus) {
+                const badge = document.createElement('span');
+                badge.className = 'vip-badge';
+                badge.textContent = 'VIP+';
+                nameEl.appendChild(badge);
+            }
+
+            const timerEl = document.createElement('span');
+            timerEl.className = 'vip-timer';
+
+            if (isExpired) {
+                timerEl.textContent = 'Expired';
+                timerEl.classList.add('expired');
+            } else {
+                const ms = endDate - new Date();
+                timerEl.textContent = formatCountdown(ms) || 'Expired';
+                timers.push({ timerEl, endDate });
+            }
+
+            info.appendChild(nameEl);
+            info.appendChild(timerEl);
+            card.appendChild(avatar);
+            card.appendChild(info);
+            container.appendChild(card);
+        });
+
+        // Live countdown tick
+        const tick = () => {
+            const now = new Date();
+            timers.forEach(({ timerEl, endDate }) => {
+                if (timerEl.classList.contains('expired')) return;
+                const ms = endDate - now;
+                if (ms <= 0) {
+                    timerEl.textContent = 'Expired';
+                    timerEl.classList.add('expired');
+                    timerEl.closest('.vip-card')?.classList.add('is-expired');
+                } else {
+                    timerEl.textContent = formatCountdown(ms);
+                }
+            });
+        };
+        setInterval(tick, 1000);
+    };
+
+    // ---- Loading / error states (solo en vip.html) ----
+    const showLoading = () => {
+        if (!container) return;
+        container.innerHTML = `
+            <div style="grid-column:1/-1; text-align:center; padding:3rem; color:var(--text-muted);">
+                <p style="font-size:1.1rem;">Loading members…</p>
+            </div>`;
+    };
+
+    const showError = () => {
+        if (!container) return;
+        container.innerHTML = `
+            <div style="grid-column:1/-1; text-align:center; padding:3rem; color:var(--text-muted);">
+                <p>⚠️ Could not load the members list. Check the sheet is shared publicly.</p>
+            </div>`;
+    };
+
+    // ---- Fetch desde Google Sheets y renderizar ----
+    const loadMembers = async () => {
+        showLoading();
+        try {
+            const res = await fetch(SHEET_URL);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const csv  = await res.text();
+            const users = parseCSV(csv);
+            if (users.length === 0) throw new Error('Empty sheet or wrong format');
+            renderCards(users);
+        } catch (err) {
+            console.error('VIP sheet fetch error:', err);
+            showError();
+        }
+    };
+
+    loadMembers();
 
     // ---- Payment buttons ----
     const binanceBtn      = document.getElementById('binance-btn');
@@ -163,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(() => alert('Failed to copy.'));
     };
 
-    if (binanceBtn)     binanceBtn.addEventListener('click', () => copyToClipboard(binanceId, '✓ Binance ID copied!'));
+    if (binanceBtn)     binanceBtn.addEventListener('click', () => copyToClipboard(binanceId,       '✓ Binance ID copied!'));
     if (mercadopagoBtn) mercadopagoBtn.addEventListener('click', () => copyToClipboard(mercadopagoCvu, '✓ CVU MercadoPago copied!'));
     if (popupContainer) {
         popupContainer.addEventListener('click', (e) => {
