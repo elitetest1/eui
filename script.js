@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle_phrases: [
                 "The definitive experience, built upon One UI 8.5",
                 "Extreme privacy. Maximum performance.",
-                "Galaxy AI. Full RAW camera. Floppy kernel.",
+                "Galaxy AI. Full RAW camera. Proton+ kernel.",
                 "Built for enthusiasts. Refined for everyone."
             ],
             hero_badge: "One UI 8.5 — Now Available",
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle_phrases: [
                 "La experiencia definitiva, construida sobre One UI 8.5",
                 "Privacidad extrema. Máximo rendimiento.",
-                "Galaxy AI. Cámara RAW completa. floppy kernel.",
+                "Galaxy AI. Cámara RAW completa. Kernel Proton+.",
                 "Creado para entusiastas. Refinado para todos."
             ],
             hero_badge: "One UI 8.5 — Ya Disponible",
@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle_phrases: [
                 "A experiência definitiva, construída sobre a One UI 8.5",
                 "Privacidade extrema. Desempenho máximo.",
-                "Galaxy AI. Câmera RAW completa. Floppy Kernel.",
+                "Galaxy AI. Câmera RAW completa. Kernel Proton+.",
                 "Feito para entusiastas. Refinado para todos."
             ],
             hero_badge: "One UI 8.5 — Já Disponível",
@@ -580,35 +580,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
+    const mobileOverlay = document.getElementById('mobile-overlay');
+
+    const closeMobileMenu = () => {
+        hamburgerBtn && hamburgerBtn.classList.remove('open');
+        mobileMenu && mobileMenu.classList.remove('active');
+        mobileOverlay && mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
     if (hamburgerBtn && mobileMenu) {
         hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('open');
-            mobileMenu.classList.toggle('active');
-            
-            // Close language dropdown if open to prevent overlap
+            const isOpen = mobileMenu.classList.contains('active');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                hamburgerBtn.classList.add('open');
+                mobileMenu.classList.add('active');
+                mobileOverlay && mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
             if (langDropdown && langDropdown.classList.contains('show')) {
                 langDropdown.classList.remove('show');
                 langMenuBtn.classList.remove('active');
             }
         });
 
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', closeMobileMenu);
+        }
+
         document.querySelectorAll('#mobile-menu a').forEach(item => {
             item.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    hamburgerBtn.classList.remove('open');
-                    mobileMenu.classList.remove('active');
-                }
+                if (window.innerWidth <= 768) closeMobileMenu();
             });
         });
+    }
 
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768 && mobileMenu.classList.contains('active')) {
-                // Ensure clicks aren't on hamburger or inside menu
-                if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-                    hamburgerBtn.classList.remove('open');
-                    mobileMenu.classList.remove('active');
-                }
-            }
+    // =============================================
+    //  BACK TO TOP
+    // =============================================
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+        }, { passive: true });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
@@ -687,7 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //  VIP MEMBER COUNT — live from Google Sheet
     // =============================================
     const VIP_SHEET_ID  = '1rT9UkRKbfwNj0UwLKf3W4mvacj-Bbp5BqIqaQrSruZ8';
-    const VIP_SHEET_URL = `https://docs.google.com/spreadsheets/d/${VIP_SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Sheet1`;
+    const VIP_SHEET_URL = `https://docs.google.com/spreadsheets/d/${VIP_SHEET_ID}/export?format=csv&sheet=Sheet1`;
 
     const fetchVipCount = async () => {
         try {
@@ -843,6 +861,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.carousel-container-features, .carousel-container-desktop, .carousel-container').forEach(c => {
         if (c) setupCarousel(c);
+    });
+
+    // =============================================
+    //  TOUCH SWIPE FOR CAROUSELS
+    // =============================================
+    document.querySelectorAll('.carousel-container-features, .carousel-container-desktop, .carousel-container').forEach(container => {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const MIN_SWIPE = 40;
+
+        container.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+
+        container.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].clientX;
+            const delta = touchStartX - touchEndX;
+            if (Math.abs(delta) < MIN_SWIPE) return;
+            const nextBtn = container.querySelector('.next, .features-next, .desktop-next');
+            const prevBtn = container.querySelector('.prev, .features-prev, .desktop-prev');
+            if (delta > 0) nextBtn && nextBtn.click();
+            else prevBtn && prevBtn.click();
+        }, { passive: true });
     });
 
     // =============================================
