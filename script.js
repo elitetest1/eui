@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle_phrases: [
                 "The definitive experience, built upon One UI 8.5",
                 "Extreme privacy. Maximum performance.",
-                "Galaxy AI. Full RAW camera. Proton+ kernel.",
+                "Galaxy AI. Full RAW camera. Floppy kernel.",
                 "Built for enthusiasts. Refined for everyone."
             ],
             hero_badge: "One UI 8.5 — Now Available",
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle_phrases: [
                 "La experiencia definitiva, construida sobre One UI 8.5",
                 "Privacidad extrema. Máximo rendimiento.",
-                "Galaxy AI. Cámara RAW completa. Kernel Proton+.",
+                "Galaxy AI. Cámara RAW completa. floppy kernel.",
                 "Creado para entusiastas. Refinado para todos."
             ],
             hero_badge: "One UI 8.5 — Ya Disponible",
@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
             subtitle_phrases: [
                 "A experiência definitiva, construída sobre a One UI 8.5",
                 "Privacidade extrema. Desempenho máximo.",
-                "Galaxy AI. Câmera RAW completa. Kernel Proton+.",
+                "Galaxy AI. Câmera RAW completa. Floppy Kernel.",
                 "Feito para entusiastas. Refinado para todos."
             ],
             hero_badge: "One UI 8.5 — Já Disponível",
