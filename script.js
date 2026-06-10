@@ -701,61 +701,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     
-    // =============================================
-    //  VIP MEMBER COUNT — live from Google Sheet
-    // =============================================
-    const VIP_SHEET_ID  = '1rT9UkRKbfwNj0UwLKf3W4mvacj-Bbp5BqIqaQrSruZ8';
-    const VIP_SHEET_URL = `https://docs.google.com/spreadsheets/d/${VIP_SHEET_ID}/export?format=csv&sheet=Sheet1`;
-
-    const fetchVipCount = async () => {
-        try {
-            const res = await fetch(VIP_SHEET_URL);
-            if (!res.ok) return;
-            const csv = await res.text();
-            const lines = csv.trim().split('\n').slice(1); // skip header row
-
-            const now = new Date();
-            let active = 0;
-            lines.forEach(line => {
-                // Extract startDate and plan with regex — avoids comma-in-name issues
-                const match = line.match(/,"?(\d{4}-\d{2}-\d{2})"?,"?(\d+)"?/);
-                if (!match) return;
-                const end = new Date(match[1]);
-                end.setMonth(end.getMonth() + parseInt(match[2]));
-                if (end > now) active++;
-            });
-
-            // Find the VIP Members stat element via its translation key
-            const vipStatEl = document.querySelector(
-                '.stat-item .stat-number[data-count]'
-            );
-            // Make sure we grab the right one (first stat = VIP members)
-            const vipItem = document.querySelector('.stat-label[data-translate="stat_vip"]');
-            const targetEl = vipItem ? vipItem.closest('.stat-item').querySelector('.stat-number') : vipStatEl;
-            if (!targetEl) return;
-
-            targetEl.setAttribute('data-count', active);
-
-            // If already animated (not "0"), count up smoothly to the live value
-            const current = parseInt(targetEl.textContent) || 0;
-            if (current > 0 && current !== active) {
-                let val = current;
-                const step = (active - current) / 25;
-                const tick = () => {
-                    val += step;
-                    const floored = Math.floor(val);
-                    const done = step > 0 ? floored >= active : floored <= active;
-                    targetEl.textContent = done ? active : floored;
-                    if (!done) requestAnimationFrame(tick);
-                };
-                requestAnimationFrame(tick);
-            }
-        } catch (e) {
-            console.warn('VIP count fetch failed:', e);
-        }
-    };
-
-    fetchVipCount();
+    // VIP member count is fetched and updated by vip.js via updateIndexCounter().
 
     // =============================================
     //  STATS COUNTER
@@ -790,23 +736,32 @@ document.addEventListener('DOMContentLoaded', () => {
                         counterObserver.unobserve(el);
                     }
                     else if (el.hasAttribute('data-count')) {
-                        const target = parseInt(el.getAttribute('data-count'), 10);
+                        // --- Cancellable, dynamically-targeted counter animation ---
+                        // If vip.js updates data-count mid-animation, the animation
+                        // naturally ends at the live value rather than the stale 36.
                         const suffix = el.getAttribute('data-suffix') || '';
-                        const stepTime = 16;
-                        const steps = duration / stepTime;
-                        const increment = target / steps;
-                        let current = 0;
+                        el._statSuffix = suffix;
+                        el._statObserved = true; // signal to vip.js that we started
 
-                        const updateNumeric = () => {
-                            current = Math.min(current + increment, target);
-                            el.textContent = Math.floor(current) + suffix;
-                            if (current < target) {
-                                requestAnimationFrame(updateNumeric);
+                        // Cancel any pre-existing animation (e.g. triggered by vip.js early)
+                        if (el._statRaf) { cancelAnimationFrame(el._statRaf); el._statRaf = null; }
+
+                        const startTime = performance.now();
+
+                        const tick = (now) => {
+                            const progress = Math.min((now - startTime) / duration, 1);
+                            const ease = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+                            // Re-read data-count on every frame — picks up live value if changed
+                            const liveTarget = parseInt(el.getAttribute('data-count'), 10) || 0;
+                            el.textContent = Math.round(liveTarget * ease) + suffix;
+                            if (progress < 1) {
+                                el._statRaf = requestAnimationFrame(tick);
                             } else {
-                                el.textContent = target + suffix;
+                                el.textContent = liveTarget + suffix;
+                                el._statRaf = null;
                             }
                         };
-                        requestAnimationFrame(updateNumeric);
+                        el._statRaf = requestAnimationFrame(tick);
                         counterObserver.unobserve(el);
                     }
                 }

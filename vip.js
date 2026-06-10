@@ -91,36 +91,51 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ---- Actualiza el contador de VIP Members en index.html ----
-    // El elemento stat en index.html tiene data-count="36" (hardcodeado).
-    // Esta función lo reemplaza con el número real de miembros activos
-    // y dispara la animación de conteo si el elemento ya es visible.
+    // Busca el elemento stat del VIP, cancela cualquier animación en curso,
+    // y arranca una nueva desde el valor actual hasta el conteo real.
     const updateIndexCounter = (activeCount) => {
-        const statEl = document.querySelector('.stat-number[data-count]');
-        if (!statEl) return; // No estamos en index.html, no hacer nada
+        // Localizar el stat element correcto via su label de traducción
+        const vipLabel = document.querySelector('.stat-label[data-translate="stat_vip"]');
+        const statEl = vipLabel
+            ? vipLabel.closest('.stat-item')?.querySelector('.stat-number')
+            : document.querySelector('.stat-number[data-count]');
+        if (!statEl) return;
 
-        // Actualizar el atributo para que la animación de script.js use el valor real
+        // Actualizar el atributo — si el observer todavía no arrancó la animación,
+        // lo leerá dinámicamente y terminará en el valor correcto sin hacer nada más.
         statEl.setAttribute('data-count', activeCount);
 
-        // Si el elemento ya terminó de animar (muestra un número), actualizarlo directo
-        const currentVal = parseInt(statEl.textContent, 10);
-        if (!isNaN(currentVal)) {
-            // Animar suavemente desde el valor actual al nuevo
-            const duration = 800;
-            const startTime = performance.now();
-            const from = currentVal;
-            const to = activeCount;
+        // Si el observer aún no observó el elemento, nada más que hacer.
+        // La animación del observer leerá data-count dinámicamente y terminará en activeCount.
+        if (!statEl._statObserved) return;
 
-            const animate = (now) => {
-                const elapsed = now - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                // Ease out cubic
-                const ease = 1 - Math.pow(1 - progress, 3);
-                statEl.textContent = Math.round(from + (to - from) * ease);
-                if (progress < 1) requestAnimationFrame(animate);
-                else statEl.textContent = to;
-            };
-            requestAnimationFrame(animate);
+        // Cancelar cualquier animación en vuelo
+        if (statEl._statRaf) {
+            cancelAnimationFrame(statEl._statRaf);
+            statEl._statRaf = null;
         }
+
+        // Animar desde el valor actual mostrado hasta activeCount
+        const from = parseInt(statEl.textContent, 10) || 0;
+        const to = activeCount;
+        if (from === to) return;
+
+        const suffix = statEl._statSuffix || '';
+        const durationMs = 900;
+        const startTime = performance.now();
+
+        const tick = (now) => {
+            const p = Math.min((now - startTime) / durationMs, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            statEl.textContent = Math.round(from + (to - from) * ease) + suffix;
+            if (p < 1) {
+                statEl._statRaf = requestAnimationFrame(tick);
+            } else {
+                statEl.textContent = to + suffix;
+                statEl._statRaf = null;
+            }
+        };
+        statEl._statRaf = requestAnimationFrame(tick);
     };
 
     // ---- Render all cards ----
