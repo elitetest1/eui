@@ -491,6 +491,10 @@ body::after {
     pointer-events: none;
 }
 
+@media (max-width: 768px) {
+    .hero-scroll-hint { display: none; }
+}
+
 .hero-scroll-hint span {
     font-size: 0.7rem;
     letter-spacing: 1.5px;
