@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "date-fns": "^4.1.0",
-    "inquirer": "^8.2.6",
-    "string-similarity": "^4.0.4"
-  }
-}
