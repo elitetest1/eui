@@ -6,6 +6,7 @@
 //       name | startDate | plan
 //     Example row: Javier | 2026-02-05 | 12
 //     'plan' is the number of months (3 = quarterly, 12 = annual)
+//     For lifetime VIP++, use: lifetime
 //
 //  2. Share the sheet: Share → Anyone with the link → Viewer
 //
@@ -15,13 +16,16 @@
 //
 //  TO ADD A NEW USER:
 //  Just add a row in the sheet from phone or desktop. Done.
+//
+//  PLAN VALUES:
+//    1        → Monthly (1 month)
+//    3        → Quarterly (3 months)
+//    12       → Annual (12 months)
+//    lifetime → VIP++ Lifetime (never expires)
 // ================================================================
 
 const SHEET_ID   = '1rT9UkRKbfwNj0UwLKf3W4mvacj-Bbp5BqIqaQrSruZ8';
-const SHEET_NAME = 'Sheet1';                        // ← sheet tab name
-
-// FIX: usamos /export?format=csv en lugar de /gviz/tq — este endpoint
-// sí devuelve los headers CORS correctos para fetch desde el browser.
+const SHEET_NAME = 'Sheet1';
 const SHEET_URL  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&sheet=${SHEET_NAME}`;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,24 +55,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const parseCSV = (text) => {
         const lines = text.trim().split('\n');
         if (lines.length < 2) return [];
-        // Row 0 = headers, skip it
         return lines.slice(1)
             .map(line => {
                 const cols = parseCSVLine(line);
                 const name = cols[0] || '';
                 const startDate = cols[1] || '';
-                const plan = parseInt(cols[2]) || 3;
+                const planRaw = (cols[2] || '').trim().toLowerCase();
+                // Support 'lifetime' keyword
+                const isLifetime = planRaw === 'lifetime' || planRaw === '0';
+                const plan = isLifetime ? 'lifetime' : (parseInt(planRaw) || 3);
                 if (!name || !startDate) return null;
-                return { name, startDate, plan };
+                return { name, startDate, plan, isLifetime };
             })
             .filter(Boolean);
     };
 
     // ---- Helpers ----
     const getEndDate = (user) => {
+        if (user.isLifetime) return null; // null = never expires
         const d = new Date(user.startDate);
         d.setMonth(d.getMonth() + (user.plan || 3));
         return d;
+    };
+
+    const isExpiredUser = (user) => {
+        if (user.isLifetime) return false; // lifetime never expires
+        const endDate = getEndDate(user);
+        return endDate <= new Date();
     };
 
     const getInitials = (name) => {
@@ -91,31 +104,22 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // ---- Actualiza el contador de VIP Members en index.html ----
-    // Busca el elemento stat del VIP, cancela cualquier animación en curso,
-    // y arranca una nueva desde el valor actual hasta el conteo real.
     const updateIndexCounter = (activeCount) => {
-        // Localizar el stat element correcto via su label de traducción
         const vipLabel = document.querySelector('.stat-label[data-translate="stat_vip"]');
         const statEl = vipLabel
             ? vipLabel.closest('.stat-item')?.querySelector('.stat-number')
             : document.querySelector('.stat-number[data-count]');
         if (!statEl) return;
 
-        // Actualizar el atributo — si el observer todavía no arrancó la animación,
-        // lo leerá dinámicamente y terminará en el valor correcto sin hacer nada más.
         statEl.setAttribute('data-count', activeCount);
 
-        // Si el observer aún no observó el elemento, nada más que hacer.
-        // La animación del observer leerá data-count dinámicamente y terminará en activeCount.
         if (!statEl._statObserved) return;
 
-        // Cancelar cualquier animación en vuelo
         if (statEl._statRaf) {
             cancelAnimationFrame(statEl._statRaf);
             statEl._statRaf = null;
         }
 
-        // Animar desde el valor actual mostrado hasta activeCount
         const from = parseInt(statEl.textContent, 10) || 0;
         const to = activeCount;
         if (from === to) return;
@@ -142,17 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderCards = (vipUsers) => {
         const timers = [];
 
-        // Calcular activos ANTES de renderizar (necesario para ambas páginas)
-        const activeCount = vipUsers.filter(u => getEndDate(u) > new Date()).length;
+        const activeCount = vipUsers.filter(u => !isExpiredUser(u)).length;
 
-        // Actualizar el badge de vip.html
         const heroBadge = document.querySelector('[data-translate="vip_hero_badge"]');
         if (heroBadge) heroBadge.textContent = `${activeCount} Active Members Worldwide`;
 
-        // Actualizar el contador de index.html
         updateIndexCounter(activeCount);
 
-        // Si no hay contenedor de lista (estamos en index.html), terminar aquí
         if (!container) return;
 
         container.innerHTML = '';
@@ -160,10 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
         vipUsers.forEach((user, index) => {
             const endDate   = getEndDate(user);
             const isVipPlus = user.plan === 12;
-            const isExpired = endDate <= new Date();
+            const isLifetime = user.isLifetime;
+            const isExpired = isExpiredUser(user);
 
             const card = document.createElement('div');
-            card.className = `vip-card${isVipPlus ? ' vip-plus' : ''}${isExpired ? ' is-expired' : ''}`;
+            // lifetime gets its own special class
+            card.className = `vip-card${isLifetime ? ' vip-lifetime' : (isVipPlus ? ' vip-plus' : '')}${isExpired ? ' is-expired' : ''}`;
             card.style.animationDelay = `${(index % 6) * 60}ms`;
 
             const avatar = document.createElement('div');
@@ -176,7 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const nameEl = document.createElement('div');
             nameEl.className = 'vip-card-name';
             nameEl.textContent = user.name;
-            if (isVipPlus) {
+
+            if (isLifetime) {
+                const badge = document.createElement('span');
+                badge.className = 'vip-badge vip-badge-lifetime';
+                badge.textContent = 'VIP++';
+                nameEl.appendChild(badge);
+            } else if (isVipPlus) {
                 const badge = document.createElement('span');
                 badge.className = 'vip-badge';
                 badge.textContent = 'VIP+';
@@ -186,7 +194,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const timerEl = document.createElement('span');
             timerEl.className = 'vip-timer';
 
-            if (isExpired) {
+            if (isLifetime) {
+                timerEl.textContent = '∞ Lifetime';
+                timerEl.classList.add('lifetime');
+            } else if (isExpired) {
                 timerEl.textContent = 'Expired';
                 timerEl.classList.add('expired');
             } else {
@@ -206,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tick = () => {
             const now = new Date();
             timers.forEach(({ timerEl, endDate }) => {
-                if (timerEl.classList.contains('expired')) return;
+                if (timerEl.classList.contains('expired') || timerEl.classList.contains('lifetime')) return;
                 const ms = endDate - now;
                 if (ms <= 0) {
                     timerEl.textContent = 'Expired';
@@ -220,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(tick, 1000);
     };
 
-    // ---- Loading / error states (solo en vip.html) ----
+    // ---- Loading / error states ----
     const showLoading = () => {
         if (!container) return;
         container.innerHTML = `
@@ -258,11 +269,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---- Payment buttons ----
     const binanceBtn      = document.getElementById('binance-btn');
     const mercadopagoBtn  = document.getElementById('mercadopago-btn');
+    const usdtBtn         = document.getElementById('usdt-btn');
     const popupContainer  = document.getElementById('popup-container');
     const popupMessage    = document.getElementById('popup-message');
 
     const binanceId       = '872571792';
     const mercadopagoCvu  = '0000003100092907465723';
+    const usdtAddress     = '0x933f399f8b144a14e5a2fdaa9463cc3202f0d47a';
 
     const showPopup = (message) => {
         if (!popupContainer || !popupMessage) return;
@@ -280,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (binanceBtn)     binanceBtn.addEventListener('click', () => copyToClipboard(binanceId,       '✓ Binance ID copied!'));
     if (mercadopagoBtn) mercadopagoBtn.addEventListener('click', () => copyToClipboard(mercadopagoCvu, '✓ CVU MercadoPago copied!'));
+    if (usdtBtn)        usdtBtn.addEventListener('click', () => copyToClipboard(usdtAddress, '✓ USDT BEP20 address copied!'));
     if (popupContainer) {
         popupContainer.addEventListener('click', (e) => {
             if (e.target === popupContainer) popupContainer.style.display = 'none';

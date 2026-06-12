@@ -939,9 +939,25 @@ body::after {
 }
 
 /* Desktop: hover scrolls the image up to reveal extended content */
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
     .screenshot-frame:hover img {
         transform: translateY(calc(-100% + 540px));
+    }
+}
+
+/* Mobile/touch: images are completely static — no transform, no drag */
+@media (hover: none), (pointer: coarse) {
+    .screenshot-frame img {
+        transform: none !important;
+        transition: none !important;
+        pointer-events: none;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-user-drag: none;
+        touch-action: none;
+    }
+    .screenshot-frame {
+        cursor: default;
     }
 }
 
@@ -1696,6 +1712,82 @@ body::after {
     background: rgba(245,200,66,0.07);
 }
 
+/* ---- Lifetime pricing card ---- */
+.pricing-card-lifetime {
+    border-color: rgba(245, 200, 66, 0.35);
+    background: linear-gradient(160deg, rgba(245,200,66,0.07) 0%, var(--card-bg) 60%);
+}
+
+.pricing-card-lifetime:hover {
+    border-color: rgba(245, 200, 66, 0.55);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 30px rgba(245,200,66,0.1);
+}
+
+.pricing-card-lifetime .price {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.badge-lifetime {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dim)) !important;
+    color: #1a1000 !important;
+    box-shadow: 0 4px 14px var(--gold-glow) !important;
+}
+
+/* ---- USDT payment button ---- */
+.payment-btn-usdt:hover {
+    background: rgba(38, 161, 123, 0.18) !important;
+    border-color: rgba(38, 161, 123, 0.5) !important;
+    color: #4fd1a8 !important;
+    box-shadow: 0 8px 24px rgba(38, 161, 123, 0.2) !important;
+}
+
+/* ---- PayPal commission notice ---- */
+.paypal-notice {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 8px 16px;
+    background: rgba(245, 200, 66, 0.05);
+    border: 1px solid rgba(245, 200, 66, 0.15);
+    border-radius: var(--radius-md);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paypal-notice strong {
+    color: var(--gold);
+}
+
+/* ---- VIP++ lifetime card style ---- */
+.vip-card.vip-lifetime {
+    border-color: rgba(245, 200, 66, 0.3);
+    background: linear-gradient(135deg, rgba(245,200,66,0.06) 0%, var(--card-bg) 70%);
+}
+
+.vip-card.vip-lifetime .vip-avatar {
+    background: linear-gradient(135deg, #ffe066, var(--gold-dim));
+    color: #1a1000;
+    box-shadow: 0 0 14px rgba(245,200,66,0.35);
+}
+
+.vip-badge-lifetime {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dim)) !important;
+    color: #1a1000 !important;
+    font-size: 0.58rem !important;
+}
+
+.vip-timer.lifetime {
+    color: var(--gold);
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
 /* ---- pricing-cta used in vip.html ---- */
 .pricing-cta { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.25rem; }
 
@@ -2138,6 +2230,7 @@ body::after {
     /* Pricing */
     .pricing-card.popular { transform: scale(1); order: -1; }
     .pricing-card.popular:hover { transform: translateY(-5px); }
+    .pricing-card.pricing-card-lifetime { order: 1; }
     .pricing-cards { gap: 1rem; }
 
     /* VIP */
