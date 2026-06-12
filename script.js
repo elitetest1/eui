@@ -111,12 +111,14 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_plan2_desc: "The ultimate Elite UI experience at the best price.",
             vip_plan3_name: "3 Months",
             vip_plan3_desc: "Great value for medium-term priority access.",
+            vip_plan4_name: "Lifetime",
+            vip_plan4_desc: "Pay once, never worry again. Your VIP status never expires.",
             vip_payment_title: "Choose your payment method:",
             vip_payment_note: "<strong>IMPORTANT:</strong> After payment, send proof of payment + your selected plan to <a href='https://t.me/elitegalaxy' target='_blank'>@elitegalaxy</a> on Telegram to be added to the private VIP group.",
             vip_members_title: "Active VIP Members",
             vip_members_desc: "Real-time subscription status for our amazing supporters.",
             vip_filter_all: "All Members",
-            vip_filter_plus: "⭐ VIP+ (Annual)",
+            vip_filter_plus: "⭐ VIP+ / VIP++",
             vip_filter_active: "Active Only"
         },
         es: {
@@ -226,12 +228,14 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_plan2_desc: "La experiencia definitiva de Elite UI al mejor precio.",
             vip_plan3_name: "3 Meses",
             vip_plan3_desc: "Gran valor para acceso prioritario a medio plazo.",
+            vip_plan4_name: "De por Vida",
+            vip_plan4_desc: "Pagás una vez y listo. Tu estado VIP nunca vence.",
             vip_payment_title: "Elige tu método de pago:",
             vip_payment_note: "<strong>IMPORTANTE:</strong> Después del pago, envía el comprobante + tu plan seleccionado a <a href='https://t.me/elitegalaxy' target='_blank'>@elitegalaxy</a> en Telegram para ser añadido al grupo VIP privado.",
             vip_members_title: "Miembros VIP Activos",
             vip_members_desc: "Estado de suscripción en tiempo real de nuestros increíbles seguidores.",
             vip_filter_all: "Todos los Miembros",
-            vip_filter_plus: "⭐ VIP+ (Anual)",
+            vip_filter_plus: "⭐ VIP+ / VIP++",
             vip_filter_active: "Solo Activos"
         },
         hi: {
@@ -341,12 +345,14 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_plan2_desc: "सबसे अच्छी कीमत पर बेहतरीन एलीट यूआई अनुभव।",
             vip_plan3_name: "3 महीने",
             vip_plan3_desc: "मध्यम अवधि की प्राथमिकता पहुंच के लिए बढ़िया मूल्य।",
+            vip_plan4_name: "आजीवन",
+            vip_plan4_desc: "एक बार भुगतान करें, फिर कोई चिंता नहीं। आपकी VIP सदस्यता कभी समाप्त नहीं होती।",
             vip_payment_title: "अपनी भुगतान विधि चुनें:",
             vip_payment_note: "<strong>महत्वपूर्ण:</strong> भुगतान के बाद, निजी वीआईपी समूह में जोड़े जाने के लिए टेलीग्राम पर <a href='https://t.me/elitegalaxy' target='_blank'>@elitegalaxy</a> को भुगतान का प्रमाण + अपना चयनित प्लान भेजें।",
             vip_members_title: "सक्रिय वीआईपी सदस्य",
             vip_members_desc: "हमारे अद्भुत समर्थकों के लिए वास्तविक समय सदस्यता स्थिति।",
             vip_filter_all: "सभी सदस्य",
-            vip_filter_plus: "⭐ वीआईपी+ (वार्षिक)",
+            vip_filter_plus: "⭐ VIP+ / VIP++",
             vip_filter_active: "केवल सक्रिय"
         },
         pt: {
@@ -456,12 +462,14 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_plan2_desc: "A experiência definitiva da Elite UI com o melhor preço.",
             vip_plan3_name: "3 Meses",
             vip_plan3_desc: "Ótimo custo-benefício para acesso prioritário a médio prazo.",
+            vip_plan4_name: "Vitalício",
+            vip_plan4_desc: "Pague uma vez e esqueça. Seu status VIP nunca expira.",
             vip_payment_title: "Escolha sua forma de pagamento:",
             vip_payment_note: "<strong>IMPORTANTE:</strong> Após o pagamento, envie o comprovante + seu plano selecionado para <a href='https://t.me/elitegalaxy' target='_blank'>@elitegalaxy</a> no Telegram para ser adicionado ao grupo VIP privado.",
             vip_members_title: "Membros VIP Ativos",
             vip_members_desc: "Status de assinatura em tempo real de nossos incríveis apoiadores.",
             vip_filter_all: "Todos os Membros",
-            vip_filter_plus: "⭐ VIP+ (Anual)",
+            vip_filter_plus: "⭐ VIP+ / VIP++",
             vip_filter_active: "Apenas Ativos"
         }
     };
