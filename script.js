@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero_badge: "One UI 8.5 — Now Available",
             stat_vip: "VIP Members",
             stat_devices: "Supported Devices",
-            stat_features: "Active Features",
+            stat_features: "Core Features",
             stat_base: "OneUI Base",
             vip_promo_title: "Go <span class='gold'>VIP</span> — <span class='red'>Elite</span> Access",
             vip_promo_desc: "Support the project and unlock exclusive builds, priority support, and the latest updates before anyone else.",
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feature1_desc: "A brand-new design layer over One UI 8.5 — reworked icons, smoother animations, and a cleaner, more modern look across every screen.",
             feature2_title: "Galaxy AI — S26 Series",
             feature2_desc: "Full Galaxy AI ported from the S26 Series, a 3B-parameter NPU model, and the latest Samsung LLM — offline text tasks, live translation and summaries, no internet required.",
-            feature3_title: "Elite UI Core",
+            feature3_title: "Elite UI Settings",
             feature3_desc: "A powerful in-ROM control center: system monitor, performance modes, CPU/GPU temps, RAM monitor, battery stats, display tuning, and more — all in real time.",
             feature4_title: "Pro Camera — 4K 120fps",
             feature4_desc: "Full Camera2API and RAW support on every lens. 4K 120fps in Pro Video mode. Pro Mode unlocked on the telephoto sensor.",
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_exclusive: "p3s — VIP Exclusive",
             get_vip_access: "Get VIP Access",
             // --- VIP PAGE TRANSLATIONS ---
-            vip_hero_badge: "36 Active Members Worldwide",
+            vip_hero_badge: "Active Members Worldwide",
             vip_hero_title: "Join <span class='gold'>VIP</span> Access",
             vip_hero_desc: "Support Elite UI development and get exclusive access to the latest builds, priority support, and a voice in the project's future.",
             vip_hero_btn: "⭐ See Plans from $10",
@@ -123,7 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_members_desc: "Real-time subscription status for our amazing supporters.",
             vip_filter_all: "All Members",
             vip_filter_plus: "⭐ VIP+ / VIP++",
-            vip_filter_active: "Active Only"
+            vip_filter_active: "Active Only",
+            vip_filter_expired: "Expired Only",
+            vip_paypal_static_notice: "⚠️ <strong>PayPal</strong> is accepted as a universal payment method, but it's not recommended — due to transaction fees, prices via PayPal are 16% higher.",
+            vip_paypal_modal_title: "Paying with PayPal",
+            vip_paypal_modal_desc: "PayPal is a universal payment method, but it's not the recommended one: due to transaction fees, all prices below already include a 16% surcharge.",
+            vip_paypal_accept_btn: "Accept and continue transaction",
+            vip_paypal_cancel_btn: "Cancel"
         },
         es: {
             features_link: "Características",
@@ -139,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero_badge: "One UI 8.5 — Ya Disponible",
             stat_vip: "Miembros VIP",
             stat_devices: "Dispositivos Soportados",
-            stat_features: "Funciones Activas",
+            stat_features: "Funciones Principales",
             stat_base: "Base OneUI",
             vip_promo_title: "Hazte <span class='gold'>VIP</span> — Acceso <span class='red'>Elite</span>",
             vip_promo_desc: "Apoya el proyecto y desbloquea builds exclusivas, soporte prioritario y las últimas actualizaciones antes que nadie.",
@@ -161,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feature1_desc: "Una capa de diseño totalmente nueva sobre One UI 8.5: iconos renovados, animaciones más fluidas y una estética más limpia y moderna en cada pantalla.",
             feature2_title: "Galaxy AI — Serie S26",
             feature2_desc: "Galaxy AI completo portado desde la Serie S26, modelo NPU de 3B parámetros y el último Samsung LLM: tareas de texto, traducción en vivo y resúmenes sin conexión a internet.",
-            feature3_title: "Elite UI Core",
+            feature3_title: "Elite UI Settings",
             feature3_desc: "Un potente panel de control integrado en la ROM: monitor del sistema, modos de rendimiento, temperaturas CPU/GPU, monitor de RAM, estadísticas de batería y ajustes de pantalla, todo en tiempo real.",
             feature4_title: "Cámara Pro — 4K 120fps",
             feature4_desc: "Soporte completo de Camera2API y RAW en todos los lentes. Grabación 4K 120fps en Modo Pro Video. Modo Pro desbloqueado en el sensor telefoto.",
@@ -207,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_exclusive: "p3s — Exclusivo VIP",
             get_vip_access: "Obtener Acceso VIP",
             // --- VIP PAGE TRANSLATIONS ---
-            vip_hero_badge: "36 Miembros Activos en el Mundo",
+            vip_hero_badge: "Miembros Activos en el Mundo",
             vip_hero_title: "Únete al Acceso <span class='gold'>VIP</span>",
             vip_hero_desc: "Apoya el desarrollo de Elite UI y obtén acceso exclusivo a las últimas builds, soporte prioritario y voz en el futuro del proyecto.",
             vip_hero_btn: "⭐ Ver Planes desde $10",
@@ -244,7 +250,13 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_members_desc: "Estado de suscripción en tiempo real de nuestros increíbles seguidores.",
             vip_filter_all: "Todos los Miembros",
             vip_filter_plus: "⭐ VIP+ / VIP++",
-            vip_filter_active: "Solo Activos"
+            vip_filter_active: "Solo Activos",
+            vip_filter_expired: "Solo Expirados",
+            vip_paypal_static_notice: "⚠️ <strong>PayPal</strong> se acepta como método de pago universal, pero no es el recomendado — por las comisiones, los precios vía PayPal son un 16% más altos.",
+            vip_paypal_modal_title: "Pagar con PayPal",
+            vip_paypal_modal_desc: "PayPal es un método de pago universal, pero no es el recomendado: por las comisiones, todos los precios de abajo ya incluyen un recargo del 16%.",
+            vip_paypal_accept_btn: "Aceptar y continuar la transacción",
+            vip_paypal_cancel_btn: "Cancelar"
         },
         hi: {
             features_link: "विशेषताएँ",
@@ -260,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero_badge: "वन यूआई 8.5 — अब उपलब्ध है",
             stat_vip: "वीआईपी सदस्य",
             stat_devices: "समर्थित डिवाइस",
-            stat_features: "सक्रिय विशेषताएँ",
+            stat_features: "मुख्य सुविधाएँ",
             stat_base: "वन यूआई बेस",
             vip_promo_title: "<span class='gold'>वीआईपी</span> बनें — <span class='red'>एलीट</span> एक्सेस",
             vip_promo_desc: "प्रोजेक्ट का समर्थन करें और विशेष बिल्ड, प्राथमिकता समर्थन, और सबसे पहले नवीनतम अपडेट अनलॉक करें।",
@@ -282,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feature1_desc: "One UI 8.5 के ऊपर एक बिल्कुल नई डिज़ाइन लेयर — नए आइकन, स्मूथ एनिमेशन और हर स्क्रीन पर एक साफ़, आधुनिक लुक।",
             feature2_title: "Galaxy AI — S26 सीरीज़",
             feature2_desc: "S26 सीरीज़ से पोर्ट किया गया पूर्ण Galaxy AI, 3B-पैरामीटर NPU मॉडल और नवीनतम Samsung LLM — बिना इंटरनेट के टेक्स्ट कार्य, लाइव अनुवाद और सारांश।",
-            feature3_title: "Elite UI Core",
+            feature3_title: "Elite UI Settings",
             feature3_desc: "ROM में बना शक्तिशाली कंट्रोल सेंटर: सिस्टम मॉनीटर, परफॉर्मेंस मोड, CPU/GPU तापमान, RAM मॉनीटर, बैटरी आँकड़े और डिस्प्ले ट्यूनिंग — सब रियल-टाइम में।",
             feature4_title: "Pro कैमरा — 4K 120fps",
             feature4_desc: "हर लेंस पर पूर्ण Camera2API और RAW सपोर्ट। Pro Video मोड में 4K 120fps रिकॉर्डिंग। टेलीफोटो सेंसर पर Pro Mode अनलॉक।",
@@ -328,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_exclusive: "p3s — वीआईपी एक्सक्लूसिव",
             get_vip_access: "वीआईपी एक्सेस प्राप्त करें",
             // --- VIP PAGE TRANSLATIONS ---
-            vip_hero_badge: "दुनिया भर में 36 सक्रिय सदस्य",
+            vip_hero_badge: "दुनिया भर में सक्रिय सदस्य",
             vip_hero_title: "<span class='gold'>वीआईपी</span> एक्सेस से जुड़ें",
             vip_hero_desc: "एलीट यूआई विकास का समर्थन करें और नवीनतम बिल्ड, प्राथमिकता समर्थन और प्रोजेक्ट के भविष्य में एक आवाज तक विशेष पहुंच प्राप्त करें।",
             vip_hero_btn: "⭐ $10 से शुरू होने वाले प्लान देखें",
@@ -365,7 +377,13 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_members_desc: "हमारे अद्भुत समर्थकों के लिए वास्तविक समय सदस्यता स्थिति।",
             vip_filter_all: "सभी सदस्य",
             vip_filter_plus: "⭐ VIP+ / VIP++",
-            vip_filter_active: "केवल सक्रिय"
+            vip_filter_active: "केवल सक्रिय",
+            vip_filter_expired: "केवल समाप्त",
+            vip_paypal_static_notice: "⚠️ <strong>PayPal</strong> एक सार्वभौमिक भुगतान विधि के रूप में स्वीकार किया जाता है, लेकिन इसकी अनुशंसा नहीं की जाती — लेनदेन शुल्क के कारण, PayPal के माध्यम से कीमतें 16% अधिक हैं।",
+            vip_paypal_modal_title: "PayPal से भुगतान",
+            vip_paypal_modal_desc: "PayPal एक सार्वभौमिक भुगतान विधि है, लेकिन अनुशंसित नहीं है: लेनदेन शुल्क के कारण, नीचे दी गई सभी कीमतों में पहले से ही 16% अधिभार शामिल है।",
+            vip_paypal_accept_btn: "स्वीकार करें और लेनदेन जारी रखें",
+            vip_paypal_cancel_btn: "रद्द करें"
         },
         pt: {
             features_link: "Recursos",
@@ -381,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hero_badge: "One UI 8.5 — Já Disponível",
             stat_vip: "Membros VIP",
             stat_devices: "Dispositivos Suportados",
-            stat_features: "Recursos Ativos",
+            stat_features: "Recursos Principais",
             stat_base: "Base OneUI",
             vip_promo_title: "Seja <span class='gold'>VIP</span> — Acesso <span class='red'>Elite</span>",
             vip_promo_desc: "Apoie o projeto e desbloqueie builds exclusivas, suporte prioritário e as últimas atualizações antes de todo mundo.",
@@ -403,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
             feature1_desc: "Uma camada de design totalmente nova sobre a One UI 8.5 — ícones renovados, animações mais suaves e um visual mais limpo e moderno em todas as telas.",
             feature2_title: "Galaxy AI — Série S26",
             feature2_desc: "Galaxy AI completo portado da Série S26, modelo NPU com 3B parâmetros e o Samsung LLM mais recente — tarefas de texto, tradução ao vivo e resumos offline, sem internet.",
-            feature3_title: "Elite UI Core",
+            feature3_title: "Elite UI Settings",
             feature3_desc: "Um poderoso painel de controle integrado à ROM: monitor do sistema, modos de desempenho, temperaturas CPU/GPU, monitor de RAM, estatísticas de bateria e ajustes de tela — tudo em tempo real.",
             feature4_title: "Câmera Pro — 4K 120fps",
             feature4_desc: "Suporte completo a Camera2API e RAW em todas as lentes. Gravação 4K 120fps no modo Pro Video. Modo Pro desbloqueado na lente telefoto.",
@@ -449,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_exclusive: "p3s — Exclusivo VIP",
             get_vip_access: "Obter Acesso VIP",
             // --- VIP PAGE TRANSLATIONS ---
-            vip_hero_badge: "36 Membros Ativos no Mundo",
+            vip_hero_badge: "Membros Ativos no Mundo",
             vip_hero_title: "Junte-se ao Acesso <span class='gold'>VIP</span>",
             vip_hero_desc: "Apoie o desenvolvimento da Elite UI e obtenha acesso exclusivo às builds mais recentes, suporte prioritário e voz no futuro do projeto.",
             vip_hero_btn: "⭐ Ver Planos a partir de $10",
@@ -486,7 +504,13 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_members_desc: "Status de assinatura em tempo real de nossos incríveis apoiadores.",
             vip_filter_all: "Todos os Membros",
             vip_filter_plus: "⭐ VIP+ / VIP++",
-            vip_filter_active: "Apenas Ativos"
+            vip_filter_active: "Apenas Ativos",
+            vip_filter_expired: "Apenas Expirados",
+            vip_paypal_static_notice: "⚠️ <strong>PayPal</strong> é aceito como método de pagamento universal, mas não é o recomendado — devido às taxas, os preços via PayPal são 16% mais altos.",
+            vip_paypal_modal_title: "Pagando com PayPal",
+            vip_paypal_modal_desc: "PayPal é um método de pagamento universal, mas não é o recomendado: devido às taxas, todos os preços abaixo já incluem um acréscimo de 16%.",
+            vip_paypal_accept_btn: "Aceitar e continuar a transação",
+            vip_paypal_cancel_btn: "Cancelar"
         }
     };
 
@@ -885,6 +909,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (filter === 'all') show = true;
                     else if (filter === 'vip-plus') show = isVipPlus;
                     else if (filter === 'active') show = !isExpired;
+                    else if (filter === 'expired') show = isExpired;
 
                     card.style.display = show ? 'flex' : 'none';
                 });

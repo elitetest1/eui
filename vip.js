@@ -142,9 +142,29 @@ document.addEventListener('DOMContentLoaded', () => {
         statEl._statRaf = requestAnimationFrame(tick);
     };
 
+    // ---- Ordena: lifetime primero, luego activos de mayor a menor tiempo
+    //      restante, y los expirados al final (más recientes primero) ----
+    const sortVipUsers = (users) => {
+        const lifetime = [];
+        const active = [];
+        const expired = [];
+
+        users.forEach(u => {
+            if (u.isLifetime) lifetime.push(u);
+            else if (isExpiredUser(u)) expired.push(u);
+            else active.push(u);
+        });
+
+        active.sort((a, b) => getEndDate(b) - getEndDate(a));
+        expired.sort((a, b) => getEndDate(b) - getEndDate(a));
+
+        return [...lifetime, ...active, ...expired];
+    };
+
     // ---- Render all cards ----
-    const renderCards = (vipUsers) => {
+    const renderCards = (vipUsersUnsorted) => {
         const timers = [];
+        const vipUsers = sortVipUsers(vipUsersUnsorted);
 
         const activeCount = vipUsers.filter(u => !isExpiredUser(u)).length;
 
@@ -276,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const binanceId       = '872571792';
     const mercadopagoCvu  = '0000003100092907465723';
     const usdtAddress     = '0x933f399f8b144a14e5a2fdaa9463cc3202f0d47a';
+    const paypalMeLink    = 'https://www.paypal.me/TizzianoProvenzano';
 
     const showPopup = (message) => {
         if (!popupContainer || !popupMessage) return;
@@ -297,6 +318,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (popupContainer) {
         popupContainer.addEventListener('click', (e) => {
             if (e.target === popupContainer) popupContainer.style.display = 'none';
+        });
+    }
+
+    // ---- PayPal confirmation modal ----
+    const paypalBtn       = document.getElementById('paypal-btn');
+    const paypalOverlay   = document.getElementById('paypal-modal-overlay');
+    const paypalCloseBtn  = document.getElementById('paypal-modal-close');
+    const paypalCancelBtn = document.getElementById('paypal-cancel-btn');
+    const paypalAcceptBtn = document.getElementById('paypal-accept-btn');
+
+    const openPaypalModal  = () => { if (paypalOverlay) paypalOverlay.classList.add('show'); };
+    const closePaypalModal = () => { if (paypalOverlay) paypalOverlay.classList.remove('show'); };
+
+    if (paypalBtn)       paypalBtn.addEventListener('click', openPaypalModal);
+    if (paypalCloseBtn)  paypalCloseBtn.addEventListener('click', closePaypalModal);
+    if (paypalCancelBtn) paypalCancelBtn.addEventListener('click', closePaypalModal);
+    if (paypalOverlay) {
+        paypalOverlay.addEventListener('click', (e) => {
+            if (e.target === paypalOverlay) closePaypalModal();
+        });
+    }
+    if (paypalAcceptBtn) {
+        paypalAcceptBtn.addEventListener('click', () => {
+            closePaypalModal();
+            window.open(paypalMeLink, '_blank');
         });
     }
 });

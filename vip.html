@@ -160,6 +160,39 @@
     <div id="popup-message">Copied to clipboard</div>
 </div>
 
+<div id="paypal-modal-overlay" class="modal-overlay">
+    <div class="modal-box paypal-modal">
+        <button id="paypal-modal-close" class="modal-close" aria-label="Close">&times;</button>
+        <div class="modal-icon">⚠️</div>
+        <h3 data-translate="vip_paypal_modal_title">Paying with PayPal</h3>
+        <p class="modal-desc" data-translate="vip_paypal_modal_desc">PayPal is a universal payment method, but it's not the recommended one: due to transaction fees, all prices below already include a 16% surcharge.</p>
+
+        <div class="paypal-price-list">
+            <div class="paypal-price-row">
+                <span data-translate="vip_plan1_name">1 Month</span>
+                <strong>$11.60 USD</strong>
+            </div>
+            <div class="paypal-price-row">
+                <span data-translate="vip_plan3_name">3 Months</span>
+                <strong>$27.84 USD</strong>
+            </div>
+            <div class="paypal-price-row">
+                <span data-translate="vip_plan2_name">1 Year</span>
+                <strong>$52.20 USD</strong>
+            </div>
+            <div class="paypal-price-row">
+                <span data-translate="vip_plan4_name">Lifetime</span>
+                <strong>$138.04 USD</strong>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button id="paypal-cancel-btn" class="modal-btn-secondary" data-translate="vip_paypal_cancel_btn">Cancel</button>
+            <button id="paypal-accept-btn" class="modal-btn-primary" data-translate="vip_paypal_accept_btn">Accept and continue transaction</button>
+        </div>
+    </div>
+</div>
+
 <nav class="navbar" id="navbar">
     <div class="container">
         <a href="index.html" class="logo">Elite UI</a>
@@ -194,7 +227,7 @@
 
 <header class="vip-hero">
     <div class="container">
-        <div class="vip-member-count-badge" data-translate="vip_hero_badge">36 Active Members Worldwide</div>
+        <div class="vip-member-count-badge" data-translate="vip_hero_badge">Active Members Worldwide</div>
         <h1 class="vip-hero-title" data-translate="vip_hero_title">Join <span class="gold">VIP</span> Access</h1>
         <p class="about-description" style="margin-bottom: 2rem;" data-translate="vip_hero_desc">
             Support Elite UI development and get exclusive access to the latest builds, priority support, and a voice in the project's future.
@@ -316,9 +349,12 @@
                     <button id="usdt-btn" class="payment-btn payment-btn-usdt">
                         <i class="fas fa-circle-dollar-to-slot"></i> USDT BEP20
                     </button>
+                    <button id="paypal-btn" class="payment-btn payment-btn-paypal">
+                        <i class="fa-brands fa-paypal"></i> PayPal
+                    </button>
                 </div>
-                <p class="paypal-notice reveal">
-                    ⚠️ <strong>PayPal</strong> payments are subject to PayPal's transaction fees — these must be covered by the buyer.
+                <p class="paypal-notice reveal" data-translate="vip_paypal_static_notice">
+                    ⚠️ <strong>PayPal</strong> is accepted as a universal payment method, but it's not recommended — due to transaction fees, prices via PayPal are 16% higher.
                 </p>
             </div>
 
@@ -341,6 +377,7 @@
                 <button class="filter-btn active" data-filter="all" data-translate="vip_filter_all">All Members</button>
                 <button class="filter-btn gold" data-filter="vip-plus" data-translate="vip_filter_plus">⭐ VIP+ (Annual)</button>
                 <button class="filter-btn" data-filter="active" data-translate="vip_filter_active">Active Only</button>
+                <button class="filter-btn" data-filter="expired" data-translate="vip_filter_expired">Expired Only</button>
             </div>
 
             <div id="vip-members-list" class="vip-members-grid"></div>
