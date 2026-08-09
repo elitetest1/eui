@@ -687,11 +687,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileOverlay.addEventListener('click', closeMobileMenu);
         }
 
-        const navMenuCloseBtn = document.getElementById('nav-menu-close');
-        if (navMenuCloseBtn) {
-            navMenuCloseBtn.addEventListener('click', closeMobileMenu);
-        }
-
         const navMenuTopBtn = document.getElementById('nav-menu-totop');
         if (navMenuTopBtn) {
             navMenuTopBtn.addEventListener('click', () => {
