@@ -31,10 +31,51 @@
         
         <div class="nav-right-section">
             <div class="nav-menu" id="mobile-menu">
-                <a href="#features"     data-translate="features_link">Features</a>
-                <a href="#screenshots"  data-translate="screenshots_link">Screenshots</a>
-                <a href="#devices"      data-translate="devices_link">Supported Devices</a>
-                <a href="vip.html" class="nav-vip-link">⭐ VIP</a>
+                <div class="nav-menu-header">
+                    <div class="nav-menu-brand">
+                        <span class="nav-menu-logo">Elite UI</span>
+                        <span class="nav-menu-tag">OneUI 8.5 Custom ROM</span>
+                    </div>
+                    <button class="nav-menu-close" id="nav-menu-close" aria-label="Close menu">&times;</button>
+                </div>
+
+                <div class="nav-menu-scroll">
+                    <div class="nav-menu-section">
+                        <span class="nav-menu-section-label" data-translate="menu_section_navigate">Navigate</span>
+                        <a href="#" class="nav-menu-link"><i class="fas fa-house"></i><span data-translate="menu_home">Home</span></a>
+                        <a href="#features" class="nav-menu-link"><i class="fas fa-star"></i><span data-translate="features_link">Features</span></a>
+                        <a href="#screenshots" class="nav-menu-link"><i class="fas fa-images"></i><span data-translate="screenshots_link">Screenshots</span></a>
+                        <a href="#devices" class="nav-menu-link"><i class="fas fa-mobile-screen-button"></i><span data-translate="devices_link">Supported Devices</span></a>
+                        <a href="#install-guide" class="nav-menu-link"><i class="fas fa-download"></i><span data-translate="menu_install_guide">Install Guide</span></a>
+                        <a href="changelog.html" class="nav-menu-link"><i class="fas fa-clock-rotate-left"></i><span data-translate="changelog_title">Changelog</span></a>
+                        <a href="vip.html" class="nav-menu-link nav-vip-flat"><span data-translate="vip_link">VIP</span></a>
+                    </div>
+
+                    <a href="vip.html" class="nav-menu-vip-card">
+                        <div class="nav-menu-vip-icon"><i class="fas fa-crown"></i></div>
+                        <div class="nav-menu-vip-text">
+                            <span class="nav-menu-vip-title" data-translate="menu_vip_title">VIP Membership</span>
+                            <span class="nav-menu-vip-blurb" data-translate="menu_vip_blurb">Exclusive devices, faster support &amp; more</span>
+                        </div>
+                        <i class="fas fa-chevron-right nav-menu-vip-arrow"></i>
+                    </a>
+
+                    <div class="nav-menu-section">
+                        <span class="nav-menu-section-label" data-translate="menu_section_community">Community</span>
+                        <a href="https://t.me/eliteui" target="_blank" class="nav-menu-link"><i class="fab fa-telegram"></i><span data-translate="telegram_button">Telegram</span></a>
+                        <button type="button" class="nav-menu-link nav-menu-totop" id="nav-menu-totop"><i class="fas fa-arrow-up"></i><span data-translate="menu_back_top">Back to Top</span></button>
+                    </div>
+                </div>
+
+                <div class="nav-menu-footer">
+                    <div class="nav-menu-langs">
+                        <button class="lang-option active" data-value="en">EN</button>
+                        <button class="lang-option" data-value="es">ES</button>
+                        <button class="lang-option" data-value="hi">HI</button>
+                        <button class="lang-option" data-value="pt">PT</button>
+                    </div>
+                    <p class="nav-menu-footer-text">Elite UI &copy; 2026</p>
+                </div>
             </div>
 
             <div class="nav-controls">
@@ -227,7 +268,7 @@
         </div>
     </section>
 
-    <section class="install-steps-section">
+    <section id="install-guide" class="install-steps-section">
         <div class="container">
             <h2 class="section-title reveal" data-translate="install_steps_title">Install Steps</h2>
             <div class="section-title-line reveal"></div>

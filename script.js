@@ -129,7 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_paypal_modal_title: "Paying with PayPal",
             vip_paypal_modal_desc: "PayPal is a universal payment method, but it's not the recommended one: due to transaction fees, all prices below already include a 16% surcharge.",
             vip_paypal_accept_btn: "Accept and continue transaction",
-            vip_paypal_cancel_btn: "Cancel"
+            vip_paypal_cancel_btn: "Cancel",
+            menu_section_navigate: "Navigate",
+            menu_section_community: "Community",
+            menu_home: "Home",
+            menu_install_guide: "Install Guide",
+            menu_back_top: "Back to Top",
+            menu_vip_title: "VIP Membership",
+            menu_vip_blurb: "Exclusive devices, faster support &amp; more"
         },
         es: {
             features_link: "Características",
@@ -256,7 +263,14 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_paypal_modal_title: "Pagar con PayPal",
             vip_paypal_modal_desc: "PayPal es un método de pago universal, pero no es el recomendado: por las comisiones, todos los precios de abajo ya incluyen un recargo del 16%.",
             vip_paypal_accept_btn: "Aceptar y continuar la transacción",
-            vip_paypal_cancel_btn: "Cancelar"
+            vip_paypal_cancel_btn: "Cancelar",
+            menu_section_navigate: "Navegación",
+            menu_section_community: "Comunidad",
+            menu_home: "Inicio",
+            menu_install_guide: "Guía de Instalación",
+            menu_back_top: "Volver Arriba",
+            menu_vip_title: "Membresía VIP",
+            menu_vip_blurb: "Dispositivos exclusivos, soporte prioritario &amp; más"
         },
         hi: {
             features_link: "विशेषताएँ",
@@ -383,7 +397,14 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_paypal_modal_title: "PayPal से भुगतान",
             vip_paypal_modal_desc: "PayPal एक सार्वभौमिक भुगतान विधि है, लेकिन अनुशंसित नहीं है: लेनदेन शुल्क के कारण, नीचे दी गई सभी कीमतों में पहले से ही 16% अधिभार शामिल है।",
             vip_paypal_accept_btn: "स्वीकार करें और लेनदेन जारी रखें",
-            vip_paypal_cancel_btn: "रद्द करें"
+            vip_paypal_cancel_btn: "रद्द करें",
+            menu_section_navigate: "नेविगेट करें",
+            menu_section_community: "समुदाय",
+            menu_home: "होम",
+            menu_install_guide: "इंस्टॉल गाइड",
+            menu_back_top: "ऊपर जाएँ",
+            menu_vip_title: "VIP सदस्यता",
+            menu_vip_blurb: "विशेष डिवाइस, तेज़ सहायता &amp; बहुत कुछ"
         },
         pt: {
             features_link: "Recursos",
@@ -510,7 +531,14 @@ document.addEventListener('DOMContentLoaded', () => {
             vip_paypal_modal_title: "Pagando com PayPal",
             vip_paypal_modal_desc: "PayPal é um método de pagamento universal, mas não é o recomendado: devido às taxas, todos os preços abaixo já incluem um acréscimo de 16%.",
             vip_paypal_accept_btn: "Aceitar e continuar a transação",
-            vip_paypal_cancel_btn: "Cancelar"
+            vip_paypal_cancel_btn: "Cancelar",
+            menu_section_navigate: "Navegação",
+            menu_section_community: "Comunidade",
+            menu_home: "Início",
+            menu_install_guide: "Guia de Instalação",
+            menu_back_top: "Voltar ao Topo",
+            menu_vip_title: "Assinatura VIP",
+            menu_vip_blurb: "Dispositivos exclusivos, suporte prioritário &amp; mais"
         }
     };
 
@@ -557,9 +585,10 @@ document.addEventListener('DOMContentLoaded', () => {
             option.addEventListener('click', () => {
                 const lang = option.getAttribute('data-value');
                 
-                // Update active states
-                langOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
+                // Update active states across every duplicate (top dropdown + drawer)
+                langOptions.forEach(opt => {
+                    opt.classList.toggle('active', opt.getAttribute('data-value') === lang);
+                });
                 
                 // Update Button Text
                 if(currentLangText) currentLangText.textContent = lang.toUpperCase();
@@ -658,7 +687,20 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileOverlay.addEventListener('click', closeMobileMenu);
         }
 
-        document.querySelectorAll('#mobile-menu a').forEach(item => {
+        const navMenuCloseBtn = document.getElementById('nav-menu-close');
+        if (navMenuCloseBtn) {
+            navMenuCloseBtn.addEventListener('click', closeMobileMenu);
+        }
+
+        const navMenuTopBtn = document.getElementById('nav-menu-totop');
+        if (navMenuTopBtn) {
+            navMenuTopBtn.addEventListener('click', () => {
+                closeMobileMenu();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        document.querySelectorAll('#mobile-menu a, #mobile-menu .nav-menu-totop').forEach(item => {
             item.addEventListener('click', () => {
                 if (window.innerWidth <= 768) closeMobileMenu();
             });
