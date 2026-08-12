@@ -271,14 +271,26 @@ body::after {
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;
-    letter-spacing: -1px;
+    letter-spacing: 0;
     position: relative;
     flex-shrink: 0;
+    line-height: 1;
+}
+
+.logo-mark {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 auto;
+    display: block;
+    object-fit: contain;
 }
 
 .logo::after {
@@ -569,6 +581,11 @@ body::after {
 }
 
 .main-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.65rem, 1.8vw, 1.15rem);
+    width: 100%;
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(3.2rem, 9vw, 6.5rem);
     font-weight: 700;
@@ -579,7 +596,19 @@ body::after {
     animation: fadeInUp 0.7s var(--ease-out) 0.1s both;
 }
 
-.main-title span {
+.main-title-logo {
+    width: clamp(2.8rem, 7.2vw, 5.6rem);
+    height: clamp(2.8rem, 7.2vw, 5.6rem);
+    flex: 0 0 auto;
+    display: block;
+    object-fit: contain;
+}
+
+.main-title-text {
+    display: inline-block;
+}
+
+.main-title-text span {
     color: var(--primary-color);
 }
 
