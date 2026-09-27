@@ -25,6 +25,23 @@
 <div class="mobile-overlay" id="mobile-overlay"></div>
 <button id="back-to-top" aria-label="Back to top">↑</button>
 
+<div id="checksum-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="checksum-modal-title">
+    <div class="modal-box checksum-modal">
+        <button id="checksum-modal-close" class="modal-close" aria-label="Close checksum dialog">&times;</button>
+        <div class="modal-icon"><i class="fas fa-fingerprint"></i></div>
+        <h3 id="checksum-modal-title">Checksum</h3>
+        <p class="modal-desc">Verify the downloaded file with this SHA256 checksum.</p>
+        <p class="checksum-note">this checksum is for the latest free release only</p>
+        <div class="checksum-row">
+            <code id="checksum-value">N/A</code>
+            <button id="checksum-copy" class="checksum-copy-button" type="button" aria-label="Copy checksum">
+                <i class="fas fa-copy"></i><span>Copy</span>
+            </button>
+        </div>
+        <p id="checksum-copy-status" class="checksum-copy-status" role="status" aria-live="polite"></p>
+    </div>
+</div>
+
 <nav class="navbar" id="navbar">
     <div class="container">
         <a href="#" class="logo"><img src="assets/logo.svg" alt="" class="logo-mark">Elite UI</a>
@@ -340,6 +357,9 @@
                             <a href="https://drive.google.com/file/d/1FEOneAXXs12wAwTHQZhDmgGPLxY8INYL/view?usp=sharing" target="_blank" class="download-button drive-button">
                                 <i class="fab fa-google-drive"></i> <span>Drive</span>
                             </a>
+                            <button type="button" class="download-button checksum-button" data-device="Galaxy S21 FE 5G" data-checksum="61f9b062d0240d5317fcf4bf02b008771306d44aa457b57282e6847364327ff4">
+                                <i class="fas fa-fingerprint"></i> <span>Checksum</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -358,6 +378,9 @@
                             <a href="https://drive.google.com/drive/u/0/folders/18P487CvPtosp3oseAY56Q-kbw_XkqeWE" target="_blank" class="download-button drive-button">
                                 <i class="fab fa-google-drive"></i> <span>Drive</span>
                             </a>
+                            <button type="button" class="download-button checksum-button" data-device="Galaxy S21 5G" data-checksum="2956534c3403e1a89d2126b0d38420fca8bc6765c2fa97e60898cc8c8f48153e">
+                                <i class="fas fa-fingerprint"></i> <span>Checksum</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -376,6 +399,9 @@
                             <a href="https://drive.google.com/file/d/1VIsLXOjD4r672OyPDScXTS_wgBGI8f1s/view?usp=drive_link" target="_blank" class="download-button drive-button">
                                 <i class="fab fa-google-drive"></i> <span>Drive</span>
                             </a>
+                            <button type="button" class="download-button checksum-button" data-device="Galaxy S21+" data-checksum="62413f3ecfa1ac45f3a186bf2c3f26b78a8d525c8ba04e0efe61f8b008f4d8d6">
+                                <i class="fas fa-fingerprint"></i> <span>Checksum</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -394,6 +420,9 @@
                             <a href="https://drive.google.com/drive/u/0/folders/10vXfjMp71fvGCqOiAAMP2nFhW3EUYwvU" target="_blank" class="download-button drive-button">
                                 <i class="fab fa-google-drive"></i> <span>Drive</span>
                             </a>
+                            <button type="button" class="download-button checksum-button" data-device="Galaxy S21 Ultra" data-checksum="d662e65e15ac5023523b8e4b19c9572f1931eb81b6f0528e9ee0adbcace89874">
+                                <i class="fas fa-fingerprint"></i> <span>Checksum</span>
+                            </button>
                         </div>
                     </div>
                 </div>

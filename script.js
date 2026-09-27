@@ -962,6 +962,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // =============================================
+    //  CHECKSUM MODAL
+    // =============================================
+    const checksumOverlay = document.getElementById('checksum-modal-overlay');
+    const checksumCloseBtn = document.getElementById('checksum-modal-close');
+    const checksumTitle = document.getElementById('checksum-modal-title');
+    const checksumValue = document.getElementById('checksum-value');
+    const checksumCopyBtn = document.getElementById('checksum-copy');
+    const checksumCopyStatus = document.getElementById('checksum-copy-status');
+    const checksumButtons = document.querySelectorAll('.checksum-button');
+    const placeholderChecksum = 'CHECKSUM-TBD-ADD-LATER';
+
+    const closeChecksumModal = () => {
+        checksumOverlay && checksumOverlay.classList.remove('show');
+        document.body.style.overflow = '';
+    };
+
+    checksumButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const deviceName = button.dataset.device || 'This device';
+            const deviceChecksum = button.dataset.checksum || placeholderChecksum;
+            if (checksumTitle) checksumTitle.textContent = `${deviceName} checksum`;
+            if (checksumValue) checksumValue.textContent = deviceChecksum;
+            if (checksumCopyStatus) checksumCopyStatus.textContent = '';
+            if (checksumOverlay) checksumOverlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            checksumCopyBtn && checksumCopyBtn.focus();
+        });
+    });
+
+    checksumCloseBtn && checksumCloseBtn.addEventListener('click', closeChecksumModal);
+
+    checksumOverlay && checksumOverlay.addEventListener('click', event => {
+        if (event.target === checksumOverlay) closeChecksumModal();
+    });
+
+    checksumCopyBtn && checksumCopyBtn.addEventListener('click', async () => {
+        const value = checksumValue ? checksumValue.textContent : placeholderChecksum;
+        try {
+            await navigator.clipboard.writeText(value);
+            if (checksumCopyStatus) checksumCopyStatus.textContent = 'Checksum copied.';
+        } catch {
+            if (checksumCopyStatus) checksumCopyStatus.textContent = 'Copy failed. Select the checksum manually.';
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && checksumOverlay && checksumOverlay.classList.contains('show')) {
+            closeChecksumModal();
+        }
+    });
+
 });
 // =============================================
 //  HASH SCROLL FIX
