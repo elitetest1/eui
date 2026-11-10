@@ -1354,6 +1354,31 @@ body::after {
     color: #7ab3ff;
 }
 
+
+/* ---- Old Version / VIP download buttons ---- */
+.download-button .fa-clock-rotate-left { opacity: .8; }
+.vip-download-button {
+    background: linear-gradient(135deg, rgba(245,200,66,0.22), rgba(232,64,80,0.18));
+    border-color: rgba(245,200,66,0.55);
+    color: var(--gold);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 18px rgba(245,200,66,0.18);
+}
+.vip-download-button::after {
+    content: '';
+    position: absolute; top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.25), transparent);
+    animation: vipShine 3.2s ease-in-out infinite;
+}
+@keyframes vipShine { 0%,60% { left: -120%; } 100% { left: 170%; } }
+.vip-download-button:hover {
+    color: #fff;
+    border-color: var(--gold);
+    box-shadow: 0 6px 24px rgba(245,200,66,0.35);
+}
+
 .device-card.vip-only {
     border-color: rgba(245, 200, 66, 0.18);
     background: linear-gradient(135deg, rgba(245,200,66,0.04) 0%, var(--card-bg) 60%);
